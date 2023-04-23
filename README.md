@@ -1,10 +1,10 @@
 # Hortifood
 
-Travalho para a disciplina SCC0219 - Introdução ao Desenvolvimento Web 2023
+Trabalho para a disciplina SCC0219 - Introdução ao Desenvolvimento Web 2023
 
 | NUSP          | Nome                           |
 | ------------- | ------------------------------ |
-| 11884713      | Susy Costa Dutra               |
+| 12694007      | Susy Costa Dutra               |
 | 10691331      | Theo da Mota dos Santos        |
-| 10873365      | Yvis Freire Silva Santos       |
+| 12345678      | Yvis Freire Silva Santos       |
 
