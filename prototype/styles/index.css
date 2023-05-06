@@ -8,6 +8,14 @@
     box-sizing: border-box;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -23,23 +31,22 @@ header .nav{
     padding: 15px 15px;
 }
 
-header .header-img  {
+.header-img  {
     /* padding-top:100px;
     margin-top:128px;
     background-image: url("./images/header-fruits.png");
     background-size: 100%;
     background-repeat: no-repeat;
     min-height: 500px; */
-    postion:relative;
     width: 100%;
-    height: 204px;
+    height: 230px;
     display: block;
     background: url('../images/header-fruits.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-header .header-img-text {
+.header-img-text {
     position: absolute;
     display: inline-block;
     top: 80px;
@@ -108,6 +115,11 @@ header .header-img-text {
     text-align: center;
 }
 
+.secao-icon:hover{
+    border: solid #9EB473;
+    border-width: 1px;
+}
+
 .secao p {
     margin-top: 5px;
 }
@@ -120,15 +132,21 @@ header .header-img-text {
 
 .secao-icon {
     background-color: white;
+    /* margin: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
     padding: 20px 0px;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
+    box-shadow:  20px 20px 60px #c7c7c7,
+                -20px -20px 60px #ffffff;
 }
 
 .secao-icon img {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
 }
 
 main {
@@ -148,6 +166,7 @@ main {
 .carrossel {
     display: flex;
     justify-content: space-evenly;
+    padding: 1em;
 }
 
 .carrossel-item {
@@ -156,7 +175,15 @@ main {
     background-color: white;
     border: 1px solid lightgray;
     border-radius: 10px;
-    padding: 10px
+    padding: 1.5em;
+    /* margin-left: 5px;
+    margin-right: 5px; */
+}
+
+.carrossel-item:hover{
+    border: solid #FFA133;
+    border-width: 2px;
+    /* box-sizing: border-box; */
 }
 
 .carrossel-item p {
