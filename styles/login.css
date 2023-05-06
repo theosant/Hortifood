@@ -4,6 +4,14 @@
     src: url('../fonts/PoetsenOne-Regular.ttf');
 }
 
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
 * {
     box-sizing: border-box;
 }
@@ -34,6 +42,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 0px 10vw;
 }
 
@@ -45,6 +54,7 @@ main .login {
     height: 75vh;
     border: 1px solid #4A8149;
     border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px gray;
 }
 
 main .login form {
@@ -54,6 +64,11 @@ main .login form {
 
 main .login form label {
     font-weight: bold;
+    color:#334932;
+}
+
+main .login form span {
+    font-size: 15px;
 }
 
 .form-input {
@@ -82,7 +97,7 @@ hr {
     width: 100%;
 }
 
-.signin {
+.signup {
     padding: 20px;
     border: none;
     border-radius: 6px;
