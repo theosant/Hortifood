@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+    font-family: PoetsenOne;
+    src: url('../fonts/PoetsenOne-Regular.ttf');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+}
+
+header .nav{
+    display: flex;
+    background-color: #FFA113;
+    padding: 6px;
+}
+
+.logo {
+    font-family: PoetsenOne, sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+    text-decoration: none;
+    color: white;
+    margin: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 10vw;
+}
+
+main .login {
+    background-color: white;
+    padding: 5vh 5vw;
+    margin-top: 1vh;
+    width: 40vw;
+    height: 75vh;
+    border: 1px solid #4A8149;
+    border-radius: 5px;
+}
+
+main .login form {
+    display: flex;
+    flex-direction: column;
+}
+
+main .login form label {
+    font-weight: bold;
+}
+
+.form-input {
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.forgot-pass {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 20px;
+    color: #4A8149;
+    float: right;
+}
+
+main .login form button {
+    padding: 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4A8149;
+    font-weight: bold;
+    color: white;
+}
+
+hr {
+    width: 100%;
+}
+
+.signin {
+    padding: 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #FFA113;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white ;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #4A8149;
+    color: #B2CB81;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.info p a {
+    color: #B2CB81;
+}
+
+.copyright {
+    font-size: 13px;
+    font-weight: 400;
+    padding: 8px;
+}

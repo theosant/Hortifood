@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+    font-family: PoetsenOne;
+    src: url('../fonts/PoetsenOne-Regular.ttf');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+}
+
+header .nav{
+    display: flex;
+    background-color: #FFA113;
+    padding: 6px;
+}
+
+.logo {
+    font-family: PoetsenOne, sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+    text-decoration: none;
+    color: white;
+    margin: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10vw;
+}
+
+main .produtos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+main .produtos a {
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #4A8149;
+    text-decoration: none;
+}
+
+main .produtos .sucos {
+    border-left: 2px solid #4A8149;
+    border-right: 2px solid #4A8149;
+}
+
+main .sobre-nos {
+    background-color: white;
+    padding: 5vh 5vw;
+}
+
+main .sobre-nos h2 {
+    text-align: center;
+}
+
+main .sobre-nos p {
+    text-align: justify;
+    text-indent: 5vw;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #4A8149;
+    color: #B2CB81;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.info p a {
+    color: #B2CB81;
+}
+
+.copyright {
+    font-size: 13px;
+    font-weight: 400;
+    padding: 8px;
+}
