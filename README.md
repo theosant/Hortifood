@@ -6,38 +6,34 @@ Trabalho para a disciplina SCC0219 - Introdução ao Desenvolvimento Web 2023
 | ------------- | ------------------------------ |
 | 12694007      | Susy Costa Dutra               |
 | 10691331      | Theo da Mota dos Santos        |
-| 12345678      | Yvis Freire Silva Santos       |
+| 12608793      | Yvis Freire Silva Santos       |
 
-## Introdução
+## 1. Requisitos
+
+- O sistema deve ter 2 tipos de usuários: **Clientes** e **Administradores**.
+  - Administradores são responsáveis por registrar/gerenciar administradores, clientes e produtos/serviços fornecidos. O aplicativo já vem com uma conta admin com senha admin.
+  - Clientes são usuários que acessam o sistema para comprar produtos/serviços.
+
+- Armazenar os seguintes registros 
+  - **administrador**: nome, id, telefone, e-mail.
+  - **cliente**: nome, id, endereço, telefone, e-mail.
+  - **produtos**: nome, id, foto, descrição, preço, quantidade (em estoque), quantidade vendida.
+
+- O sistema deve atender aos requisitos de acessibilidade e oferecer boa usabilidade. O sistema deve ser responsivo, ou seja, deve concluir as tarefas atribuídas dentro de um tempo razoável.
+## 2. Descrição do Projeto
+O Hortifood trata-se de um serviço de compras online (e-commerce) de frutas e verduras feito especialmente para a região de São Carlos.
+- Navegação do Cliente: O Cliente pode acessar os produtos na Homepage, filtrar por categorias, como sucos ou frutas da temporada. O site permite o cadastro e login do Cliente e a venda com entrega dos produtos.
+- Venda de produtos: Os produtos são selecionados, sua quantidade escolhida e são incluídos em um carrinho. Os produtos são comprados usando um número de cartão de crédito (qualquer número é aceito pelo sistema). A quantidade de produto vendido é subtraída da quantidade em estoque e adicionada à quantidade vendida. Os carrinhos são esvaziados somente no pagamento ou pelos clientes.
+- Gerenciamento de produto: Os administradores podem criar/atualizar/lêr/excluir (crud) novos produtos. Por exemplo, eles podem alterar a quantidade em estoque.
+- Funcionalidade Específica: Crie uma funcionalidade específica para o seu aplicativo. Não precisa ser algo complicado. Por exemplo, se você estiver vendendo carros, pode permitir que os usuários usem um acelerador para ouvir como cada motor de carro ruge para cima e para baixo.
+
+### <a href="https://www.figma.com/file/udP8nKb9EDOPpY6em9cQuO/Hortifood?type=design&node-id=0%3A1&t=KiCEtRygFs5BtLsY-1">Mockup no Figma</a>
 ### Diagrama de Navegação
+![](./Diagrama-de-navegacao.jpg)
 
-Deve ter Login de usuário e adm
-Dados do adm -> name, id, phone, email
-Cliente -> name, id, address, phone, email
-Produtos -> name, id, photo, description, price, quantity (in stock), quantity sold.
-
-Venda -> Produtos são selecionados,quantidade é escolhida, e inclusa no carrinho.São comprados com cartão de crédito(any number is accepted by the system). The quantity of product sold is subtracted from the quantity in stock and added to the quantity sold. Carts are emptied only on payment or by customers.
-Admin pode adicionar, alterar, remover e ler novos produtos.
-
-#1 milestone
-A navigation diagram
-Mockups for all major system screens. Your mockup pages are static snapshots of your application at different points. Create HTML5/CSS3 files for, at least, the main app screen and 2 others.
-
-Requirements: The requirements are given in the assignment, but you have to add any new requirements needed by your particular store implementation.
-Project Description: Describe how your project implements the functionality in the requirements. Diagrams can help a lot here.
-Comments About the Code: Any comment you may want to add to help understand your code. This is good programming practice.
-Test Plan: Text describing the tests that will be performed. If an automatic test tool/framework is used (ex: Selenium, JUnit, Spock), the code for the tests can be used.
-Test Results: Text describing the test results. If an automatic test tool/framework is used, its output can be used.
-Build Procedures: A step-by-step guide to run your code. You should start telling how to install whatever software you need, then how to download/build your program, and finally how to set up the environment to run it. Imagine that someone installing will just follow these commands (nothing more).
-Problems: List any major problems you had.
-Comments: Any comments you wish to add.
-
-
-Layout Suggestions for Screens
-These are just suggestions. Feel free to use other combinations:
-Homepage with a description of services/products offered and login area (any type of user) 
-If the user is a customer: 
-Screen with actions: buy a product, edit your account. 
-If you are an administrator
-Screen with actions: register administrators/customers/products etc.) in a menu
-Product Inventory Management Screen (Add, Update, Delete, Consult)
+## 3. Comments About the Code
+## 4. Test Plan
+## 5. Test Results
+## 6. Build Procedures
+## 7. Problems
+## 8. Comments
