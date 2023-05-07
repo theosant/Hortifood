@@ -4,6 +4,10 @@
     src: url('../fonts/PoetsenOne-Regular.ttf');
 }
 
+a {
+    text-decoration: none;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -58,6 +62,8 @@ main .produtos .sucos {
 main .sobre-nos {
     background-color: white;
     padding: 5vh 5vw;
+    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
 
 main .sobre-nos h2 {
@@ -74,7 +80,7 @@ footer {
     bottom: 0;
     width: 100%;
     background-color: #4A8149;
-    color: #B2CB81;
+    color: white;
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
@@ -88,7 +94,7 @@ footer {
 }
 
 .info p a {
-    color: #B2CB81;
+    color: white;
 }
 
 .copyright {

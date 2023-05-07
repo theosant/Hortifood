@@ -4,6 +4,14 @@
     src: url('../fonts/PoetsenOne-Regular.ttf');
 }
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
 * {
     box-sizing: border-box;
 }
@@ -32,12 +40,6 @@ header .nav{
 }
 
 .header-img  {
-    /* padding-top:100px;
-    margin-top:128px;
-    background-image: url("./images/header-fruits.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    min-height: 500px; */
     width: 100%;
     height: 230px;
     display: block;
@@ -73,11 +75,6 @@ header .nav{
     width: 50%;
 }
 
-/* .nav-links {
-    display: flex;
-    justify-content: space-between;
-} */
-
 .nav-links a {
     display: inline-block;
 }
@@ -92,7 +89,7 @@ header .nav{
 
 .login-btn {
     background-color: #4A8149;
-    color: #EEEEEE;
+    color: white;
 }
 
 .cart-btn {
@@ -128,6 +125,7 @@ header .nav{
     text-decoration: none;
     font-weight: bold;
     color: #4A8149;
+    
 }
 
 .secao-icon {
@@ -176,6 +174,8 @@ main {
     border: 1px solid lightgray;
     border-radius: 10px;
     padding: 1.5em;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+
     /* margin-left: 5px;
     margin-right: 5px; */
 }
@@ -195,7 +195,7 @@ main {
     padding: 3px;
     border-radius: 15px;
     border: none;
-    background-color: #9EB473;
+    background-color: #B2CB81;
 }
 
 footer {
@@ -204,7 +204,7 @@ footer {
     bottom: 0;
     width: 100%;
     background-color: #4A8149;
-    color: #B2CB81;
+    color: white;
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
@@ -217,7 +217,7 @@ footer {
 }
 
 .info p a {
-    color: #B2CB81;
+    color: white;
 }
 
 .copyright {
