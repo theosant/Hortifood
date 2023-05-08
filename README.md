@@ -28,6 +28,10 @@ O Hortifood trata-se de um serviço de compras online (e-commerce) de frutas e v
 - Funcionalidade Específica: Crie uma funcionalidade específica para o seu aplicativo. Não precisa ser algo complicado. Por exemplo, se você estiver vendendo carros, pode permitir que os usuários usem um acelerador para ouvir como cada motor de carro ruge para cima e para baixo.
 
 ### <a href="https://www.figma.com/file/udP8nKb9EDOPpY6em9cQuO/Hortifood?type=design&node-id=0%3A1&t=KiCEtRygFs5BtLsY-1">Mockup no Figma</a>
+### Protótipo
+Foram feitos os protótipos de 3 telas, a 'principal', 'sobre nós' e 'entrar'.
+#### Homepage
+![](./homepage_print.png)
 ### Diagrama de Navegação
 ![](./Diagrama-de-navegacao.jpg)
 
