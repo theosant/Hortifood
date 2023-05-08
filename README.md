@@ -4,7 +4,7 @@ Trabalho para a disciplina SCC0219 - Introdução ao Desenvolvimento Web 2023
 
 | NUSP          | Nome                           |
 | ------------- | ------------------------------ |
-| 12694007      | Susy Costa Dutra               |
+| 12694007      | Susy da Costa Dutra            |
 | 10691331      | Theo da Mota dos Santos        |
 | 12608793      | Yvis Freire Silva Santos       |
 
@@ -25,7 +25,7 @@ O Hortifood trata-se de um serviço de compras online (e-commerce) de frutas e v
 - Navegação do Cliente: O Cliente pode acessar os produtos na Homepage, filtrar por categorias, como sucos ou frutas da temporada. O site permite o cadastro e login do Cliente e a venda com entrega dos produtos.
 - Venda de produtos: Os produtos são selecionados, sua quantidade escolhida e são incluídos em um carrinho. Os produtos são comprados usando um número de cartão de crédito (qualquer número é aceito pelo sistema). A quantidade de produto vendido é subtraída da quantidade em estoque e adicionada à quantidade vendida. Os carrinhos são esvaziados somente no pagamento ou pelos clientes.
 - Gerenciamento de produto: Os administradores podem criar/atualizar/lêr/excluir (crud) novos produtos. Por exemplo, eles podem alterar a quantidade em estoque.
-- Funcionalidade Específica: Crie uma funcionalidade específica para o seu aplicativo. Não precisa ser algo complicado. Por exemplo, se você estiver vendendo carros, pode permitir que os usuários usem um acelerador para ouvir como cada motor de carro ruge para cima e para baixo.
+- Funcionalidade Específica: Criamos uma funcionalidade específica para nosso aplicativo. Ao comprar uma fruta, pode-se indicar também o quão madura o cliente a deseja.
 
 ### <a href="https://www.figma.com/file/udP8nKb9EDOPpY6em9cQuO/Hortifood?type=design&node-id=0%3A1&t=KiCEtRygFs5BtLsY-1">Mockup no Figma</a>
 ### Protótipo
