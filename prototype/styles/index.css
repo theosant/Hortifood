@@ -192,10 +192,11 @@ main {
 
 .carrossel-item button {
     margin-top: 5px;
-    padding: 3px;
+    padding: 7px 5px;
+    color: white;
     border-radius: 15px;
     border: none;
-    background-color: #B2CB81;
+    background-color: #4A8149;
 }
 
 footer {
