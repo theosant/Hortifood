@@ -1,8 +1,9 @@
-footer {
+.footer {
     position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 120px;
     background-color: #4A8149;
     color: white;
     text-align: center;

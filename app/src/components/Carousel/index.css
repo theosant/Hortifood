@@ -1,0 +1,9 @@
+.carrossel{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.slick-next{
+    background-color: aqua;
+}
