@@ -1,0 +1,30 @@
+
+.carrossel-item {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 1.5em;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    color: black;
+    text-align: left;
+}
+
+.carrossel-item:hover{
+    border: solid #FFA133;
+    border-width: 2px;
+}
+
+.carrossel-item p {
+    margin: 0px;
+}
+
+.carrossel-item button {
+    margin-top: 5px;
+    padding: 7px 5px;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    background-color: #4A8149;
+}
