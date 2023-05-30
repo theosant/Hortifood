@@ -1,6 +1,7 @@
 .secoes-do-site{
     display: flex;
     justify-content: center;
+    background-color: #EEEEEE;
 }
 
 .secao{
@@ -26,7 +27,6 @@
 
 .secao-icon {
     background-color: white;
-    /* margin: auto; */
     display: flex;
     justify-content: center;
     align-items: center;

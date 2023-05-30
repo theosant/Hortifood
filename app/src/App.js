@@ -25,16 +25,37 @@ function App() {
             name: "banana nanica3",
             price: "43",
         },
+        {
+            id: 3,
+            src: "./imagens/banana_nanica3.jpeg",
+            name: "banana nanica4",
+            price: "44",
+        },
+        {
+            id: 4,
+            src: "./imagens/banana_nanica3.jpeg",
+            name: "banana nanic5",
+            price: "45",
+        },
+        {
+            id: 5,
+            src: "./imagens/banana_nanica3.jpeg",
+            name: "banana nanic6",
+            price: "46",
+        },
     ]);
 
-    console.log(highlights)
+    // console.log(highlights)
 
     return (
         <div>
             <SiteSections />
             <div className='main'>
                 <div className='highlights'>
+                    <h1>Destaques</h1> <hr />
                     <Carousel cardInfos = {highlights} />
+                    <h1>Temporada</h1> <hr />
+                    <h1>Sucos Famosos</h1> <hr />
                 </div>
             </div>
 
