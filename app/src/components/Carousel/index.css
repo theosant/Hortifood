@@ -1,0 +1,44 @@
+.carrossel{
+    justify-content: space-evenly;
+    padding: 1em;
+    position: relative;
+}
+
+.carousel-arrows {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #EEEEEE;
+    color: #4A8149;
+}
+  
+.arrow {
+    cursor: pointer;
+    color: #4A8149;
+    font-size: x-large;
+    /* padding: 10px; */
+    background-color: #4A8149;
+    /* border: 2px solid #4A8149; */
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* z-index: 1; */
+}
+
+.prev-arrow {
+    order: 1; /* Altera a ordem para a seta anterior ficar à esquerda */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-23%);
+    left: -14px;
+}
+
+.next-arrow {
+    order: 2; /* Altera a ordem para a seta próxima ficar à direita */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-23%);
+    left: 1196px;
+}
