@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @font-face {
     font-family: PoetsenOne;
-    src: url('./fonts/PoetsenOne-Regular.ttf');
+    src: url('../fonts/PoetsenOne-Regular.ttf');
 }
 
 a {

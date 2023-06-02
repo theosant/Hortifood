@@ -1,5 +1,5 @@
 import React from "react";
-import './login.css'
+import './styles/login.css'
 import Footer from './components/Footer';
 
 const Login = (props) =>{

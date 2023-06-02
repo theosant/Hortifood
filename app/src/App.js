@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import './styles/App.css';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
 import SiteSections from './components/SiteSections';
