@@ -45,8 +45,6 @@ function App() {
         },
     ]);
 
-    // console.log(highlights)
-
     return (
         <div>
             <SiteSections />
@@ -54,6 +52,7 @@ function App() {
                 <div className='highlights'>
                     <h1>Destaques</h1> <hr />
                     <Carousel cardInfos = {highlights} />
+
                     <h1>Temporada</h1> <hr />
                     <h1>Sucos Famosos</h1> <hr />
                 </div>

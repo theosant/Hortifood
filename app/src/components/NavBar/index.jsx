@@ -1,4 +1,4 @@
-import "./style.css";
+import "./index.css";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 const NavBar = (props) => {
