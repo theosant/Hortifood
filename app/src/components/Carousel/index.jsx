@@ -35,8 +35,8 @@ const Carousel = ({ cardInfos }) => {
                 <NextArrow />
             </div>
             <Slider {...settings}>
-                {cardInfos.map((card) => (
-                    <Card card={card} />
+                {cardInfos.map((card, index) => (
+                    <Card card={card} key={index}/>
                 ))}
             </Slider>
         </div>
