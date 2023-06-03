@@ -47,7 +47,7 @@ function App() {
 
     return (
         <div>
-            <SiteSections />
+            <SiteSections type = "main"/>
             <div className='main'>
                 <div className='highlights'>
                     <h1>Destaques</h1> <hr />

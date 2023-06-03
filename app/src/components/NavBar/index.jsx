@@ -8,7 +8,7 @@ const NavBar = (props) => {
             <input class="search-bar" type="text" placeholder="&#xF002; Buscar Frutas ou Verduras..." />
                 <nav class="nav-links">
                     <a href="./login.html" class="login-btn">Entrar</a>
-                    <a href="#" class="cart-btn">
+                    <a href="./login.html" class="cart-btn">
                         <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
                         Meu Carrinho
                     </a>
@@ -17,4 +17,5 @@ const NavBar = (props) => {
         </>
     )
 };
+
 export default NavBar

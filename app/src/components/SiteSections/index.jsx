@@ -6,17 +6,17 @@ const SiteSections = (props) =>{
     if(props.type === "regular"){
 
         return (
-            <div className="background regular">
-                <a href="#" class="frutas">Frutas</a>
-                <a href="#" class="sucos">Sucos</a>
-                <a href="#" class="verduras">Verduras</a>
+            <div className="background_site_sections regular">
+                <a href="./index.css" class="frutas">Frutas</a>
+                <a href="./index.css" class="sucos">Sucos</a>
+                <a href="./index.css" class="verduras">Verduras</a>
             </div>
         )
 
     } else {
 
         return (
-            <div className="background main_page">
+            <div className="background_site_sections main_page">
                 <div className="secao">
                     <a href="#frutas">
                         <div className="secao-icon">

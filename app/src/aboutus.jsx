@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './styles/aboutus.css';
 import Footer from './components/Footer';
 import SiteSections from './components/SiteSections';
