@@ -27,9 +27,9 @@ const Product = (Props) => {
                                 <a href="index.css">Ver mais informações</a>
                                 <h1>{Props.Product.price} R$</h1>
                                 <div className="labels_for_slider">
-                                    <p>Verde</p>
-                                    <p>Ao ponto</p>
-                                    <p>Madura</p>
+                                    <p className="verde">Verde</p>
+                                    <p className="ao_ponto">Ao ponto</p>
+                                    <p className="madura">Madura</p>
                                 </div>
                                 <input type="range"
                                     id="rangeInput"
