@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const product = {
   name: "Banana Nanica",
-  price: "40,00",
+  price: 40,
 }
 
 root.render(
