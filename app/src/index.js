@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 // import AboutUs from './aboutus';
 // import Login from './login';
 // import Product from './product';
-import Perfil from './perfil';
+// import Perfil from './perfil';
+import PurchaseDetails from "./purchasedetails"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,22 +16,22 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //   price: 40,
 // }
 
-const user = {
-    name: "Claudio",
-    email: "sdnciuner@",
-    entered: "10/10/10",
-    cpf: "XXX.XXX.XXX-XX",
-    purchases: [
-      {
-        price: "40",
-        date: "10/10/10",
-      },
-      {
-        price: "500",
-        date: "20/20/20",
-      },
-    ]
-}
+// const user = {
+//     name: "Claudio",
+//     email: "sdnciuner@",
+//     entered: "10/10/10",
+//     cpf: "XXX.XXX.XXX-XX",
+//     purchases: [
+//       {
+//         price: "40",
+//         date: "10/10/10",
+//       },
+//       {
+//         price: "500",
+//         date: "20/20/20",
+//       },
+//     ]
+// }
 
 root.render(
   <React.StrictMode>
@@ -38,7 +39,8 @@ root.render(
     {/* <AboutUs /> */}
     {/* <Login /> */}
     {/* <Product Product = {product}/> */}
-    <Perfil user = {user} />
+    {/* <Perfil user = {user} /> */}
+    <PurchaseDetails />
   </React.StrictMode>
 );
 

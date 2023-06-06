@@ -1,0 +1,21 @@
+.purchase_details_background{
+    background-color: white;
+    min-height: 550px;
+    margin-bottom: 70px;
+    padding: 45px 85px 75px 85px;
+}
+
+#price{
+    color: #4A8149;
+}
+
+.purchase_details_table{
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+.purchase_details_table td{
+    width: 25%; /* Defina a largura desejada para cada coluna */
+    text-align: center;
+    padding: 5px;
+}

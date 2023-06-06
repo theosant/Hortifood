@@ -1,15 +1,15 @@
 import React from "react";
 import './index.css'
 
-const SiteSections = (props) =>{
+const SiteSections = ({ type }) =>{
     // console.log(props.type);
-    if(props.type === "regular"){
+    if(type === "regular"){
 
         return (
             <div className="background_site_sections regular">
-                <a href="./index.css" class="frutas">Frutas</a>
-                <a href="./index.css" class="sucos">Sucos</a>
-                <a href="./index.css" class="verduras">Verduras</a>
+                <a href="./index.css">Frutas</a>
+                <a href="./index.css" className="sucos">Sucos</a>
+                <a href="./index.css">Verduras</a>
             </div>
         )
 
