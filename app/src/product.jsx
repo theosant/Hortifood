@@ -74,7 +74,7 @@ const Product = (Props) => {
                                         style={{ cursor: 'pointer' }}>+</span>
                                 </div>
                                 
-                                <h2 id="finalPrice">Preço: {price.toFixed(2)}</h2>
+                                <h2 id="finalPrice">Preço: {price.toFixed(2)} R$</h2>
 
                                 <button id="addToCart">Adicionar ao Carrinho</button>
                             </td>

@@ -1,0 +1,44 @@
+.banner_perfil{
+    background-color: #9EB473;
+    height: 130px;
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+    padding-left: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.perfil_background{
+    background-color: white;
+    height: 550px;
+    margin-bottom: 70px;
+    /* padding-left: 80px;
+    padding-bottom: 75px; */
+    padding: 45px 85px 75px 85px;
+}
+
+#user_name{
+    color: #414141;
+}
+
+#entered{
+    color: #7A7A7A;
+    float: right;
+}
+
+#cpf{
+    color: #7A7A7A;
+}
+
+#email{
+    color: #7A7A7A;
+}
+
+#last_purchases_title{
+    color: #414141;
+}
+
+#last_purchases_container{
+    color: #414141;
+}

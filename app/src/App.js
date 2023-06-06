@@ -4,6 +4,7 @@ import Carousel from './components/Carousel';
 import Footer from './components/Footer';
 import SiteSections from './components/SiteSections';
 
+
 function App() {
 
     const [highlights] = useState([
