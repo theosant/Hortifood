@@ -2,8 +2,6 @@ import React from "react";
 import './index.css'
 
 const PurchaseBlock = ({ purchase }) =>{
-    // console.log(purchase.purchase.price)
-    // console.log(purchase.price)
 
     return (
         <div className="purchase_background">

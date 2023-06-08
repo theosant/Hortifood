@@ -1,0 +1,57 @@
+.payment_background{
+    background-color: white;
+    min-height: 550px;
+    margin-bottom: 70px;
+    padding: 45px 85px 75px 85px;
+}
+
+hr{
+    float: left;
+    width: 120vh;
+}
+
+.payment_table{
+    width: 120vh;
+    border-collapse: collapse;
+}
+  
+.payment_table td{
+    width: 20%; /* Defina a largura desejada para cada coluna */
+    text-align: center;
+    padding: 5px;
+}
+
+#selectAll{
+    background-color: #414141;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    /* display: flex; */
+}
+
+#totalPayment{
+    color: #4A8149;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.creditCardInfo{
+    margin: 8px;
+    font-size: 16px;
+}
+
+.cardInfoSpan{
+    font-size: 18px;
+}
+
+#sendPurchase{
+    background-color: #FFA133;
+    margin-top: 30px;
+    width: 180px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    color: #414141;
+    font-weight: 800;
+    font-size: 15px;
+}

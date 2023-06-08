@@ -7,6 +7,7 @@ import Login from './login';
 import Product from './product';
 import Perfil from './perfil';
 import PurchaseDetails from "./purchasedetails"
+import Payment from './payment';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -40,5 +41,6 @@ root.render(
     {/* <Product Product = {product}/> */}
     {/* <Perfil user = {user} /> */}
     {/* <PurchaseDetails /> */}
+    <Payment />
   </React.StrictMode>
 );
