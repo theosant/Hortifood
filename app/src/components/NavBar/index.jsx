@@ -1,19 +1,20 @@
 import "./index.css";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
-const NavBar = (props) => {
+const NavBar = ({size}) => {
     return (
-        <><div class="nav">
+        <>
+            <nav class="nav-links">
             <a href="./index.html" class="logo">HORTIFOOD</a>
             <input class="search-bar" type="text" placeholder="&#xF002; Buscar Frutas ou Verduras..." />
-                <nav class="nav-links">
                     <a href="./login.html" class="login-btn">Entrar</a>
                     <a href="./login.html" class="cart-btn">
                         <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
+                        <span>{size}</span>
                         Meu Carrinho
                     </a>
-                </nav>
-            </div>
+            </nav>
+            <div style={{ height: '60px' }} />
         </>
     )
 };

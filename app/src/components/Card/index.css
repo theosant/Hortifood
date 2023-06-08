@@ -12,7 +12,10 @@
     max-width: 130px;
     height: 200px;
 }
-
+.carrossel-item img{
+    height: auto;
+    width: auto;
+}
 .carrossel-item:hover{
     border: solid #FFA133;
     border-width: 2px;
