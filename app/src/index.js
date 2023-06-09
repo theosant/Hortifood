@@ -41,6 +41,6 @@ root.render(
     {/* <Product Product = {product}/> */}
     {/* <Perfil user = {user} /> */}
     {/* <PurchaseDetails /> */}
-    <Payment />
+    {/* <Payment /> */}
   </React.StrictMode>
 );
