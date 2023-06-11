@@ -19,7 +19,8 @@ const NavBar = ({size, setshowCart}) => {
                     <button onClick={setshowCart} className="cart-btn">
                         <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
                         <span>{size}</span>
-                        Meu Carrinho
+                        <p>Meu Carrinho</p>
+                        
                     </button>
             </nav>
             <div style={{ height: '77px' }} />

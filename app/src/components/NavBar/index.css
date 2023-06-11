@@ -85,7 +85,15 @@ nav{
 
 .cart-btn {
     background-color: #EEEEEE;
-    color: #4A8149;    
+    border: none;
+    border-radius: 10px;
+}
+
+.cart-btn p{
+    margin-left: 15px;
+    display: inline-block;
+    color: #4A8149;
+    font-weight: 600;
 }
 
 .cart-btn span {
