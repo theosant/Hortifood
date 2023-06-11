@@ -15,6 +15,8 @@ const Carousel = ({ cardInfos,HandlerClick }) => {
         slidesToShow: 5, // Quantidade de slides visíveis ao mesmo tempo
         slidesToScroll: 1, // Quantidade de slides a serem rolados por vez
     };
+
+    console.log(cardInfos)
   
     return (
         <div className="carrossel">

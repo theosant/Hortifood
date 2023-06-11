@@ -84,7 +84,7 @@ function App() {
               "src": "/imagens/banana_nanica.jpeg",
               "name": "banana nanica3",
               "price": "43",
-              "highlight": "true",
+              "highlight": "false",
               "type": "vegetal",
               "season": false
             },
@@ -267,7 +267,25 @@ function App() {
               "highlight": "true",
               "type": "suco",
               "season": false
-            }
+            },
+            {
+              "id": 23,
+              "src": "/imagens/banana_nanica.jpeg",
+              "name": "suco de goiaba",
+              "price": "5",
+              "highlight": "true",
+              "type": "suco",
+              "season": false
+            },
+            {
+              "id": 24,
+              "src": "/imagens/banana_nanica.jpeg",
+              "name": "suco de maçã",
+              "price": "6",
+              "highlight": "true",
+              "type": "suco",
+              "season": false
+            },
           ]
           );
 
