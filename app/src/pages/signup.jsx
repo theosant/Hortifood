@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/signup.css';
+import { Link } from 'react-router-dom';
 
 function Cadastro() {
   const [nome, setNome] = useState('');
@@ -50,7 +51,7 @@ function Cadastro() {
             <input className="form-input" type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)} />
           </label>
         </div>
-        <button className="btn-submit" type="submit">Cadastrar</button>
+        <Link to="/login" className="btn-submit">Cadastrar</Link>
       </form>
     </div>
   );

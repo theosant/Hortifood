@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 import PurchaseBlock from './components/PurchaseBlock';
 import Product from './pages/product';
+import Products from './pages/products';
 import './warning.css';
 import Home from './components/Home';
 import Cart from './components/Cart';
@@ -284,6 +285,7 @@ function App() {
                     <Route exact path="/signup" element={<Cadastro/>}></Route>
                     <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
                     <Route exact path="/produto/:id" element={<Product/>}></Route>
+                    <Route exact path="/produtos/:tipo" element={<Products/>}></Route>
                     <Route path="/profile" element={<RouteAdmin component={Perfil} />} // Envolve RouteAdmin em um componente Route
     />
                 </Routes>

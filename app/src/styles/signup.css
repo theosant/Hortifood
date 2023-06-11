@@ -19,7 +19,7 @@
   }
   
   .form-input {
-    padding: 20px;
+    padding: 10px;
     border-radius: 6px;
     margin-bottom: 1em;
   }
@@ -31,6 +31,7 @@
     background-color: #4A8149;
     font-weight: bold;
     color: white;
+    text-align: center;
   }
   
   .btn-submit:hover {
