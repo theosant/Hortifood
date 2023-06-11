@@ -284,14 +284,14 @@ function App() {
                     <Route exact path="/login" element={<Login />}></Route>
                     <Route exact path="/signup" element={<Cadastro/>}></Route>
                     <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
-                    <Route exact path="/produto/:id" element={<Product/>}></Route>
-                    <Route exact path="/produtos/:tipo" element={<Products/>}></Route>
+                    <Route exact path="/produto/:id" element={<Product HandlerClick={HandlerClick}/>}></Route>
+                    <Route exact path="/produtos/:tipo" element={<Products HandlerClick={HandlerClick}/>}></Route>
                     <Route path="/profile" element={<RouteAdmin component={Perfil} />} // Envolve RouteAdmin em um componente Route
     />
                 </Routes>
             </AuthProvider>
 
-            {showcart && <Cart cart={cart} setCart={setCart} handleChange={handleChange}/>}
+            {showcart && <Cart cart={cart} handleChange={handleChange}/>}
             {warning && <div className='warning'>Item já adicionado ao seu carrinho</div>}
             <Footer />
         </div>
