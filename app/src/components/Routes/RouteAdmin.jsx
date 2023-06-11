@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Route, Navigate } from 'react-router-dom';
-import AuthContext from '../Auth/Context';
+import { useAuth } from '../Auth/Context';
 
 const RouteAdmin = ({ component: Component, ...rest }) => {
-    const { token } = useContext(AuthContext);
+    const { token } = useAuth();
 
         return token ? (
             <Route {...rest} element={Element} />

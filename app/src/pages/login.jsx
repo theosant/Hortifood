@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import AuthContext from '../components/Auth/Context';
+import { useAuth } from '../components/Auth/Context';
 import '../styles/login.css';
 import {Link, useNavigate} from 'react-router-dom';
 
@@ -17,8 +17,9 @@ function login({email,password}) {
 
 const Login = (props) =>{
     const [values, setValues] = useState(initialState);
-    const { setToken } = useContext(AuthContext);
+    const { setToken, setUser } = useAuth();
     const navigate = useNavigate();
+
     function onChange(e) {
         const {value, name} = e.target;
 
@@ -35,6 +36,14 @@ const Login = (props) =>{
 
         if (token) {
             setToken(token);
+            let today = new Date(); 
+            setUser({
+                entered: `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()} - ${today.getHours()}h${today.getMinutes()}`,
+                name: 'Alan Turing',
+                cpf: '12345678909',
+                email: 'admin@mail.com',
+                purchases: []
+            })
             navigate('/');
         }
 
