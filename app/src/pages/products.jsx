@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 
-const Products = () => {
+const Products = ({HandlerClick}) => {
     const {tipo} = useParams()
     let src = `/banner_${tipo}.jpg`;
 
@@ -45,7 +45,7 @@ const Products = () => {
             <div className="products_container" style={{display: "inline-block"}}>
                 {
                     products.map((product) => (
-                        <Card card = {product} />
+                        <Card card = {product} HandlerClick={HandlerClick} />
                     ))
                 }
             </div>

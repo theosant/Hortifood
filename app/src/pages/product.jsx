@@ -2,7 +2,8 @@ import React, { useState, useEffect} from 'react';
 import '../styles/product.css'
 import FruitPoint from '../components/FruitPoint'
 import { useParams } from 'react-router-dom';
-const Product = () => {
+
+const Product = ({HandlerClick}) => {
 
     const [product, setProduct] = useState(null);
     let { id } = useParams();
@@ -78,7 +79,7 @@ const Product = () => {
                                     
                                     <h2 style={{color: "#4A8149"}}>Preço: ... R$</h2>
     
-                                    <button id="addToCart">Adicionar ao Carrinho</button>
+                                    <button  id="addToCart">Adicionar ao Carrinho</button>
                                 </td>
                             </tr>
                         </table>
@@ -121,7 +122,7 @@ const Product = () => {
                                 
                                 <h2 style={{color: "#4A8149"}}>Preço: {price.toFixed(2)} R$</h2>
 
-                                <button id="addToCart">Adicionar ao Carrinho</button>
+                                <button onClick={() => HandlerClick(product)} id="addToCart">Adicionar ao Carrinho</button>
                             </td>
                         </tr>
                     </table>
