@@ -12,7 +12,17 @@
     max-width: 130px;
     height: 200px;
 }
-.carrossel-item img{
+
+.carrossel-item__link{
+    color: inherit;  
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 130px;
+    height: 200px;
+}
+
+.carrossel-item__img{
     height: auto;
     width: auto;
 }
