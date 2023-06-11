@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 
 const Products = ({HandlerClick}) => {
     const {tipo} = useParams()
-    let src = `/banner_${tipo}.jpg`;
+    let src = `/imagens/banner${tipo}.jpg`;
+    console.log(src)
 
     const [products, setProducts] = useState(null);
     useEffect(() => {
@@ -29,6 +30,7 @@ const Products = ({HandlerClick}) => {
             <div>
                 <div className="site_section_banner">
                     <img src={src} alt="banner" />
+                    <h1>{tipo}</h1>
                 </div>
                 <div className="products_container" style={{display: "inline-block"}}>
                 </div>

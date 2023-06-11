@@ -28,7 +28,7 @@ const Cart = ({cart, setCart, handleChange}) => {
                         <tr>
                             <td><img src={item.src}/></td>
                             <td className='cart_item_info'>
-                                <h3>{item.name}ffrerfer</h3>
+                                <h3>{item.name}</h3>
                                 <p>R$ {item.price} /Kg</p>
 
                                 <div className="quantityInputCart">

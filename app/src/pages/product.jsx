@@ -52,7 +52,7 @@ const Product = ({HandlerClick}) => {
                         <table>
                             <tr>
                                 <td className="product_image_container">
-                                    <img  alt="produto!"></img>
+                                    <img alt="produto!"></img>
                                 </td>
                                 <td className="product_data_container">
                                     <h1>Carregando</h1>
