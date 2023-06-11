@@ -2,7 +2,6 @@ import React from "react";
 import './index.css'
 
 const SiteSections = ({ type }) =>{
-    // console.log(props.type);
     if(type === "regular"){
 
         return (

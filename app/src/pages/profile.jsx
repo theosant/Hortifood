@@ -1,14 +1,11 @@
 import React from "react";
-import './styles/perfil.css'
-import Footer from './components/Footer';
-import SiteSections from './components/SiteSections'
-import PurchaseBlock from './components/PurchaseBlock'
+import '../styles/perfil.css'
+import PurchaseBlock from '../components/PurchaseBlock'
 
 const Perfil = ({ user }) =>{
 
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
-            <SiteSections type = "regular"/>
             <div className="banner_perfil">Perfil</div>
             <div className="perfil_background">
                 <h2 id="entered">Entrou em: {user.entered}</h2>
@@ -24,7 +21,6 @@ const Perfil = ({ user }) =>{
                 </span>
                 <hr />
             </div>
-            <Footer />
         </div>
     )
 }

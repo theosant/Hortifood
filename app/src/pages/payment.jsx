@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './styles/payment.css'
 import Footer from './components/Footer';
-import SiteSections from './components/SiteSections'
+import SiteSections from '../components/SiteSections'
 
 const Payment = () =>{
 

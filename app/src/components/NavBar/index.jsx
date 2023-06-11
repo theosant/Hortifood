@@ -1,21 +1,28 @@
+import React, { useState, useContext } from "react";
 import "./index.css";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import AuthContext from '../Auth/Context';
+import {Link} from 'react-router-dom'
 
 const NavBar = ({size, setshowCart}) => {
-    
+    const { token } = useContext(AuthContext);
     return (
         <>
-            <nav class="nav-links">
-            <a href="./index.html" class="logo">HORTIFOOD</a>
-            <input class="search-bar" type="text" placeholder="&#xF002; Buscar Frutas ou Verduras..." />
-                    <a href="./login.html" class="login-btn">Entrar</a>
-                    <button onClick={setshowCart} class="cart-btn">
+            <nav className="nav-links">
+            <Link to="/" className="logo">HORTIFOOD</Link>
+            <input className="search-bar" type="text" placeholder="&#xF002; Buscar Frutas ou Verduras..." />
+                    {
+                        token
+                        ? <Link to="./profile" className="login-btn">Meu Perfil</Link>
+                        : <Link to="./login" className="login-btn">Entrar</Link>
+                    }
+                    <button onClick={setshowCart} className="cart-btn">
                         <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
                         <span>{size}</span>
                         Meu Carrinho
                     </button>
             </nav>
-            <div style={{ height: '60px' }} />
+            <div style={{ height: '77px' }} />
         </>
     )
 };

@@ -1,26 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './index.css'
+import FruitPoint from '../FruitPoint';
 
 const Cart = ({cart, setCart,handleChange}) => {
     const [price, setPrice] = useState(0);
-
-    const handlePrice = () => {
-        let ans = 0;
-        cart.map((item) => {
-            ans += item.price * item.amount;
-        }) 
-        setPrice(ans);
-    }
-
-    const handleRemove= (id) => {
-        const arr = cart.filter(item => item.id !== id)
-        setCart(arr);
-    }
-
-
-    useEffect(() =>{
-        handlePrice();
-    })
 
     return (
         <article className='cart'>
@@ -31,15 +14,8 @@ const Cart = ({cart, setCart,handleChange}) => {
                         <img src={item.src}/>
                         <p>{item.name}</p>
                     </div>
-                    <div>
-                        <button onClick={() => handleChange(item,-1)}>-</button>
-                        <button>{item.amount}</button>
-                        <button onClick={() => handleChange(item,+1)} >+</button>
-                    </div>
-                    <div>
-                        <span>{item.price}</span>
-                        <button onClick={() => handleRemove(item.id)}>Remover</button>
-                    </div>
+                    
+                    <FruitPoint width={250} heigth={10}/>
                 </div>
             })}
             <div>

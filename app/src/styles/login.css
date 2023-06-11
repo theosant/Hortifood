@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+    font-family: PoetsenOne;
+    src: url('../fonts/PoetsenOne-Regular.ttf');
+}
+
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+}
+
+header .nav{
+    display: flex;
+    background-color: #FFA113;
+    padding: 6px;
+}
+
+.logo {
+    font-family: PoetsenOne, sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+    text-decoration: none;
+    color: white;
+    margin: auto;
+}
+
+.login {
+    margin: 3em 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 5vw;
+    background-color: white;
+    padding: 5vh 5vw;
+    margin-top: 1vh;
+    width: 50vw;
+    height: 75vh;
+    border: 1px solid #4A8149;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 5px 0px gray; */
+    box-shadow: 0px 0px 15px 0px rgb(146, 146, 146);
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login form label {
+    font-weight: bold;
+    color:#334932;
+}
+
+.login form span {
+    font-size: 15px;
+}
+
+.form-input {
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 1em;
+}
+
+.forgot-pass {
+    text-align: right;
+    text-decoration: none;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: #4A8149;
+    float: right;
+}
+
+.login form button {
+    padding: 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4A8149;
+    font-weight: bold;
+    color: white;
+}
+
+hr {
+    width: 100%;
+}
+
+.signup {
+    padding: 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #FFA113;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white ;
+}

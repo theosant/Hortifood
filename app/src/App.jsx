@@ -1,14 +1,22 @@
 import { useState } from 'react';
 import './styles/App.css';
-import Carousel from './components/Carousel';
+
 import Footer from './components/Footer';
-import SiteSections from './components/SiteSections';
 import NavBar from './components/NavBar';
 import PurchaseBlock from './components/PurchaseBlock';
-import Products from './components/Products';
-import './warning.css'
+import Product from './pages/product';
+import './warning.css';
+import Home from './components/Home';
 import Cart from './components/Cart';
+import AboutUs from './pages/aboutus';
+import Login from './pages/login';
+import Cadastro from './pages/signup';
+import Perfil from './pages/profile'
+import AuthProvider from './components/Auth/Provider'
+import RouteAdmin from './components/Routes/RouteAdmin'
+import ForgotPassword from './pages/forgotpass';
 
+import {Route, Routes, Router} from 'react-router-dom'
 
 function App() {
     const [cart, setCart] = useState([]);
@@ -88,71 +96,25 @@ function App() {
             price: "46",
         },
     ]);
-    const list = [
-        {
-            id: 0,
-            src: "./imagens/banana_nanica.jpeg",
-            name: "banana nanica1",
-            price: "41",
-            amount: 3
-        },
-        {
-            id: 1,
-            src: "./imagens/banana_nanica2.jpeg",
-            name: "banana nanica2",
-            price: "42",
-            amount: 3
-        },
-        {
-            id: 2,
-            src: "./imagens/banana_nanica3.jpeg",
-            name: "banana nanica3",
-            price: "43",
-            amount: 3
-        },
-        {
-            id: 3,
-            src: "./imagens/banana_nanica3.jpeg",
-            name: "banana nanica4",
-            price: "44",
-            amount: 3
-        },
-        {
-            id: 4,
-            src: "./imagens/banana_nanica3.jpeg",
-            name: "banana nanic5",
-            price: "45",
-            amount: 3
-        },
-        {
-            id: 5,
-            src: "./imagens/banana_nanica3.jpeg",
-            name: "banana nanic6",
-            price: "46",
-            amount: 3
-        },
-    ];
 
     return (
         <div>
             <NavBar size={cart.length} setshowCart={HandleClickCart}/>
-            <SiteSections type = "main"/>
-            <div className='main'>
-                <div className='highlights'>
-                    <h1>Destaques</h1> <hr />
-                    <Carousel cardInfos = {highlights} HandlerClick = {HandlerClick} />
 
-                    <h1>Temporada</h1> <hr />
-                    <h1>Sucos Famosos</h1> <hr />
-                </div>
-            </div>
-            {
-                showcart && <Cart cart={cart} setCart={setCart} handleChange={handleChange}/>
-            }
-            <Products lista={list} HandlerClick = {HandlerClick}/>
-            {
-                warning && <div className='warning'>Item já adicionado ao seu carrinho</div>
-            }
+            <AuthProvider>
+                <Routes>
+                    <Route exact path="/" element={<Home cardInfos={highlights} HandlerClick={HandlerClick} />}></Route>
+                    <Route exact path="/sobre" element={<AboutUs />}></Route>
+                    <Route exact path="/login" element={<Login />}></Route>
+                    <Route exact path="/signup" element={<Cadastro/>}></Route>
+                    <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
+                    <Route path="/profile" element={<RouteAdmin component={Perfil} />} // Envolve RouteAdmin em um componente Route
+    />
+                </Routes>
+            </AuthProvider>
+
+            {showcart && <Cart cart={cart} setCart={setCart} handleChange={handleChange}/>}
+            {warning && <div className='warning'>Item já adicionado ao seu carrinho</div>}
             <Footer />
         </div>
     );

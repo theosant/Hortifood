@@ -1,5 +1,6 @@
 import React from "react";
 import './index.css'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -7,10 +8,10 @@ const Footer = () => {
         <div className="footer">
           <div className="info">
             <p>
-              <a href="us.jsx">Sobre Nós</a>
+              <Link to="/sobre">Sobre Nós</Link>
             </p>
             <p>
-              Contato: <a href="mailto:contato@hortifood.com">contato@hortifood.com</a>
+              Contato: <text>contato@hortifood.com</text>
             </p>
           </div>
           <div className="copyright">
