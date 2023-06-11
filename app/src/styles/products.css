@@ -3,3 +3,13 @@
     height: 200px;
     margin-bottom: 20px;
 }
+
+.cardDisplay{
+    display: inline-block;
+    margin: 20px;
+}
+
+.cards_container{
+    width: 1100px;
+    margin: auto;
+}

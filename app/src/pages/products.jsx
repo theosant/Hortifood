@@ -42,12 +42,14 @@ const Products = ({HandlerClick}) => {
             <div className="site_section_banner">
                 <img src={src} alt="banner" />
             </div>
-            <div className="products_container" style={{display: "inline-block"}}>
-                {
-                    products.map((product) => (
-                        <Card card = {product} HandlerClick={HandlerClick} />
-                    ))
-                }
+            <div className="cards_container">
+                <div className="products_container" style={{display: "inline-block"}}>
+                    {products.map((product) => (
+                        <div className="cardDisplay">
+                            <Card card = {product} HandlerClick={HandlerClick} />
+                        </div>
+                    ))}
+                </div>
             </div>
 
         </div>

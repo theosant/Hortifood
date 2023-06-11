@@ -47,7 +47,7 @@ const Cart = ({cart, setCart, handleChange}) => {
                         </tr>
 
                         <div className='cartFP'>
-                        <FruitPoint width={320} heigth={10}/>
+                        <FruitPoint width={340} heigth={10}/>
 
                         </div>
 
