@@ -5,24 +5,25 @@ import SiteSections from '../SiteSections';
 import './style.css'
 
 function Home({cardInfos, HandlerClick}) {
-    const [sucos, setSucos] = useState([]);
-    useState(() => {
-        const arr = cardInfos.filter(objeto => objeto.type === 'suco');
-        setSucos(arr);
-      }, [cardInfos]);
-  return (
+    // const [sucos, setSucos] = useState([]);
+    // useState(() => {
+    //     const arr = cardInfos.filter(objeto => objeto.type === 'suco');
+    //     setSucos(arr);
+    //   }, [cardInfos]);
+    return (
     <>
-    <SiteSections type = "main"/>
-    <div className='main'>
-        <div className='highlights'>
-            <h1>Destaques</h1> <hr />
-            <Carousel cardInfos = {cardInfos} HandlerClick = {HandlerClick} />
+      <SiteSections type = "main"/>
+      <div className='main'>
+          <div className='highlights'>
+              <h1>Destaques</h1> <hr />
+              <Carousel cardInfos = {cardInfos} HandlerClick = {HandlerClick} />
 
-            <h1>Temporada</h1> <hr />
-            <h1>Sucos Famosos</h1> <hr />
-            <Carousel cardInfos = {cardInfos.filter(objeto => objeto.type === 'suco')} HandlerClick = {HandlerClick} />
-        </div>
-    </div></>
+              <h1>Temporada</h1> <hr />
+              <h1>Sucos Famosos</h1> <hr />
+              <Carousel cardInfos = {cardInfos.filter(objeto => objeto.type === 'suco')} HandlerClick = {HandlerClick} />
+          </div>
+      </div>
+    </>
   )
 }
 
