@@ -62,7 +62,7 @@ function App() {
         [
             {
               "id": 0,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "banana nanica1",
               "price": "41",
               "highlight": "true",
@@ -71,7 +71,7 @@ function App() {
             },
             {
               "id": 1,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "banana nanica2",
               "price": "42",
               "highlight": "true",
@@ -80,7 +80,7 @@ function App() {
             },
             {
               "id": 2,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "banana nanica3",
               "price": "43",
               "highlight": "true",
@@ -89,7 +89,7 @@ function App() {
             },
             {
               "id": 3,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "maçã vermelha",
               "price": "25",
               "highlight": "false",
@@ -98,7 +98,7 @@ function App() {
             },
             {
               "id": 4,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "maçã verde",
               "price": "30",
               "highlight": "false",
@@ -107,7 +107,7 @@ function App() {
             },
             {
               "id": 5,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "morango",
               "price": "15",
               "highlight": "false",
@@ -116,7 +116,7 @@ function App() {
             },
             {
               "id": 6,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "laranja",
               "price": "20",
               "highlight": "false",
@@ -125,7 +125,7 @@ function App() {
             },
             {
               "id": 7,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "abacaxi",
               "price": "35",
               "highlight": "false",
@@ -134,7 +134,7 @@ function App() {
             },
             {
               "id": 8,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "melancia",
               "price": "28",
               "highlight": "false",
@@ -143,7 +143,7 @@ function App() {
             },
             {
               "id": 9,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "uva verde",
               "price": "18",
               "highlight": "false",
@@ -152,7 +152,7 @@ function App() {
             },
             {
               "id": 10,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "uva roxa",
               "price": "22",
               "highlight": "false",
@@ -161,7 +161,7 @@ function App() {
             },
             {
               "id": 11,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "pera",
               "price": "32",
               "highlight": "false",
@@ -170,7 +170,7 @@ function App() {
             },
             {
               "id": 12,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "abobrinha",
               "price": "8",
               "highlight": "true",
@@ -179,7 +179,7 @@ function App() {
             },
             {
               "id": 13,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "beterraba",
               "price": "5",
               "highlight": "true",
@@ -188,7 +188,7 @@ function App() {
             },
             {
               "id": 14,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "cebola",
               "price": "3",
               "highlight": "true",
@@ -197,7 +197,7 @@ function App() {
             },
             {
               "id": 15,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "cenoura",
               "price": "4",
               "highlight": "true",
@@ -206,7 +206,7 @@ function App() {
             },
             {
               "id": 16,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "tomate",
               "price": "6",
               "highlight": "false",
@@ -215,7 +215,7 @@ function App() {
             },
             {
               "id": 17,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "brócolis",
               "price": "9",
               "highlight": "false",
@@ -224,7 +224,7 @@ function App() {
             },
             {
               "id": 18,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "pepino",
               "price": "5",
               "highlight": "false",
@@ -233,7 +233,7 @@ function App() {
             },
             {
               "id": 19,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "alface",
               "price": "2",
               "highlight": "true",
@@ -242,7 +242,7 @@ function App() {
             },
             {
               "id": 20,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "suco de laranja",
               "price": "5",
               "highlight": "true",
@@ -251,7 +251,7 @@ function App() {
             },
             {
               "id": 21,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "suco de uva",
               "price": "6",
               "highlight": "false",
@@ -260,7 +260,7 @@ function App() {
             },
             {
               "id": 22,
-              "src": "./imagens/banana_nanica.jpeg",
+              "src": "/imagens/banana_nanica.jpeg",
               "name": "suco de abacaxi",
               "price": "4",
               "highlight": "true",
@@ -269,6 +269,8 @@ function App() {
             }
           ]
           );
+
+          localStorage.setItem('produtos', JSON.stringify(highlights));
 
     return (
         <div>
@@ -281,6 +283,7 @@ function App() {
                     <Route exact path="/login" element={<Login />}></Route>
                     <Route exact path="/signup" element={<Cadastro/>}></Route>
                     <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
+                    <Route exact path="/produto/:id" element={<Product/>}></Route>
                     <Route path="/profile" element={<RouteAdmin component={Perfil} />} // Envolve RouteAdmin em um componente Route
     />
                 </Routes>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Carousel from '../Carousel';
 import SiteSections from '../SiteSections';
-import Products from '../Products';
 
 import './style.css'
 
