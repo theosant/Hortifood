@@ -1,31 +1,100 @@
 .cart{
     margin-top: 77px;
-    height: 100%; /* 100% Full-height */
+    height: 100%;
     position: fixed; /* Stay in place */
     width: 45%;
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    background-color: #CACACA; /* Black*/
+    border-left: solid #CACACA 2px;
+    background-color: #F5F5F5;
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 40px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 .cart_box{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border: 2px solid #4A8149;
+    border-bottom: 1px solid #CACACA;
     margin-bottom: 15px;
+    padding: 10px;
+    display: block;
+}
+.cart table{
+    width: 100%;
+    border-collapse: collapse;
+    /* border: solid #251d1d 2px; */
 }
 
-.cart_img {
-    display: flex;
-    align-items: center;
+.cart_box td{
+    width: 35%;
+    /* border: solid #251d1d 2px; */
 }
 
 .cart_box img{
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
 }
+
+.cart_item_info{
+    text-align: left;
+    padding-left: 5px;
+}
+
+.cart_item_info h3{
+    color: #4A8149;
+}
+
+.cart table tr{
+    height: 110px;
+    text-align: center;
+}
+
+.quantityInputCart{
+    height: 30px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: solid #CACACA 1px;
+    border-radius: 10px;
+    color: #CACACA;
+}
+
+.quantityInputCart span{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 200;
+}
+
+#quantityCart{
+    color: #7A7A7A;
+    font-size: 24px;
+    border-right: 1px solid #CACACA;
+    border-left: 1px solid #CACACA;
+}
+
+.cartPrice{
+    color: #4A8149;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 32px;
+}
+
+.cartFP{
+    margin: 15px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+/* #addToCart{
+    color: #334932;
+    font-size: 15px;
+    background-color: #B2CB81;
+    border: solid #9EB473 1px;
+    height: 40px;
+    width: 200px;
+    border-radius: 12px;
+} */

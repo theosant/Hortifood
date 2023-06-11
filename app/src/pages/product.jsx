@@ -8,9 +8,6 @@ const Product = () => {
     let { id } = useParams();
     id = parseInt(id);
 
-
-   
-
     useEffect(() => {
         function delay(){
             return new Promise(function(resolve) {

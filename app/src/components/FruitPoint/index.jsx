@@ -3,7 +3,7 @@ import './index.css'
 
 const FruitPoint = ({width, heigth}) => {
     const styles = {
-        fruit_point: {
+        fp: {
             width: `${width}px`,
             height: `${heigth}px`,
         },
@@ -24,7 +24,7 @@ const FruitPoint = ({width, heigth}) => {
 
             <input type="range"
                 className="fruit_point"
-                style={styles}
+                style={styles.fp}
                 name="rangeInput"
                 min={0} max={2} step={1}
                 value={fruitPoint}
