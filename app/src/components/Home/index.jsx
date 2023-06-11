@@ -15,7 +15,7 @@ function Home({cardInfos, HandlerClick}) {
       <div className="home_banner">
           <h1>Bem-Vindo à rede são-carlense <br />
             de entrega de frutas, hortaliças e sucos</h1>
-          <img src="/imagens/bannerprincipal.jpg" alt="banner" />
+          <img src="/imagens/bannerprincipal.jpg"  alt="banner" />
       </div>
       <SiteSections type = "main"/>
       <div className='main'>
