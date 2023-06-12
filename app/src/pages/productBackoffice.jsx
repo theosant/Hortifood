@@ -1,9 +1,8 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react'
 import '../styles/product.css'
-import FruitPoint from '../components/FruitPoint'
 import { useParams } from 'react-router-dom';
 
-const Product = ({HandlerClick}) => {
+function ProductBackoffice({cardInfos, HandlerClick}) {
 
     const [product, setProduct] = useState(null);
     let { id } = useParams();
@@ -24,26 +23,10 @@ const Product = ({HandlerClick}) => {
             setProduct(resposta)})
     }, [id]);
 
-
-    const [fruitPoint, setFruitPoint] = useState(1);
-    const handleFruitPointChange = (event) => {
-        setFruitPoint(event.target.value);
+    const handleInputChange = (event) => {
+        product.name = event.target.textContent;
     };
 
-    const [quantity, setQuantity] = useState(0);
-    const [price, setPrice] = useState(0);
-
-    const handleMinusClick = () => {
-        if(quantity > 100){
-            setQuantity(quantity - 100);
-            setPrice(price - (product.price * 0.1));
-        }
-    }
-    const handlePlusClick = () => {
-        setQuantity(quantity + 100);
-        setPrice(price + (product.price * 0.1))
-    }
-    
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
             <div>
@@ -88,4 +71,4 @@ const Product = ({HandlerClick}) => {
     );
 }
 
-export default Product;
+export default ProductBackoffice

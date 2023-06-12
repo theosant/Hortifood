@@ -3,8 +3,9 @@ import './styles/App.css';
 
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
-import PurchaseBlock from './components/PurchaseBlock';
+// import PurchaseBlock from './components/PurchaseBlock';
 import Product from './pages/product';
+import ProductBackoffice from './pages/productBackoffice';
 import Products from './pages/products';
 import './warning.css';
 import Home from './components/Home';
@@ -303,6 +304,7 @@ function App() {
                     <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
                     <Route exact path="/produto/:id" element={<Product HandlerClick={HandlerClick}/>}></Route>
                     <Route exact path="/produtos/:tipo" element={<Products HandlerClick={HandlerClick}/>}></Route>
+                    <Route exact path="/produtosback" element={<ProductBackoffice />}></Route>
                     <Route exact path="/profile" element={<Perfil />}></Route>
                 </Routes>
             {showcart && <Cart cart={cart} handleChange={handleChange}/>}
