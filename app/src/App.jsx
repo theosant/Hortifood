@@ -14,7 +14,7 @@ import AboutUs from './pages/aboutus';
 import Login from './pages/login';
 import Cadastro from './pages/signup';
 import Perfil from './pages/profile'
-import AuthProvider from './components/Auth/Provider'
+import { AuthProvider } from './components/Auth/Context'
 import RouteAdmin from './components/Routes/RouteAdmin'
 import ForgotPassword from './pages/forgotpass';
 
@@ -294,9 +294,8 @@ function App() {
 
     return (
         <div>
+          <AuthProvider>
             <NavBar size={cart.length} setshowCart={HandleClickCart}/>
-
-            <AuthProvider>
                 <Routes>
                     <Route exact path="/" element={<Home cardInfos={highlights} HandlerClick={HandlerClick} />}></Route>
                     <Route exact path="/sobre" element={<AboutUs />}></Route>
@@ -306,14 +305,12 @@ function App() {
                     <Route exact path="/produto/:id" element={<Product HandlerClick={HandlerClick}/>}></Route>
                     <Route exact path="/produtos/:tipo" element={<Products HandlerClick={HandlerClick}/>}></Route>
                     <Route exact path="/produtosback" element={<ProductBackoffice />}></Route>
-                    <Route path="/profile" element={<RouteAdmin component={Perfil} />} // Envolve RouteAdmin em um componente Route
-                />
+                    <Route exact path="/profile" element={<Perfil />}></Route>
                 </Routes>
-            </AuthProvider>
-
             {showcart && <Cart cart={cart} handleChange={handleChange}/>}
             {warning && <div className='warning'>Item já adicionado ao seu carrinho</div>}
             <Footer />
+          </AuthProvider>
         </div>
     );
 }

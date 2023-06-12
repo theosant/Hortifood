@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
 import "./index.css";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import AuthContext from '../Auth/Context';
+import { useAuth } from '../Auth/Context';
 import {Link} from 'react-router-dom'
 
 const NavBar = ({size, setshowCart}) => {
-    const { token } = useContext(AuthContext);
+    const {token} = useAuth();
+    
     return (
         <>
             <nav className="nav-links">
