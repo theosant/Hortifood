@@ -277,20 +277,17 @@ function App() {
         <div>
           <AuthProvider>
             <NavBar size={cart.length} setshowCart={HandleClickCart}/>
-
-
                 <Routes>
                     <Route exact path="/" element={<Home cardInfos={highlights} HandlerClick={HandlerClick} />}></Route>
                     <Route exact path="/sobre" element={<AboutUs />}></Route>
                     <Route exact path="/login" element={<Login />}></Route>
                     <Route exact path="/signup" element={<Cadastro/>}></Route>
                     <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
-                    <Route exact path="/produto/:id" element={<Product/>}></Route>
-                    <Route exact path="/produtos/:tipo" element={<Products/>}></Route>
+                    <Route exact path="/produto/:id" element={<Product HandlerClick={HandlerClick}/>}></Route>
+                    <Route exact path="/produtos/:tipo" element={<Products HandlerClick={HandlerClick}/>}></Route>
                     <Route exact path="/profile" element={<Perfil />}></Route>
                 </Routes>
-
-            {showcart && <Cart cart={cart} setCart={setCart} handleChange={handleChange}/>}
+            {showcart && <Cart cart={cart} handleChange={handleChange}/>}
             {warning && <div className='warning'>Item já adicionado ao seu carrinho</div>}
             <Footer />
           </AuthProvider>

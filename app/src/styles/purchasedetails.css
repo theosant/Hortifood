@@ -15,7 +15,7 @@
 }
   
 .purchase_details_table td{
-    width: 25%; /* Defina a largura desejada para cada coluna */
+    width: 25%;
     text-align: center;
     padding: 5px;
 }

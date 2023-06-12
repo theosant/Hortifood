@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 
-const Products = () => {
+const Products = ({HandlerClick}) => {
     const {tipo} = useParams()
-    let src = `/banner_${tipo}.jpg`;
+    let src = `/imagens/banner${tipo}.jpg`;
+    console.log(src)
 
     const [products, setProducts] = useState(null);
     useEffect(() => {
@@ -29,6 +30,7 @@ const Products = () => {
             <div>
                 <div className="site_section_banner">
                     <img src={src} alt="banner" />
+                    <h1>{tipo}</h1>
                 </div>
                 <div className="products_container" style={{display: "inline-block"}}>
                 </div>
@@ -42,12 +44,14 @@ const Products = () => {
             <div className="site_section_banner">
                 <img src={src} alt="banner" />
             </div>
-            <div className="products_container" style={{display: "inline-block"}}>
-                {
-                    products.map((product) => (
-                        <Card card = {product} />
-                    ))
-                }
+            <div className="cards_container">
+                <div className="products_container" style={{display: "inline-block"}}>
+                    {products.map((product) => (
+                        <div className="cardDisplay">
+                            <Card card = {product} HandlerClick={HandlerClick} />
+                        </div>
+                    ))}
+                </div>
             </div>
 
         </div>
