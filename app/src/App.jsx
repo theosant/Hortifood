@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import Product from './pages/product';
 import ProductBackoffice from './pages/productBackoffice';
 import Products from './pages/products';
+import ProductsBackoffice from './pages/productsBackoffice';
 import './warning.css';
 import Home from './components/Home';
 import Cart from './components/Cart';
@@ -304,7 +305,8 @@ function App() {
                     <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
                     <Route exact path="/produto/:id" element={<Product HandlerClick={HandlerClick}/>}></Route>
                     <Route exact path="/produtos/:tipo" element={<Products HandlerClick={HandlerClick}/>}></Route>
-                    <Route exact path="/produtosback" element={<ProductBackoffice />}></Route>
+                    <Route exact path="/produtoback" element={<ProductBackoffice />}></Route>
+                    <Route exact path="/produtosback" element={<ProductsBackoffice />}></Route>
                     <Route exact path="/profile" element={<Perfil />}></Route>
                 </Routes>
             {showcart && <Cart cart={cart} handleChange={handleChange}/>}
