@@ -16,7 +16,7 @@ function Home({cardInfos, HandlerClick}) {
       <SiteSections type = "main"/>
       <div className='main'>
           <div className='highlights'>
-              <h1>Destaques</h1> <hr />
+              <h1 style={{marginTop: "0px"}}>Destaques</h1> <hr />
               <Carousel cardInfos = {cardInfos.filter(objeto => objeto.highlight === 'true')} HandlerClick = {HandlerClick} />
 
               <h1>Temporada</h1> <hr />

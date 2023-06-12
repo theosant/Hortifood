@@ -6,10 +6,10 @@ const RouteAdmin = ({ component: Component, ...rest }) => {
     const { token } = useContext(AuthContext);
 
         return token ? (
-            <Route {...rest} element={Element} />
-          ) : (
-            <Navigate to="/login" replace />
-          );
+          <Route {...rest} element={Element} />
+        ) : (
+          <Navigate to="/login" replace />
+        );
 }
 
 export default RouteAdmin;
