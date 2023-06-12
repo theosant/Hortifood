@@ -2,12 +2,13 @@ import "../styles/products.css";
 import Card from "../components/Card"
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import SiteSections from "../components/SiteSections";
 
 
 const Products = ({HandlerClick}) => {
     const {tipo} = useParams()
     let src = `/imagens/banner${tipo}.jpg`;
-    console.log(src)
+    console.log(tipo)
 
     const [products, setProducts] = useState(null);
     useEffect(() => {
@@ -29,19 +30,19 @@ const Products = ({HandlerClick}) => {
         return (
             <div>
                 <div className="site_section_banner">
-                    <img src={src} alt="banner" />
-                    <h1>{tipo}</h1>
+                    {/* <img src={src} alt="banner" /> */}
                 </div>
                 <div className="products_container" style={{display: "inline-block"}}>
                 </div>
-    
             </div>
         )
     }
-
+    
     return (
         <div>
+            <SiteSections type="regular"/>
             <div className="site_section_banner">
+                <h1>{tipo.charAt(0).toUpperCase() + tipo.slice(1)}</h1>
                 <img src={src} alt="banner" />
             </div>
             <div className="cards_container">
