@@ -18,15 +18,17 @@ import Cadastro from './pages/signup';
 import Perfil from './pages/profile'
 import Pagina404 from './pages/404'
 import { AuthProvider } from './components/Auth/Context'
-import RouteAdmin from './components/Routes/RouteAdmin'
 import ForgotPassword from './pages/forgotpassword';
 
-import {Route, Routes, Router} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 
 function App() {
+
     const [cart, setCart] = useState(JSON.parse(localStorage.cart));
+    
     const [warning, setWarning] = useState(false);
     const [showcart, setshowCart] = useState(false);
+    
 
     function HandleClickCart(){
         setshowCart(!showcart);
@@ -42,13 +44,12 @@ function App() {
         if(isPresent){
             setWarning(true)
             setTimeout(() => {
-                
                 setWarning(false)
             }, 2000)
             return;
         }
         setCart([...cart,item]);
-        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('cart', JSON.stringify([...cart,item]));
     }
 
     const handleChange = (item,d) => {
@@ -299,7 +300,7 @@ function App() {
     return (
         <div>
           <AuthProvider>
-            <NavBar size={cart.length} setshowCart={HandleClickCart}/>
+            <NavBar size={cart.length} products={highlights} setshowCart={HandleClickCart}/>
                 <Routes>
                     <Route exact path="/" element={<Home cardInfos={highlights} HandlerClick={HandlerClick} />}></Route>
                     <Route exact path="/sobre" element={<AboutUs />}></Route>

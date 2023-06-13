@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Auth/Context';
 import './index.css';
@@ -27,6 +27,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
     const handleRemove= (id) => {
         const arr = cart.filter(item => item.id !== id)
         setCart(arr);
+        localStorage.setItem('cart', JSON.stringify(arr))
     }
 
     const handlePurchase = () => {
@@ -85,7 +86,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                 <div className="cart_total_price_container">
                     <span className="cart_total_price">Valor Total: {totalPrice}R$</span> <br />
                     <button className='cart_end_purchase' onClick={() => handlePurchase()} >Finalizar Compra</button> <br />
-                    <button className="flush_cart_button" onClick={() => setCart([])} >Limpar Carrinho!</button>
+                    <button className="flush_cart_button" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} >Limpar Carrinho!</button>
                 </div>
             :
             <></>}
