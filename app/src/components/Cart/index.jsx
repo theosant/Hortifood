@@ -84,9 +84,9 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
 
             {cart.length ? 
                 <div className="cart_total_price_container">
-                    <span className="cart_total_price">Valor Total: {totalPrice}R$</span> <br />
+                    <span className="cart_total_price">Valor Total: R$ {totalPrice.toFixed(2)}</span> <br />
                     <button className='cart_end_purchase' onClick={() => handlePurchase()} >Finalizar Compra</button> <br />
-                    <button className="flush_cart_button" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} >Limpar Carrinho!</button>
+                    <button className="flush_cart_button" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} >Limpar Carrinho</button>
                 </div>
             :
             <></>}
