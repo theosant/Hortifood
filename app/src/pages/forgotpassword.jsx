@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/ForgotPassword.css'; // Importe o arquivo de estilo CSS
+import '../styles/forgotpassword.css'; // Importe o arquivo de estilo CSS
 
 function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -18,24 +18,26 @@ function ForgotPassword() {
   };
 
   return (
-    <div className="login">
+    <div className="forgetpass">
       {isSubmitted ? (
         <p>Um e-mail de redefinição de senha foi enviado para o endereço {email}.</p>
       ) : (
+        <>
         <form onSubmit={handleSubmit}>
           <h2>Esqueceu a senha?</h2>
           <label>
             E-mail: <br />
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="form-input"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="form-input"
             />
           </label>
-          <button type="submit" className="btn-submit">Enviar</button>
         </form>
+        <button type="submit" className="btn-submit">Enviar</button>
+        </>
       )}
     </div>
   );

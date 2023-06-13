@@ -8,6 +8,7 @@ import Product from './pages/product';
 import ProductBackoffice from './pages/productBackoffice';
 import Products from './pages/products';
 import ProductsBackoffice from './pages/productsBackoffice';
+import Payment from './pages/payment';
 import './warning.css';
 import Home from './components/Home';
 import Cart from './components/Cart';
@@ -15,9 +16,10 @@ import AboutUs from './pages/aboutus';
 import Login from './pages/login';
 import Cadastro from './pages/signup';
 import Perfil from './pages/profile'
+import Pagina404 from './pages/404'
 import { AuthProvider } from './components/Auth/Context'
 import RouteAdmin from './components/Routes/RouteAdmin'
-import ForgotPassword from './pages/forgotpass';
+import ForgotPassword from './pages/forgotpassword';
 
 import {Route, Routes, Router} from 'react-router-dom'
 
@@ -308,8 +310,10 @@ function App() {
                     <Route exact path="/produtoback" element={<ProductBackoffice />}></Route>
                     <Route exact path="/produtosback" element={<ProductsBackoffice />}></Route>
                     <Route exact path="/profile" element={<Perfil />}></Route>
+                    <Route exact path="/payment" element={<Payment />}></Route>
+                    <Route exact path="*" element={<Pagina404 />}></Route>
                 </Routes>
-            {showcart && <Cart cart={cart} handleChange={handleChange}/>}
+            {showcart && <Cart setshowCart={HandleClickCart} cart={cart} setCart={setCart} handleChange={handleChange}/>}
             {warning && <div className='warning'>Item já adicionado ao seu carrinho</div>}
             <Footer />
           </AuthProvider>

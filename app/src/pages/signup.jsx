@@ -24,7 +24,7 @@ function Cadastro() {
   };
 
   return (
-    <div className="login">
+    <div className="signup">
       <h2>Cadastro</h2>
       <form onSubmit={handleSubmit}>
         <div>

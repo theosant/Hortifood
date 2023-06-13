@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useAuth } from '../components/Auth/Context';
 import '../styles/login.css';
+import '../warning.css';
 import {Link, useNavigate} from 'react-router-dom';
 
 function initialState() {
@@ -12,11 +13,12 @@ function login({email,password}) {
         return { token: '1234' };
     }
 
-    return { error: 'Usuário ou senha inválida' }
+    return { error: true }
 }
 
 const Login = (props) =>{
     const [values, setValues] = useState(initialState);
+    const [warning, setWarning] = useState(null);
     const { setToken, setUser } = useAuth();
     const navigate = useNavigate();
 
@@ -31,7 +33,7 @@ const Login = (props) =>{
 
     function onSubmit(e) {
         e.preventDefault();
-        const { token } = login(values);
+        const { token, error } = login(values);
         console.log(values);
 
         if (token) {
@@ -47,12 +49,18 @@ const Login = (props) =>{
             navigate('/');
         }
 
-        setValues(initialState);
+        if (error) {
+            setWarning(true);
+            setTimeout(() => {
+                setWarning(false)
+            }, 3000);
+        }
     }
 
     return (
         <section className="login">
             <h1>Login</h1>
+            {warning && <div className="warning">Usuário ou senha inválidos</div>}
             <form action="" method="post" onSubmit={onSubmit}>
                 <label for="email">
                     <b><span className="material-symbols-rounded"></span> Email</b>
@@ -65,7 +73,7 @@ const Login = (props) =>{
 
                 <button type="submit">Entrar</button>
                 <hr />
-                <Link to="/signup" className="signup">Cadastrar-se</Link>
+                <Link to="/signup" className="signup__button">Cadastrar-se</Link>
             </form>
         </section>
     )

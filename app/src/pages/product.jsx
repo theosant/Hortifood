@@ -51,10 +51,10 @@ const Product = ({HandlerClick}) => {
                     <table>
                         <tr>
                             <td className="product_image_container">
-                                <img alt="produto!"></img>
+                                <img src={product ?  product.src : ""} alt="produto!"></img>
                             </td>
                             <td className="product_data_container">
-                                {product ? <h1>{product.name}</h1> : <h1>Carregando</h1>}
+                                {product ? <h1>{product.name}</h1> : <h1>Carregando...</h1>}
 
                                 <h3
                                     style={{ color: "#7A7A7A", fontSize: "15px", fontWeight: 400, marginBottom: 20 + "px"}}
@@ -62,7 +62,7 @@ const Product = ({HandlerClick}) => {
 
                                 <FruitPoint width = {350} height = {15}/>
 
-                                <h1 style={{color: "#334932", marginTop: 30 + "px"}}>... R$</h1>
+                                <h1 style={{color: "#334932", marginTop: 30 + "px"}}>{product ?  product.price : "..."} R$</h1>
 
                                 <div className="quantityInput">
                                     <span
@@ -76,9 +76,9 @@ const Product = ({HandlerClick}) => {
                                         >+</span>
                                 </div>
                                 
-                                <h2 style={{color: "#4A8149"}}>Preço: ... R$</h2>
+                                <h2 style={{color: "#4A8149"}}>Total: R${price.toFixed(2)}</h2>
 
-                                <button  id="addToCart">Adicionar ao Carrinho</button>
+                                <button onClick={() => HandlerClick(product)} id="addToCart">Adicionar ao Carrinho</button>
                             </td>
                         </tr>
                     </table>

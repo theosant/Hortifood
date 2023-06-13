@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import './styles/payment.css'
-import Footer from './components/Footer';
+import '../styles/payment.css'
 import SiteSections from '../components/SiteSections'
 
 const Payment = () =>{
@@ -109,7 +108,6 @@ const Payment = () =>{
                 
                 <button id="sendPurchase">Finalizar Compra</button>
             </div>
-            <Footer />
         </div>
     )
 }
