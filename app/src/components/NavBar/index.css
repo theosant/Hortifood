@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+@font-face {
+    font-family: PoetsenOne;
+    src: url('../../fonts/PoetsenOne-Regular.ttf');
+}
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -34,6 +37,7 @@ nav{
     z-index: 9999;
     position: fixed;
     width: 100%;
+    height: 77px;
     justify-content: space-between;
     background-color: #FFA113;
     padding: 15px 15px;
@@ -99,4 +103,12 @@ nav{
 .cart-btn span {
     vertical-align: middle;
     font-size: 15px;
+}
+
+.result_container{
+    width: 45%;
+}
+
+.result_container input{
+    width: 100%;
 }

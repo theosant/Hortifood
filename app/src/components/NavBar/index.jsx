@@ -3,20 +3,20 @@ import "./index.css";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useAuth } from '../Auth/Context';
 import {Link} from 'react-router-dom'
-import Resulcontainer from "./Resulcontainer";
+import Resultcontainer from "./Resultcontainer";
 
 const NavBar = ({size, setshowCart, products}) => {
     const {token} = useAuth();
     const [value,setValue] = useState('');
     const [list,setList] = useState([]);
-    const [showResul,setShowResul] = useState(false);
+    const [showResult,setShowResult] = useState(false);
 
     function onChange(e){
         setValue(e.target.value);
         if(e.target.value === ''){
-            setShowResul(false);
+            setShowResult(false);
         } else{
-            setShowResul(true)
+            setShowResult(true)
             setList(products.filter(item => item.name.toLowerCase().startsWith(value.toLowerCase())))
         }
     }
@@ -25,7 +25,11 @@ const NavBar = ({size, setshowCart, products}) => {
         <>
             <nav className="nav-links">
             <Link to="/" className="logo">HORTIFOOD</Link>
-            <input value={value} onChange={onChange} className="search-bar" type="text" placeholder="&#xF002; Buscar Frutas ou Verduras..." />
+            <div className="result_container">
+                {showResult && 
+                <Resultcontainer list={list}/>}
+                <input value={value} onChange={onChange} className="search-bar" type="text" placeholder="&#xF002; Buscar Frutas ou Verduras..." />
+            </div>
                     {
                         token
                         ? <Link to="./profile" className="login-btn">Meu Perfil</Link>
@@ -37,7 +41,6 @@ const NavBar = ({size, setshowCart, products}) => {
                         <p>Meu Carrinho</p>
                         
                     </button>
-                {showResul && <Resulcontainer list={list}/>}
             </nav>
             <div style={{ height: '77px' }} />
         </>
