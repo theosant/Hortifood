@@ -24,7 +24,7 @@ import ForgotPassword from './pages/forgotpassword';
 import {Route, Routes, Router} from 'react-router-dom'
 
 function App() {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(JSON.parse(localStorage.cart));
     const [warning, setWarning] = useState(false);
     const [showcart, setshowCart] = useState(false);
 
@@ -48,6 +48,7 @@ function App() {
             return;
         }
         setCart([...cart,item]);
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     const handleChange = (item,d) => {
@@ -310,7 +311,7 @@ function App() {
                     <Route exact path="/produtoback" element={<ProductBackoffice />}></Route>
                     <Route exact path="/produtosback" element={<ProductsBackoffice />}></Route>
                     <Route exact path="/profile" element={<Perfil />}></Route>
-                    <Route exact path="/payment" element={<Payment />}></Route>
+                    <Route exact path="/payment" element={<Payment setCart={setCart} setshowCart={HandleClickCart}/>}></Route>
                     <Route exact path="*" element={<Pagina404 />}></Route>
                 </Routes>
             {showcart && <Cart setshowCart={HandleClickCart} cart={cart} setCart={setCart} handleChange={handleChange}/>}

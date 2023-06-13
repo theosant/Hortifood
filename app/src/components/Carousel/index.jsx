@@ -6,6 +6,18 @@ import 'slick-carousel/slick/slick-theme.css';
 import './index.css'
 import Card from '../Card';
 
+const NextArrow = () => (
+    <div className="arrow next-arrow">
+        &gt;
+    </div>
+);
+
+const PrevArrow = () => (
+    <div className="arrow prev-arrow">
+        &lt;
+    </div>
+);
+
 const Carousel = ({ cardInfos,HandlerClick }) => {
 
     const settings = {
@@ -16,14 +28,17 @@ const Carousel = ({ cardInfos,HandlerClick }) => {
         slidesToScroll: 1, // Quantidade de slides a serem rolados por vez
     };
 
-    console.log(cardInfos)
   
     return (
         <div className="carrossel">
+            <div className="carousel-arrows">
+                <PrevArrow />
+                <NextArrow />
+            </div>
             <Slider {...settings}>
-                {cardInfos.map((card, index) => (
-                    <Card card={card} key={index} HandlerClick = {HandlerClick}/>
-                ))}
+            {cardInfos.map((card, index) => (
+                <Card card={card} key={index} HandlerClick = {HandlerClick}/>
+            ))}
             </Slider>
         </div>
     );

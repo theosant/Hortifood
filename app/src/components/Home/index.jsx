@@ -5,7 +5,6 @@ import SiteSections from '../SiteSections';
 import './style.css'
 
 function Home({cardInfos, HandlerClick}) {
-
     return (
     <>
       <div className="home_banner">

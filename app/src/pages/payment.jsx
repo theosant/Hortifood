@@ -2,31 +2,8 @@ import React, { useState } from "react";
 import '../styles/payment.css'
 import SiteSections from '../components/SiteSections'
 
-const Payment = () =>{
-
-    const [cart, setCart] = useState([
-        {
-            item: "banana",
-            price: "10",
-            category: "frutas",
-            final_price: "14.2",
-            chosen: false,
-        },
-        {
-            item: "suco",
-            price: "20",
-            category: "sucos",
-            final_price: "15.2",
-            chosen: false,
-        },
-        {
-            item: "suco",
-            price: "20",
-            category: "sucos",
-            final_price: "15",
-            chosen: false,
-        },
-    ]);
+const Payment = ({setshowCart, setCart}) =>{
+    const cart = JSON.parse(localStorage.cart) 
 
     const [final_value, setFinalValue] = useState(0);
 
@@ -83,8 +60,8 @@ const Payment = () =>{
                 {cart.map((p, index) => (
                     <div key={index}> <table className="payment_table">
                         <tr>
-                            <td>{p.item}</td>
-                            <td>{p.category}</td>
+                            <td>{p.name}</td>
+                            <td>{p.type}</td>
                             <td>{p.price}</td>
                             <td>{p.final_price}</td>
                             <td><input className="selected" type="checkbox" onChange={() => handleCheckboxClick(p)}></input></td>
