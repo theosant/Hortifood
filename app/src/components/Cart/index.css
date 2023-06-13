@@ -60,11 +60,15 @@
     color: #CACACA;
 }
 
-.quantityInputCart span{
-    width: 100%;
+.quantityInputCart input{
+    width: 50%;
     text-align: center;
     font-size: 30px;
     font-weight: 200;
+    border: none;
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
 }
 
 #quantityCart{
