@@ -3,3 +3,8 @@
     padding: 1em;
     position: relative;
 }
+
+.arrow{
+    display: inline-block;
+    color: #EFEEEE;
+}
