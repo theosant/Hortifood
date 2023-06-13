@@ -58,7 +58,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                                             onClick={() => handleMinusClick(item)}
                                             style={{ cursor: 'pointer', maxWidth: "40px"  }}
                                             >-</span>
-                                        <span id="quantityCart">{quantity} g</span>
+                                        <input type='number' value={quantity} id="quantityCart"/>g
                                         <span
                                             onClick={() => handlePlusClick(item)}
                                             style={{ cursor: 'pointer', maxWidth: "40px" }}
@@ -84,7 +84,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
 
             {cart.length ? 
                 <div className="cart_total_price_container">
-                    <span className="cart_total_price">Valor Total: {totalPrice}R$</span> <br />
+                    <span className="cart_total_price">Valor Total: {totalPrice.toFixed(2)}R$</span> <br />
                     <button className='cart_end_purchase' onClick={() => handlePurchase()} >Finalizar Compra</button> <br />
                     <button className="flush_cart_button" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} >Limpar Carrinho!</button>
                 </div>
