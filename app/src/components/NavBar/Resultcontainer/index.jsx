@@ -1,5 +1,5 @@
 import "./index.css";
-
+import { Link } from "react-router-dom";
 const Resultcontainer = ({list}) => {
 
     return(
@@ -10,7 +10,7 @@ const Resultcontainer = ({list}) => {
                 <>Sem resultados</>
                 :
                 <div className="list_group">
-                    {list.map((resultado) => <p key={resultado.id} className="list-group-item">{resultado.name}</p>)}
+                    {list.map((resultado) => <Link to={`produto/${resultado.id}`} key={resultado.id} className="list-group-item">{resultado.name}</Link>)}
                 </div>
             }
             </div>
