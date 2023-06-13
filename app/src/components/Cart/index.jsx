@@ -76,7 +76,10 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                         </tbody>
                     ))}
                 </table>
-            : <h1 style={{color: "#414141", marginLeft: "30px"}}>Carrinho Vazio... &#x1F61E;</h1>}
+            :
+            <h1 style={{color: "#414141", marginLeft: "30px"}}>Carrinho Vazio... &#x1F61E;</h1>}
+
+            <div className='cart_margin'>margin</div>
 
             {cart.length ? 
                 <div className="cart_total_price_container">
@@ -84,7 +87,8 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                     <button className='cart_end_purchase' onClick={() => handlePurchase()} >Finalizar Compra</button> <br />
                     <button className="flush_cart_button" onClick={() => setCart([])} >Limpar Carrinho!</button>
                 </div>
-            : <></>}
+            :
+            <></>}
     </article>
     )
 }
