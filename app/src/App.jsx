@@ -23,6 +23,7 @@ import ForgotPassword from './pages/forgotpassword';
 import {Route, Routes} from 'react-router-dom'
 
 function App() {
+    const [cart, setCart] = useState([]);
   
     const [highlights] = useState(
         [
@@ -257,7 +258,6 @@ function App() {
         localStorage.setItem('produtos', JSON.stringify(highlights));
 
         
-    const [cart, setCart] = useState(JSON.parse(localStorage.produtos));
 
     const [warning, setWarning] = useState(false);
     const [showcart, setshowCart] = useState(false);

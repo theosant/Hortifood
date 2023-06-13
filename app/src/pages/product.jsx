@@ -62,7 +62,7 @@ const Product = ({HandlerClick}) => {
 
                                 <FruitPoint width = {350} height = {15}/>
 
-                                <h1 style={{color: "#334932", marginTop: 30 + "px"}}>{product ?  product.price : "..."} R$</h1>
+                                <h1 style={{color: "#334932", marginTop: 30 + "px"}}>R$ {product ?  product.price : "..."}/Kg</h1>
 
                                 <div className="quantityInput">
                                     <span
