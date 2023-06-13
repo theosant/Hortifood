@@ -7,9 +7,9 @@ const SiteSections = ({ type }) =>{
 
         return (
             <div className="background_site_sections regular">
-                <Link  to="/produtos/fruta">Frutas</Link>
-                <Link  to="/produtos/suco" className="sucos">Sucos</Link>
-                <Link  to="/produtos/vegetal">Verduras</Link>
+                <Link to="/produtos/frutas">Frutas</Link>
+                <Link to="/produtos/sucos" className="sucos">Sucos</Link>
+                <Link to="/produtos/vegetais">Verduras</Link>
             </div>
         )
 
@@ -18,7 +18,7 @@ const SiteSections = ({ type }) =>{
         return (
             <div className="background_site_sections main_page">
                 <div className="secao">
-                    <Link  to="/produtos/fruta">
+                    <Link  to="/produtos/frutas">
                         <div className="secao-icon">
                             <img src="imagens/frutas-icon.png" alt="Frutas" style={{width: 100 + 'px', height: 100 + 'px',}}/>
                         </div>
@@ -26,7 +26,7 @@ const SiteSections = ({ type }) =>{
                     </Link>
                 </div>
                 <div className="secao">
-                    <Link to="/produtos/vegetal">
+                    <Link to="/produtos/vegetais">
                         <div className="secao-icon">
                             <img src="imagens/vegetais-icon.png" alt="Vegetais"/>
                         </div>
@@ -34,7 +34,7 @@ const SiteSections = ({ type }) =>{
                     </Link>
                 </div>
                 <div className="secao">
-                    <Link  to="/produtos/suco">
+                    <Link to="/produtos/sucos">
                         <div className="secao-icon">
                             <img src="imagens/sucos-icon.png" alt="Sucos"/>
                         </div>

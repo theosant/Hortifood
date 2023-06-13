@@ -33,7 +33,7 @@ function App() {
               "name": "banana nanica1",
               "price": "41",
               "highlight": "true",
-              "type": "fruta",
+              "type": "frutas",
               "season": true
             },
             {
@@ -42,7 +42,7 @@ function App() {
               "name": "banana nanica2",
               "price": "42",
               "highlight": "true",
-              "type": "suco",
+              "type": "sucos",
               "season": true
             },
             {
@@ -51,7 +51,7 @@ function App() {
               "name": "banana nanica3",
               "price": "43",
               "highlight": "false",
-              "type": "vegetal",
+              "type": "vegetais",
               "season": false
             },
             {
@@ -60,7 +60,7 @@ function App() {
               "name": "maçã vermelha",
               "price": "25",
               "highlight": "false",
-              "type": "fruta",
+              "type": "frutas",
               "season": true
             },
             {
@@ -69,7 +69,7 @@ function App() {
               "name": "maçã verde",
               "price": "30",
               "highlight": "false",
-              "type": "fruta",
+              "type": "frutas",
               "season": false
             },
             {
@@ -78,7 +78,7 @@ function App() {
               "name": "morango",
               "price": "15",
               "highlight": "false",
-              "type": "fruta",
+              "type": "frutas",
               "season": true
             },
             {
@@ -87,7 +87,7 @@ function App() {
               "name": "laranja",
               "price": "20",
               "highlight": "false",
-              "type": "fruta",
+              "type": "frutas",
               "season": true
             },
             {
@@ -96,7 +96,7 @@ function App() {
               "name": "abacaxi",
               "price": "35",
               "highlight": "false",
-              "type": "fruta",
+              "type": "frutas",
               "season": false
             },
             {
@@ -105,7 +105,7 @@ function App() {
               "name": "melancia",
               "price": "28",
               "highlight": "false",
-              "type": "fruta",
+              "type": "frutas",
               "season": true
             },
             {
@@ -114,7 +114,7 @@ function App() {
               "name": "uva verde",
               "price": "18",
               "highlight": "false",
-              "type": "fruta",
+              "type": "frutas",
               "season": true
             },
             {
@@ -123,7 +123,7 @@ function App() {
               "name": "uva roxa",
               "price": "22",
               "highlight": "false",
-              "type": "fruta",
+              "type": "frutas",
               "season": false
             },
             {
@@ -132,7 +132,7 @@ function App() {
               "name": "pera",
               "price": "32",
               "highlight": "false",
-              "type": "fruta",
+              "type": "frutas",
               "season": true
             },
             {
@@ -141,7 +141,7 @@ function App() {
               "name": "abobrinha",
               "price": "8",
               "highlight": "true",
-              "type": "vegetal",
+              "type": "vegetais",
               "season": true
             },
             {
@@ -150,7 +150,7 @@ function App() {
               "name": "beterraba",
               "price": "5",
               "highlight": "true",
-              "type": "vegetal",
+              "type": "vegetais",
               "season": false
             },
             {
@@ -159,7 +159,7 @@ function App() {
               "name": "cebola",
               "price": "3",
               "highlight": "true",
-              "type": "vegetal",
+              "type": "vegetais",
               "season": true
             },
             {
@@ -168,7 +168,7 @@ function App() {
               "name": "cenoura",
               "price": "4",
               "highlight": "true",
-              "type": "vegetal",
+              "type": "vegetais",
               "season": false
             },
             {
@@ -177,7 +177,7 @@ function App() {
               "name": "tomate",
               "price": "6",
               "highlight": "false",
-              "type": "vegetal",
+              "type": "vegetais",
               "season": true
             },
             {
@@ -186,7 +186,7 @@ function App() {
               "name": "brócolis",
               "price": "9",
               "highlight": "false",
-              "type": "vegetal",
+              "type": "vegetais",
               "season": true
             },
             {
@@ -195,7 +195,7 @@ function App() {
               "name": "pepino",
               "price": "5",
               "highlight": "false",
-              "type": "vegetal",
+              "type": "vegetais",
               "season": false
             },
             {
@@ -204,7 +204,7 @@ function App() {
               "name": "alface",
               "price": "2",
               "highlight": "true",
-              "type": "vegetal",
+              "type": "vegetais",
               "season": true
             },
             {
@@ -213,16 +213,16 @@ function App() {
               "name": "suco de laranja",
               "price": "5",
               "highlight": "true",
-              "type": "suco",
+              "type": "sucos",
               "season": true
             },
             {
               "id": 21,
               "src": "/imagens/banana_nanica.jpeg",
-              "name": "suco de uva",
+              "name": "s de uva",
               "price": "6",
               "highlight": "false",
-              "type": "suco",
+              "type": "sucos",
               "season": true
             },
             {
@@ -231,7 +231,7 @@ function App() {
               "name": "suco de abacaxi",
               "price": "4",
               "highlight": "true",
-              "type": "suco",
+              "type": "sucos",
               "season": false
             },
             {
@@ -240,7 +240,7 @@ function App() {
               "name": "suco de goiaba",
               "price": "5",
               "highlight": "true",
-              "type": "suco",
+              "type": "sucos",
               "season": false
             },
             {
@@ -249,15 +249,13 @@ function App() {
               "name": "suco de maçã",
               "price": "6",
               "highlight": "true",
-              "type": "suco",
+              "type": "sucos",
               "season": false
             },
           ]
           );
 
         localStorage.setItem('produtos', JSON.stringify(highlights));
-
-        
 
     const [warning, setWarning] = useState(false);
     const [showcart, setshowCart] = useState(false);
