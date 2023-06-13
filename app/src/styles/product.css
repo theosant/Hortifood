@@ -59,11 +59,22 @@
     color: #CACACA;
 }
 
-.quantityInput span{
+.quantityInput input{
     width: 100%;
     text-align: center;
     font-size: 30px;
     font-weight: 200;
+    border: none;
+    margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
 }
 
 #quantity{

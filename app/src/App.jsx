@@ -24,241 +24,237 @@ import ForgotPassword from './pages/forgotpassword';
 import {Route, Routes} from 'react-router-dom'
 
 function App() {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(JSON.parse(localStorage.cart) );
   
-    const [highlights] = useState(
-        [
-            {
-              "id": 0,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "banana nanica1",
-              "price": "41",
-              "highlight": "true",
-              "type": "fruta",
-              "season": true
-            },
-            {
-              "id": 1,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "banana nanica2",
-              "price": "42",
-              "highlight": "true",
-              "type": "suco",
-              "season": true
-            },
-            {
-              "id": 2,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "banana nanica3",
-              "price": "43",
-              "highlight": "false",
-              "type": "vegetal",
-              "season": false
-            },
-            {
-              "id": 3,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "maçã vermelha",
-              "price": "25",
-              "highlight": "false",
-              "type": "fruta",
-              "season": true
-            },
-            {
-              "id": 4,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "maçã verde",
-              "price": "30",
-              "highlight": "false",
-              "type": "fruta",
-              "season": false
-            },
-            {
-              "id": 5,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "morango",
-              "price": "15",
-              "highlight": "false",
-              "type": "fruta",
-              "season": true
-            },
-            {
-              "id": 6,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "laranja",
-              "price": "20",
-              "highlight": "false",
-              "type": "fruta",
-              "season": true
-            },
-            {
-              "id": 7,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "abacaxi",
-              "price": "35",
-              "highlight": "false",
-              "type": "fruta",
-              "season": false
-            },
-            {
-              "id": 8,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "melancia",
-              "price": "28",
-              "highlight": "false",
-              "type": "fruta",
-              "season": true
-            },
-            {
-              "id": 9,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "uva verde",
-              "price": "18",
-              "highlight": "false",
-              "type": "fruta",
-              "season": true
-            },
-            {
-              "id": 10,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "uva roxa",
-              "price": "22",
-              "highlight": "false",
-              "type": "fruta",
-              "season": false
-            },
-            {
-              "id": 11,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "pera",
-              "price": "32",
-              "highlight": "false",
-              "type": "fruta",
-              "season": true
-            },
-            {
-              "id": 12,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "abobrinha",
-              "price": "8",
-              "highlight": "true",
-              "type": "vegetal",
-              "season": true
-            },
-            {
-              "id": 13,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "beterraba",
-              "price": "5",
-              "highlight": "true",
-              "type": "vegetal",
-              "season": false
-            },
-            {
-              "id": 14,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "cebola",
-              "price": "3",
-              "highlight": "true",
-              "type": "vegetal",
-              "season": true
-            },
-            {
-              "id": 15,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "cenoura",
-              "price": "4",
-              "highlight": "true",
-              "type": "vegetal",
-              "season": false
-            },
-            {
-              "id": 16,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "tomate",
-              "price": "6",
-              "highlight": "false",
-              "type": "vegetal",
-              "season": true
-            },
-            {
-              "id": 17,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "brócolis",
-              "price": "9",
-              "highlight": "false",
-              "type": "vegetal",
-              "season": true
-            },
-            {
-              "id": 18,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "pepino",
-              "price": "5",
-              "highlight": "false",
-              "type": "vegetal",
-              "season": false
-            },
-            {
-              "id": 19,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "alface",
-              "price": "2",
-              "highlight": "true",
-              "type": "vegetal",
-              "season": true
-            },
-            {
-              "id": 20,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "suco de laranja",
-              "price": "5",
-              "highlight": "true",
-              "type": "suco",
-              "season": true
-            },
-            {
-              "id": 21,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "suco de uva",
-              "price": "6",
-              "highlight": "false",
-              "type": "suco",
-              "season": true
-            },
-            {
-              "id": 22,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "suco de abacaxi",
-              "price": "4",
-              "highlight": "true",
-              "type": "suco",
-              "season": false
-            },
-            {
-              "id": 23,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "suco de goiaba",
-              "price": "5",
-              "highlight": "true",
-              "type": "suco",
-              "season": false
-            },
-            {
-              "id": 24,
-              "src": "/imagens/banana_nanica.jpeg",
-              "name": "suco de maçã",
-              "price": "6",
-              "highlight": "true",
-              "type": "suco",
-              "season": false
-            },
-          ]
-          );
+    const [highlights] = useState([
+          {
+            "id": 0,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "banana nanica1",
+            "price": "41",
+            "highlight": "true",
+            "type": "frutas",
+            "season": true
+          },
+          {
+            "id": 1,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "banana nanica2",
+            "price": "42",
+            "highlight": "true",
+            "type": "sucos",
+            "season": true
+          },
+          {
+            "id": 2,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "banana nanica3",
+            "price": "43",
+            "highlight": "false",
+            "type": "vegetais",
+            "season": false
+          },
+          {
+            "id": 3,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "maçã vermelha",
+            "price": "25",
+            "highlight": "false",
+            "type": "frutas",
+            "season": true
+          },
+          {
+            "id": 4,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "maçã verde",
+            "price": "30",
+            "highlight": "false",
+            "type": "frutas",
+            "season": false
+          },
+          {
+            "id": 5,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "morango",
+            "price": "15",
+            "highlight": "false",
+            "type": "frutas",
+            "season": true
+          },
+          {
+            "id": 6,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "laranja",
+            "price": "20",
+            "highlight": "false",
+            "type": "frutas",
+            "season": true
+          },
+          {
+            "id": 7,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "abacaxi",
+            "price": "35",
+            "highlight": "false",
+            "type": "frutas",
+            "season": false
+          },
+          {
+            "id": 8,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "melancia",
+            "price": "28",
+            "highlight": "false",
+            "type": "frutas",
+            "season": true
+          },
+          {
+            "id": 9,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "uva verde",
+            "price": "18",
+            "highlight": "false",
+            "type": "frutas",
+            "season": true
+          },
+          {
+            "id": 10,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "uva roxa",
+            "price": "22",
+            "highlight": "false",
+            "type": "frutas",
+            "season": false
+          },
+          {
+            "id": 11,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "pera",
+            "price": "32",
+            "highlight": "false",
+            "type": "frutas",
+            "season": true
+          },
+          {
+            "id": 12,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "abobrinha",
+            "price": "8",
+            "highlight": "true",
+            "type": "vegetais",
+            "season": true
+          },
+          {
+            "id": 13,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "beterraba",
+            "price": "5",
+            "highlight": "true",
+            "type": "vegetais",
+            "season": false
+          },
+          {
+            "id": 14,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "cebola",
+            "price": "3",
+            "highlight": "true",
+            "type": "vegetais",
+            "season": true
+          },
+          {
+            "id": 15,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "cenoura",
+            "price": "4",
+            "highlight": "true",
+            "type": "vegetais",
+            "season": false
+          },
+          {
+            "id": 16,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "tomate",
+            "price": "6",
+            "highlight": "false",
+            "type": "vegetais",
+            "season": true
+          },
+          {
+            "id": 17,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "brócolis",
+            "price": "9",
+            "highlight": "false",
+            "type": "vegetais",
+            "season": true
+          },
+          {
+            "id": 18,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "pepino",
+            "price": "5",
+            "highlight": "false",
+            "type": "vegetais",
+            "season": false
+          },
+          {
+            "id": 19,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "alface",
+            "price": "2",
+            "highlight": "true",
+            "type": "vegetais",
+            "season": true
+          },
+          {
+            "id": 20,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "suco de laranja",
+            "price": "5",
+            "highlight": "true",
+            "type": "sucos",
+            "season": true
+          },
+          {
+            "id": 21,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "s de uva",
+            "price": "6",
+            "highlight": "false",
+            "type": "sucos",
+            "season": true
+          },
+          {
+            "id": 22,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "suco de abacaxi",
+            "price": "4",
+            "highlight": "true",
+            "type": "sucos",
+            "season": false
+          },
+          {
+            "id": 23,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "suco de goiaba",
+            "price": "5",
+            "highlight": "true",
+            "type": "sucos",
+            "season": false
+          },
+          {
+            "id": 24,
+            "src": "/imagens/banana_nanica.jpeg",
+            "name": "suco de maçã",
+            "price": "6",
+            "highlight": "true",
+            "type": "sucos",
+            "season": false
+          },
+      ]);
 
         localStorage.setItem('produtos', JSON.stringify(highlights));
-
-        
 
     const [warning, setWarning] = useState(false);
     const [showcart, setshowCart] = useState(false);

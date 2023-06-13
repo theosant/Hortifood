@@ -4,11 +4,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SiteSections from "../components/SiteSections";
 
-
 const Products = ({HandlerClick}) => {
     const {tipo} = useParams()
     let src = `/imagens/banner${tipo}.jpg`;
-    console.log(src)
+    console.log(tipo)
 
     const [products, setProducts] = useState(null);
     useEffect(() => {

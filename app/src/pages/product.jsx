@@ -69,7 +69,7 @@ const Product = ({HandlerClick}) => {
                                         onClick={handleMinusClick}
                                         style={{ cursor: 'pointer', maxWidth: "40px"  }}
                                         >-</span>
-                                    <span id="quantity">{quantity} g</span>
+                                    <input type="number" value={quantity} id="quantity"/> g
                                     <span
                                         onClick={handlePlusClick}
                                         style={{ cursor: 'pointer', maxWidth: "40px" }}

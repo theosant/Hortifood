@@ -1,15 +1,14 @@
 .cart{
     margin-top: 77px;
     height: 100%;
-    position: fixed; /* Stay in place */
+    position: fixed;
     width: 35%;
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    z-index: 1;
+    top: 0;
     right: 0;
     border-left: solid #CACACA 2px;
     background-color: #F5F5F5;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    overflow-x: hidden;
 }
 
 .cart_box{
@@ -24,12 +23,10 @@
 .cart table{
     width: 100%;
     border-collapse: collapse;
-    /* border: solid #251d1d 2px; */
 }
 
 .cart_box td{
     width: 35%;
-    /* border: solid #251d1d 2px; */
 }
 
 .cart_box img{
@@ -63,11 +60,15 @@
     color: #CACACA;
 }
 
-.quantityInputCart span{
-    width: 100%;
+.quantityInputCart input{
+    width: 50%;
     text-align: center;
     font-size: 30px;
     font-weight: 200;
+    border: none;
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
 }
 
 #quantityCart{
