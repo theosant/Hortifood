@@ -18,6 +18,7 @@ import Cadastro from './pages/signup';
 import Perfil from './pages/profile'
 import Pagina404 from './pages/404'
 import { AuthProvider } from './components/Auth/Context'
+import { Protected } from './components/Routes/Protected';
 import ForgotPassword from './pages/forgotpassword';
 
 import {Route, Routes} from 'react-router-dom'
@@ -311,7 +312,7 @@ function App() {
                     <Route exact path="/produtos/:tipo" element={<Products HandlerClick={HandlerClick}/>}></Route>
                     <Route exact path="/produtoback" element={<ProductBackoffice />}></Route>
                     <Route exact path="/produtosback" element={<ProductsBackoffice />}></Route>
-                    <Route exact path="/profile" element={<Perfil />}></Route>
+                    <Route exact path="/profile" element={<Protected><Perfil /></Protected>} />
                     <Route exact path="/payment" element={<Payment setCart={setCart} setshowCart={HandleClickCart}/>}></Route>
                     <Route exact path="*" element={<Pagina404 />}></Route>
                 </Routes>

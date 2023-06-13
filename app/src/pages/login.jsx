@@ -10,7 +10,11 @@ function initialState() {
 
 function login({email,password}) {
     if (email === 'admin@mail.com' && password === 'admin') {
-        return { token: '1234' };
+        return { token: '1234', admin: true };
+    }
+
+    if (email === 'user@mail.com' && password === 'user') {
+        return {token: '1234', admin: false };
     }
 
     return { error: true }
@@ -33,7 +37,7 @@ const Login = (props) =>{
 
     function onSubmit(e) {
         e.preventDefault();
-        const { token, error } = login(values);
+        const { token, error, admin } = login(values);
         console.log(values);
 
         if (token) {
@@ -44,7 +48,8 @@ const Login = (props) =>{
                 name: 'Alan Turing',
                 cpf: '12345678909',
                 email: 'admin@mail.com',
-                purchases: []
+                purchases: [],
+                admin
             })
             navigate('/');
         }
