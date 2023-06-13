@@ -19,10 +19,10 @@ function Home({cardInfos, HandlerClick}) {
               <Carousel cardInfos = {cardInfos.filter(objeto => objeto.highlight === 'true')} HandlerClick = {HandlerClick} />
 
               <h1>Temporada</h1> <hr />
-              <Carousel cardInfos = {cardInfos.filter(objeto => objeto.type === 'vegetal')} HandlerClick = {HandlerClick} />
+              <Carousel cardInfos = {cardInfos.filter(objeto => objeto.type === 'vegetais')} HandlerClick = {HandlerClick} />
 
               <h1>Sucos Famosos</h1> <hr />
-              <Carousel cardInfos = {cardInfos.filter(objeto => objeto.type === 'suco')} HandlerClick = {HandlerClick} />
+              <Carousel cardInfos = {cardInfos.filter(objeto => objeto.type === 'sucos')} HandlerClick = {HandlerClick} />
           </div>
       </div>
     </>
