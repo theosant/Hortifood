@@ -8,7 +8,7 @@ import SiteSections from "../components/SiteSections";
 const Products = ({HandlerClick}) => {
     const {tipo} = useParams()
     let src = `/imagens/banner${tipo}.jpg`;
-    console.log(tipo)
+    console.log(src)
 
     const [products, setProducts] = useState(null);
     useEffect(() => {

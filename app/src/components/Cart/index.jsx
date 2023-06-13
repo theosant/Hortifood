@@ -31,11 +31,10 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
     }
 
     const handlePurchase = () => {
-        if (token) {
-            navigate('/payment');
-        } else {
-            navigate('/login');
-        }
+        if (token)
+        navigate('/payment');
+        else 
+        navigate('/login');
     }
 
     return (
@@ -43,6 +42,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
             <div className="close_cart_container">
                 <button className="close_cart_button" onClick={setshowCart}>X</button>
             </div>
+            <div className='cart_top_margin'>margin</div>
             {cart.length ? 
                 <table>
                     {cart.map((item) => (
@@ -73,14 +73,14 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                             </div>
 
                             <span className="cartPrice">R$ {price.toFixed(2)}</span>
-                            <button onClick={() => handleRemove(item.id)}>Remover</button>
+                            <button className='exclude_cart_item_button' onClick={() => handleRemove(item.id)}>X</button>
                         </tbody>
                     ))}
                 </table>
             :
             <h1 style={{color: "#414141", marginLeft: "30px"}}>Carrinho Vazio... &#x1F61E;</h1>}
 
-            <div className='cart_margin'>margin</div>
+            <div className='cart_bottom_margin'>margin</div>
 
             {cart.length ? 
                 <div className="cart_total_price_container">
@@ -90,7 +90,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                 </div>
             :
             <></>}
-    </article>
+        </article>
     )
 }
 
