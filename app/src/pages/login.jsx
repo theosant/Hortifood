@@ -43,14 +43,19 @@ const Login = (props) =>{
         if (token) {
             setToken(token);
             let today = new Date(); 
-            setUser({
+            let user = {
                 entered: `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()} - ${today.getHours()}h${today.getMinutes()}`,
                 name: 'Alan Turing',
                 cpf: '12345678909',
                 email: 'admin@mail.com',
                 purchases: [],
                 admin
-            })
+            };
+            setUser(user)
+
+            // localStorage.setItem('token', token);
+            // localStorage.setItem('user', JSON.stringify(user));
+
             navigate('/');
         }
 
