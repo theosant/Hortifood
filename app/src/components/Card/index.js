@@ -2,7 +2,7 @@ import React from 'react'
 import './index.css'
 import { Link } from 'react-router-dom'
 
-function Card({ card, HandlerClick }) {
+function Card({ card, HandlerClick, backOffice = false }) {
     const productadress = `/produto/${card.id}`
     return (
         <div className='carrossel-item' key={card.id}>
@@ -12,7 +12,12 @@ function Card({ card, HandlerClick }) {
                 <p>{card.name}</p>
             </Link>
             <p>R$ {card.price}/Kg</p>
-            <button onClick={() => HandlerClick(card)}>Adicionar ao Carrinho</button>
+            {
+                backOffice
+                ? <button onClick={() => HandlerClick(card)}>Gerenciar</button>
+                : <button onClick={() => HandlerClick(card)}>Adicionar ao Carrinho</button>
+            }
+            
         </div>
     )
 }
