@@ -33,6 +33,15 @@ const Product = ({HandlerClick}) => {
     const [quantity, setQuantity] = useState(0);
     const [price, setPrice] = useState(0);
 
+    const handleQuantityInput = (event) => {
+        if(quantity > 100 && quantity < 10000){
+            console.log(event.value)
+            setQuantity(event.value);
+            setPrice(event.value * 0.1 * product.price);
+        }
+    }
+    
+    console.log(quantity);
     const handleMinusClick = () => {
         if(quantity > 100){
             setQuantity(quantity - 100);
@@ -64,18 +73,21 @@ const Product = ({HandlerClick}) => {
 
                                 <h1 style={{color: "#334932", marginTop: 30 + "px"}}>R$ {product ?  product.price : "..."}/Kg</h1>
 
-                                <div className="quantityInput">
-                                    <span
-                                        onClick={handleMinusClick}
-                                        style={{ cursor: 'pointer', maxWidth: "40px"  }}
-                                        >-</span>
-                                    <input type="number" value={quantity} id="quantity"/> g
-                                    <span
-                                        onClick={handlePlusClick}
-                                        style={{ cursor: 'pointer', maxWidth: "40px" }}
-                                        >+</span>
+                                <div>
+
+                                    <div className="quantityInput">
+                                        <span
+                                            onClick={handleMinusClick}
+                                            style={{ cursor: 'pointer', maxWidth: "40px"  }}
+                                            >-</span>
+                                        <input type="number" onChange={handleQuantityInput} value={quantity} id="quantity"/>
+                                        <span
+                                            onClick={handlePlusClick}
+                                            style={{ cursor: 'pointer', maxWidth: "40px" }}
+                                            >+</span>
+                                    </div>
+                                    <span style={{display: "inline-block", marginLeft: "15.5%"}}>gramas</span>
                                 </div>
-                                
                                 <h2 style={{color: "#4A8149"}}>Total: R${price.toFixed(2)}</h2>
 
                                 <button onClick={() => HandlerClick(product)} id="addToCart">Adicionar ao Carrinho</button>
