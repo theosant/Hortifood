@@ -1,16 +1,11 @@
 import React from "react";
-import {useNavigate} from 'react-router-dom';
 import '../styles/perfil.css';
 import PurchaseBlock from '../components/PurchaseBlock';
 import { useAuth } from '../components/Auth/Context';
 
 const Perfil = () =>{
-    const navigate = useNavigate();
     const { user } = useAuth();
-
-    if (!user)
-        navigate('/login');
-
+    
     const formatCPF = (cpf) => {
         return `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9, 11)}`;
     }
