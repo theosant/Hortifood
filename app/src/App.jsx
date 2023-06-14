@@ -35,7 +35,8 @@ function App() {
               "price": "41",
               "highlight": "true",
               "type": "fruta",
-              "season": true
+              "season": true,
+              "stock": "1",
             },
             {
               "id": 1,
@@ -44,7 +45,8 @@ function App() {
               "price": "42",
               "highlight": "true",
               "type": "suco",
-              "season": true
+              "season": true,
+              "stock": "2",
             },
             {
               "id": 2,
@@ -53,7 +55,8 @@ function App() {
               "price": "43",
               "highlight": "false",
               "type": "vegetal",
-              "season": false
+              "season": false,
+              "stock": "2",
             },
             {
               "id": 3,
@@ -62,7 +65,8 @@ function App() {
               "price": "25",
               "highlight": "false",
               "type": "fruta",
-              "season": true
+              "season": true,
+              "stock": "20",
             },
             {
               "id": 4,
@@ -71,7 +75,8 @@ function App() {
               "price": "30",
               "highlight": "false",
               "type": "fruta",
-              "season": false
+              "season": false,
+              "stock": "20",
             },
             {
               "id": 5,
@@ -80,7 +85,8 @@ function App() {
               "price": "15",
               "highlight": "false",
               "type": "fruta",
-              "season": true
+              "season": true,
+              "stock": "25",
             },
             {
               "id": 6,
@@ -89,7 +95,8 @@ function App() {
               "price": "20",
               "highlight": "false",
               "type": "fruta",
-              "season": true
+              "season": true,
+              "stock": "28",
             },
             {
               "id": 7,
@@ -98,7 +105,8 @@ function App() {
               "price": "35",
               "highlight": "false",
               "type": "fruta",
-              "season": false
+              "season": false,
+              "stock": "23",
             },
             {
               "id": 8,
@@ -107,7 +115,8 @@ function App() {
               "price": "28",
               "highlight": "false",
               "type": "fruta",
-              "season": true
+              "season": true,
+              "stock": "21",
             },
             {
               "id": 9,
@@ -116,7 +125,8 @@ function App() {
               "price": "18",
               "highlight": "false",
               "type": "fruta",
-              "season": true
+              "season": true,
+              "stock": "18",
             },
             {
               "id": 10,
@@ -125,7 +135,8 @@ function App() {
               "price": "22",
               "highlight": "false",
               "type": "fruta",
-              "season": false
+              "season": false,
+              "stock": "12",
             },
             {
               "id": 11,
@@ -134,7 +145,8 @@ function App() {
               "price": "32",
               "highlight": "false",
               "type": "fruta",
-              "season": true
+              "season": true,
+              "stock": "30",
             },
             {
               "id": 12,
@@ -143,7 +155,8 @@ function App() {
               "price": "8",
               "highlight": "true",
               "type": "vegetal",
-              "season": true
+              "season": true,
+              "stock": "35",
             },
             {
               "id": 13,
@@ -152,7 +165,8 @@ function App() {
               "price": "5",
               "highlight": "true",
               "type": "vegetal",
-              "season": false
+              "season": false,
+              "stock": "34",
             },
             {
               "id": 14,
@@ -161,7 +175,8 @@ function App() {
               "price": "3",
               "highlight": "true",
               "type": "vegetal",
-              "season": true
+              "season": true,
+              "stock": "31",
             },
             {
               "id": 15,
@@ -170,7 +185,8 @@ function App() {
               "price": "4",
               "highlight": "true",
               "type": "vegetal",
-              "season": false
+              "season": false,
+              "stock": "35",
             },
             {
               "id": 16,
@@ -179,7 +195,8 @@ function App() {
               "price": "6",
               "highlight": "false",
               "type": "vegetal",
-              "season": true
+              "season": true,
+              "stock": "30",
             },
             {
               "id": 17,
@@ -188,7 +205,8 @@ function App() {
               "price": "9",
               "highlight": "false",
               "type": "vegetal",
-              "season": true
+              "season": true,
+              "stock": "14",
             },
             {
               "id": 18,
@@ -197,7 +215,8 @@ function App() {
               "price": "5",
               "highlight": "false",
               "type": "vegetal",
-              "season": false
+              "season": false,
+              "stock": "11",
             },
             {
               "id": 19,
@@ -206,7 +225,8 @@ function App() {
               "price": "2",
               "highlight": "true",
               "type": "vegetal",
-              "season": true
+              "season": true,
+              "stock": "11",
             },
             {
               "id": 20,
@@ -215,7 +235,8 @@ function App() {
               "price": "5",
               "highlight": "true",
               "type": "suco",
-              "season": true
+              "season": true,
+              "stock": "15",
             },
             {
               "id": 21,
@@ -224,7 +245,8 @@ function App() {
               "price": "6",
               "highlight": "false",
               "type": "suco",
-              "season": true
+              "season": true,
+              "stock": "15",
             },
             {
               "id": 22,
@@ -233,7 +255,8 @@ function App() {
               "price": "4",
               "highlight": "true",
               "type": "suco",
-              "season": false
+              "season": false,
+              "stock": "5",
             },
             {
               "id": 23,
@@ -242,7 +265,8 @@ function App() {
               "price": "5",
               "highlight": "true",
               "type": "suco",
-              "season": false
+              "season": false,
+              "stock": "5",
             },
             {
               "id": 24,
@@ -251,14 +275,13 @@ function App() {
               "price": "6",
               "highlight": "true",
               "type": "suco",
-              "season": false
+              "season": false,
+              "stock": "1",
             },
           ]
           );
-
-        localStorage.setItem('produtos', JSON.stringify(highlights));
-
-        
+          
+    localStorage.setItem('produtos', JSON.stringify(highlights));
 
     const [warning, setWarning] = useState(false);
     const [showcart, setshowCart] = useState(false);

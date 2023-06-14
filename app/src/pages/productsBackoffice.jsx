@@ -78,6 +78,7 @@ const ProductsBackoffice = ({HandlerClick}) => {
                         <span>Preço por quilo: </span><input id="newProductPrice" type="text"></input><br />
                         <span>Tipo: </span><input id="newProductType" type="text"></input><br />
                         <span>Quantidade em estoque: </span><input id="newProductStock" type="text"></input>Kg<br />
+                        <span>Season?: </span><input id="newProductSeason" type="check-box"></input><br />
                         <button onClick={handleAddProductClick}>Adicionar</button>
                     </div>
                 }
