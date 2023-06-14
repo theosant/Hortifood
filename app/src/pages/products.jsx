@@ -1,10 +1,11 @@
 import "../styles/products.css";
 import Card from "../components/Card"
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SiteSections from "../components/SiteSections";
 
 const Products = ({HandlerClick}) => {
+    const navigate = useNavigate();
     const {tipo} = useParams()
     let src = `/imagens/banner${tipo}.jpg`;
     console.log(tipo)
@@ -19,7 +20,11 @@ const Products = ({HandlerClick}) => {
     
         async function readProductsByType(tipo){
             await delay();
-            return JSON.parse(localStorage.produtos).filter((obj) => obj.type === tipo);
+            const produtos = JSON.parse(localStorage.produtos).filter((obj) => obj.type === tipo);
+            if(produtos.length === 0){
+                navigate('/404');
+            }
+            return produtos
         }
         readProductsByType(tipo).then( (resposta) => {
             setProducts(resposta)})

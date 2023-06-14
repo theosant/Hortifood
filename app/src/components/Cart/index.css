@@ -60,7 +60,7 @@
     color: #CACACA;
 }
 
-.quantityInputCart input{
+.quantityInputCart span{
     width: 50%;
     text-align: center;
     font-size: 30px;

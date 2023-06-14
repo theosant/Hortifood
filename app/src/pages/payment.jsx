@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/payment.css'
 import SiteSections from '../components/SiteSections'
 
-const Payment = ({setshowCart, setCart}) =>{
+const Payment = ({setCart}) =>{
     const cart = JSON.parse(localStorage.cart) 
-
+    const [totalPrice, setTotalPrice] = useState(0)
     const [final_value, setFinalValue] = useState(0);
+
+    const handleTotalPrice = () => {
+        let total = 0;
+        cart.forEach((product,index) => {
+            if(checkboxes[index].checked)
+                total += product.amount*product.price/1000
+        })
+        setTotalPrice(total);
+    }
+
 
     const handleCheckboxClick = (purchase) => {
         const updatedCart = cart.map((item) => {
@@ -29,20 +39,21 @@ const Payment = ({setshowCart, setCart}) =>{
         selectAllButton.disabled = false;
         selectAllButton.checked = false;
     };
-    
+    let checkboxes = document.getElementsByClassName("selected");
     const handleCheckAllclick = (event) => {
-        setFinalValue(0);
         cart.forEach((purchase) => {
-            purchase.chosen = true;
-            setFinalValue((prevValue) => prevValue + parseFloat(purchase.final_price));
+            purchase.chosen = event.target.checked;
         });
 
-        const checkboxes = document.getElementsByClassName("selected");
+        checkboxes = document.getElementsByClassName("selected");
         for(let i = 0; i < checkboxes.length; i++)
-            checkboxes[i].checked = true;
-
-        event.target.disabled = true;
+            checkboxes[i].checked = event.target.checked;
+        handleTotalPrice()
     };
+    
+    useEffect(() => {
+        handleTotalPrice()
+      }, [cart,checkboxes]); 
 
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
@@ -62,9 +73,9 @@ const Payment = ({setshowCart, setCart}) =>{
                         <tr>
                             <td>{p.name}</td>
                             <td>{p.type}</td>
-                            <td>{p.price}</td>
-                            <td>{p.final_price}</td>
-                            <td><input className="selected" type="checkbox" onChange={() => handleCheckboxClick(p)}></input></td>
+                            <td>{(p.amount/1000).toFixed(2)}Kg</td>
+                            <td>{(p.amount/1000* p.price).toFixed(2)} R$</td>
+                            <td><input defaultChecked={true} className="selected" type="checkbox" onChange={() => handleCheckboxClick(p)}></input></td>
                         </tr>
                     </table> </div>
                 ))}
@@ -72,10 +83,10 @@ const Payment = ({setshowCart, setCart}) =>{
                 <table className="payment_table">
                     <tr>
                         <td></td><td></td><td></td>
-                        <td><span>Todos:</span><input type="checkbox" id="selectAll" onClick={handleCheckAllclick}></input></td>
+                        <td><span>Todos:</span><input defaultChecked={true} type="checkbox" id="selectAll" onClick={handleCheckAllclick}></input></td>
                     </tr>
                 </table>
-                <p id="totalPayment">Valor Total: {final_value.toFixed(2)} R$</p>
+                <p id="totalPayment">Valor Total: {totalPrice.toFixed(2)} R$</p>
 
                 <h2>Pagamento</h2>
                 <span className="cardInfoSpan">Número do cartão:</span> <input className="creditCardInfo" type="text"></input> <br />
@@ -83,7 +94,7 @@ const Payment = ({setshowCart, setCart}) =>{
                 <span className="cardInfoSpan">Validade:</span> <input className="creditCardInfo" type="text"></input> <br />
                 <span className="cardInfoSpan">Código de segurança:</span> <input className="creditCardInfo" type="text"></input> <br />
                 
-                <button id="sendPurchase">Finalizar Compra</button>
+                <button onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} id="sendPurchase">Finalizar Compra</button>
             </div>
         </div>
     )

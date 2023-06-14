@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Auth/Context';
 import './index.css';
@@ -11,18 +11,6 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
     const { token } = useAuth();
     const navigate = useNavigate();
 
-    const handleMinusClick = (product) => {
-        if(quantity > 100){
-            setQuantity(quantity - 100);
-            setPrice(price - (product.price * 0.1));
-            setTotalPrice(totalPrice - price);
-        }
-    }
-    const handlePlusClick = (product) => {
-        setQuantity(quantity + 100);
-        setPrice(price + (product.price * 0.1))
-        setTotalPrice(totalPrice + price);
-    }
 
     const handleRemove= (id) => {
         const arr = cart.filter(item => item.id !== id)
@@ -32,10 +20,23 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
 
     const handlePurchase = () => {
         if (token)
-        navigate('/payment');
+            navigate('/payment');
         else 
-        navigate('/login');
+            navigate('/login');
     }
+
+    
+
+    useEffect(() => {
+        const handleTotalPrice = () => {
+            let total = 0;
+            cart.forEach((product) => {
+                total += product.amount*product.price/1000
+            })
+            setTotalPrice(total);
+        }
+        handleTotalPrice()
+      }, [cart]); 
 
     return (
         <article className='cart'>
@@ -55,12 +56,16 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
 
                                     <div className="quantityInputCart">
                                         <span
-                                            onClick={() => handleMinusClick(item)}
+                                            onClick={() => {
+                                                handleChange(item,-100)
+                                                }}
                                             style={{ cursor: 'pointer', maxWidth: "40px"  }}
                                             >-</span>
-                                        <input type='number' value={quantity} id="quantityCart"/>g
+                                        <span type='number' id="quantityCart"> {item.amount}g</span>
                                         <span
-                                            onClick={() => handlePlusClick(item)}
+                                            onClick={() => {
+                                                handleChange(item,+100)
+                                                }}
                                             style={{ cursor: 'pointer', maxWidth: "40px" }}
                                             >+</span>
                                     </div>
@@ -72,7 +77,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                                 <FruitPoint width={340} heigth={10}/>
                             </div>
 
-                            <span className="cartPrice">R$ {price.toFixed(2)}</span>
+                            <span className="cartPrice">R$ {(item.amount*item.price/1000).toFixed(2)}</span>
                             <button className='exclude_cart_item_button' onClick={() => handleRemove(item.id)}>X</button>
                         </tbody>
                     ))}
@@ -84,7 +89,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
 
             {cart.length ? 
                 <div className="cart_total_price_container">
-                    <span className="cart_total_price">Valor Total: R$ {totalPrice}</span> <br />
+                    <span className="cart_total_price">Valor Total: R$ {totalPrice.toFixed(2)}</span> <br />
                     <button className='cart_end_purchase' onClick={() => handlePurchase()} >Finalizar Compra</button> <br />
                     <button className="flush_cart_button" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} >Limpar Carrinho</button>
                 </div>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect} from 'react';
 import '../styles/product.css'
 import FruitPoint from '../components/FruitPoint'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const Product = ({HandlerClick}) => {
 
+const Product = ({HandlerClick,handleChange}) => {
+    const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     let { id } = useParams();
     id = parseInt(id);
@@ -18,9 +19,15 @@ const Product = ({HandlerClick}) => {
     
         async function readProductById(id){
             await delay();
-            return JSON.parse(localStorage.produtos).find((obj) => obj.id === id);
+            const produto = JSON.parse(localStorage.produtos).find((obj) => obj.id === id);
+            if(!produto){
+                navigate('/404');
+            }
+            return  produto
         }
         readProductById(id).then( (resposta) => {
+            resposta.amount = 0;
+            resposta.ponto = 2;
             setProduct(resposta)})
     }, [id]);
 
@@ -42,17 +49,6 @@ const Product = ({HandlerClick}) => {
     }
     
     console.log(quantity);
-    const handleMinusClick = () => {
-        if(quantity > 100){
-            setQuantity(quantity - 100);
-            setPrice(price - (product.price * 0.1));
-        }
-    }
-    const handlePlusClick = () => {
-        setQuantity(quantity + 100);
-        setPrice(price + (product.price * 0.1))
-    }
-    
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
             <div>
@@ -77,12 +73,23 @@ const Product = ({HandlerClick}) => {
 
                                     <div className="quantityInput">
                                         <span
-                                            onClick={handleMinusClick}
+                                            onClick={()=> {
+                                                if(quantity > 100){
+                                                    product.amount -= 100;
+                                                    setProduct(product);
+                                                    setQuantity(quantity - 100);
+                                                    setPrice(price - (product.price * 0.1));
+                                                }}}
                                             style={{ cursor: 'pointer', maxWidth: "40px"  }}
                                             >-</span>
                                         <input type="number" onChange={handleQuantityInput} value={quantity} id="quantity"/>
                                         <span
-                                            onClick={handlePlusClick}
+                                            onClick={()=> {
+                                                product.amount += 100;
+                                                setProduct(product);
+                                                setQuantity(quantity + 100);
+                                                setPrice(price + (product.price * 0.1))
+                                                }}
                                             style={{ cursor: 'pointer', maxWidth: "40px" }}
                                             >+</span>
                                     </div>
@@ -90,7 +97,7 @@ const Product = ({HandlerClick}) => {
                                 </div>
                                 <h2 style={{color: "#4A8149"}}>Total: R${price.toFixed(2)}</h2>
 
-                                <button onClick={() => HandlerClick(product)} id="addToCart">Adicionar ao Carrinho</button>
+                                <button onClick={() => {HandlerClick(product)}} id="addToCart">Adicionar ao Carrinho</button>
                             </td>
                         </tr>
                     </table>

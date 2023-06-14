@@ -33,6 +33,6 @@ const FruitPoint = ({width, heigth}) => {
             </input>
         </div>
     );
-};  
+};
 
 export default FruitPoint;
