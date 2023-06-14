@@ -3,7 +3,8 @@ import './index.css'
 import { Link } from 'react-router-dom'
 
 function Card({ card, HandlerClick, backOffice = false }) {
-    const productadress = `/produto/${card.id}`
+    const productadress = `/produto/${card.id}`;
+    // console.log(productadress);
     return (
         <div className='carrossel-item' key={card.id}>
             <Link className="carrossel-item__link" to={productadress}>

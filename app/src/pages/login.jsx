@@ -10,6 +10,7 @@ function initialState() {
 
 function login({email,password}) {
     if (email === 'admin@mail.com' && password === 'admin') {
+        // console.log("sssssssssss");
         return { token: '1234', admin: true };
     }
 
@@ -23,7 +24,7 @@ function login({email,password}) {
 const Login = (props) =>{
     const [values, setValues] = useState(initialState);
     const [warning, setWarning] = useState(null);
-    const { setToken, setUser } = useAuth();
+    const {setToken, setUser } = useAuth();
     const navigate = useNavigate();
 
     function onChange(e) {
@@ -53,8 +54,10 @@ const Login = (props) =>{
             };
             setUser(user)
 
-            // localStorage.setItem('token', token);
-            // localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify(user));
+
+            console.log(localStorage);
 
             navigate('/');
         }

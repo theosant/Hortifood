@@ -4,10 +4,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SiteSections from "../components/SiteSections";
 
-
 const ProductsBackoffice = () => {
     const navigate  = useNavigate(); 
-    const tipo = "fruta";
+    const {tipo} = useParams()
     let src = `/imagens/banner${tipo}.jpg`;
     
     const [addProduct, setAddProduct] = useState(null);
@@ -32,7 +31,7 @@ const ProductsBackoffice = () => {
     }
 
     const HandlerClick = () => {
-        navigate('/produtoback');
+        navigate(`/produto/back/${tipo}`);
     };
 
     useEffect(() => {

@@ -8,7 +8,6 @@ const Products = ({HandlerClick}) => {
     const navigate = useNavigate();
     const {tipo} = useParams()
     let src = `/imagens/banner${tipo}.jpg`;
-    console.log(tipo)
 
     const [products, setProducts] = useState(null);
     useEffect(() => {

@@ -18,14 +18,20 @@ import Cadastro from './pages/signup';
 import Perfil from './pages/profile'
 import Pagina404 from './pages/404'
 import { AuthProvider } from './components/Auth/Context'
-import { Protected } from './components/Routes/Protected';
+import { PathAnalisys } from './components/Routes/pathAnalisys';
 import ForgotPassword from './pages/forgotpassword';
 
 import {Route, Routes} from 'react-router-dom'
 
 function App() {
     const [cart, setCart] = useState(JSON.parse(localStorage.cart));
-  
+
+    let user = {
+      admin: false,
+    };
+    localStorage.setItem('token', "");
+    localStorage.setItem('user', JSON.stringify(user));
+
     const [highlights] = useState(
         [
             {
@@ -35,7 +41,9 @@ function App() {
               "price": "41",
               "highlight": "true",
               "type": "frutas",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
             },
             {
               "id": 1,
@@ -323,12 +331,12 @@ function App() {
                     <Route exact path="/login" element={<Login />}></Route>
                     <Route exact path="/signup" element={<Cadastro/>}></Route>
                     <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
-                    <Route exact path="/produto/:id" element={<Product handleChange={handleChange} HandlerClick={HandlerClick}/>}></Route>
-                    <Route exact path="/produtos/:tipo" element={<Products HandlerClick={HandlerClick}/>}></Route>
-                    <Route exact path="/produtoback" element={<Protected adminOnly><ProductBackoffice /></Protected>}></Route>
-                    <Route exact path="/produtosback" element={<Protected adminOnly><ProductsBackoffice /></Protected>}></Route>
-                    <Route exact path="/profile" element={<Protected><Perfil /></Protected>} />
-                    <Route exact path="/payment" element={<Protected><Payment setCart={setCart} setshowCart={HandleClickCart}/></Protected>}></Route>
+                    <Route exact path="/produto/:id" element={<PathAnalisys adminOnly = {false}><Product handleChange={handleChange} HandlerClick={HandlerClick}/></PathAnalisys>}></Route>
+                    <Route exact path="/produtos/:tipo" element={<PathAnalisys adminOnly = {false}><Products HandlerClick={HandlerClick}/></PathAnalisys>}></Route>
+                    <Route exact path="/produto/back/:id" element={<ProductBackoffice />}></Route>
+                    <Route exact path="/produtos/back/:tipo" element={<ProductsBackoffice />}></Route>
+                    <Route exact path="/profile" element={<PathAnalisys adminOnly = {false}><Perfil /></PathAnalisys>} />
+                    <Route exact path="/payment" element={<PathAnalisys><Payment setCart={setCart} setshowCart={HandleClickCart}/></PathAnalisys>}></Route>
                     <Route exact path="*" element={<Pagina404 />}></Route>
                 </Routes>
             {showcart && <Cart setshowCart={HandleClickCart} cart={cart} setCart={setCart} handleChange={handleChange}/>}
