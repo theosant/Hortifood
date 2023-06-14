@@ -255,10 +255,8 @@ function App() {
             },
           ]
           );
-
-        localStorage.setItem('produtos', JSON.stringify(highlights));
-
-        
+          
+    localStorage.setItem('produtos', JSON.stringify(highlights));
 
     const [warning, setWarning] = useState(false);
     const [showcart, setshowCart] = useState(false);

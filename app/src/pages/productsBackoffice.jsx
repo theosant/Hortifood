@@ -1,12 +1,13 @@
 import "../styles/products.css";
 import Card from "../components/Card"
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SiteSections from "../components/SiteSections";
 
 
-const ProductsBackoffice = ({HandlerClick}) => {
-    const tipo = "frutas";
+const ProductsBackoffice = () => {
+    const navigate  = useNavigate(); 
+    const tipo = "fruta";
     let src = `/imagens/banner${tipo}.jpg`;
     
     const [addProduct, setAddProduct] = useState(null);
@@ -29,6 +30,10 @@ const ProductsBackoffice = ({HandlerClick}) => {
             stock: input_stock.value,
         }
     }
+
+    const HandlerClick = () => {
+        navigate('/produtoback');
+    };
 
     useEffect(() => {
         function delay(){
@@ -78,6 +83,7 @@ const ProductsBackoffice = ({HandlerClick}) => {
                         <span>Preço por quilo: </span><input id="newProductPrice" type="text"></input><br />
                         <span>Tipo: </span><input id="newProductType" type="text"></input><br />
                         <span>Quantidade em estoque: </span><input id="newProductStock" type="text"></input>Kg<br />
+                        <span>Season?: </span><input id="newProductSeason" type="check-box"></input><br />
                         <button onClick={handleAddProductClick}>Adicionar</button>
                     </div>
                 }
@@ -86,7 +92,7 @@ const ProductsBackoffice = ({HandlerClick}) => {
                 <div className="products_container" style={{display: "inline-block"}}>
                     {products.map((product) => (
                         <div className="cardDisplay">
-                            <Card card = {product} HandlerClick={HandlerClick} />
+                            <Card card = {product} HandlerClick={HandlerClick} backOffice/>
                         </div>
                     ))}
                 </div>

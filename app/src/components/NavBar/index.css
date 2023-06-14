@@ -87,6 +87,11 @@ nav{
     color: white;
 }
 
+.logout-btn {
+    background-color: #D32F2F;
+    color: white;
+}
+
 .cart-btn {
     background-color: #EEEEEE;
     border: none;
