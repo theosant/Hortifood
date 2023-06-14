@@ -42,3 +42,25 @@
 #last_purchases_container{
     color: #414141;
 }
+
+.nav-links a {
+    display: inline-block;
+}
+
+.nav-links a {
+    font: bold 15px Arial;
+    text-decoration: none;
+    padding: 15px 15px;
+    border-radius: 6px;
+    margin: 0px 15px;
+}
+
+.products-btn {
+    font: bold 15px Arial;
+    text-decoration: none;
+    padding: 15px 15px;
+    border-radius: 6px;
+    margin: 0px 15px;
+    background-color: #4A8149;
+    color: white;
+}

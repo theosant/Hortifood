@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/perfil.css';
+import {Link} from 'react-router-dom';
 import PurchaseBlock from '../components/PurchaseBlock';
 import { useAuth } from '../components/Auth/Context';
 
@@ -12,7 +13,10 @@ const Perfil = () =>{
 
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
-            <div className="banner_perfil">Perfil</div>
+            <div className="banner_perfil">
+                Perfil
+                {user.admin && <Link to="/produtosback" className="products-btn">Gerenciar Produtos</Link>}
+            </div>
             <div className="perfil_background">
                 <h2 id="entered">Entrou em: {user.entered}</h2>
                 <h1 id="user_name">Nome completo do usuário: {user.name}</h1>

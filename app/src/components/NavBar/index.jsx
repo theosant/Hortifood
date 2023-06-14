@@ -42,13 +42,13 @@ const NavBar = ({size, setshowCart, products}) => {
                         ? <Link to="./profile" className="login-btn">Meu Perfil</Link>
                         : <Link to="./login" className="login-btn">Entrar</Link>
                     }
-                    {token && <Link to="/" className="logout-btn" onClick={handleLogout}>Logout</Link>}
                     <button onClick={setshowCart} className="cart-btn">
                         <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
                         <span>{size}</span>
                         <p>Meu Carrinho</p>
                         
                     </button>
+                    {token && <Link to="/" className="logout-btn" onClick={handleLogout}>Logout</Link>}
             </nav>
             <div style={{ height: '77px' }} />
         </>
