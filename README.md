@@ -38,6 +38,37 @@ Foram feitos os protótipos de 3 telas, a 'principal', 'sobre nós' e 'entrar'.
 ## 3. Comments About the Code
 ## 4. Test Plan
 ## 5. Test Results
-## 6. Build Procedures
+
+## 6. Guia de Instalação do Projeto
+
+Este projeto utiliza o React para construir o site. Para executá-lo localmente, siga as etapas abaixo.
+
+### Pré-requisitos
+
+Antes de começar, certifique-se de ter o Node.js instalado em seu sistema. Você pode baixar o Node.js no site oficial: [https://nodejs.org](https://nodejs.org)
+
+1. Primeiro você deve acessar a pasta app no terminal:
+
+```bash
+cd app
+```
+
+2. Instale as dependências com o seguinte comando:
+```bash
+npm install
+```
+
+3. Executar o projeto com o comando:
+```bash
+npm start
+```
+4. Acesse o site em seu navegador digitando o endereço "http://localhost:3000".
+
+
+
+
+
+
+
 ## 7. Problems
 ## 8. Comments
