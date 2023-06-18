@@ -13,8 +13,8 @@ export function PathAnalisys({ adminOnly, children }) {
   console.log("Caminho da URL:", path);
   let main_path = path.split("/")[1]; // principal componente do path
   let param = useParams()
-  console.log(param);
-  console.log(user.admin);
+  // console.log(param);
+  // console.log(user.admin);
   console.log(adminOnly);
 
     if (!token && adminOnly) {

@@ -6,7 +6,8 @@ import {Link, useNavigate} from 'react-router-dom'
 import Resultcontainer from "./Resultcontainer";
 
 const NavBar = ({size, setshowCart, products}) => {
-    const {token, setToken, setUser} = useAuth();
+    // const {token, setToken, setUser} = useAuth();
+    const token = localStorage.getItem('token');
     const [value,setValue] = useState('');
     const [list,setList] = useState([]);
     const [showResult,setShowResult] = useState(false);
@@ -24,8 +25,10 @@ const NavBar = ({size, setshowCart, products}) => {
     }
 
     function handleLogout() {
-        setToken(null);
-        setUser();
+        // setToken(null);
+        // setUser();
+        localStorage.setItem('token', "");
+        // localStorage.setItem('user', "");
     }
 
     return (
