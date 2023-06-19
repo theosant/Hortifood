@@ -36,7 +36,7 @@ const NavBar = ({size, setshowCart, products}) => {
             admin: false,
         };
         localStorage.setItem('user', JSON.stringify(user));
-        // localStorage.setItem('token', "");
+        localStorage.setItem('token', "");
         // localStorage.setItem('user', "");
         // localStorage.setItem('user', "");
     }
