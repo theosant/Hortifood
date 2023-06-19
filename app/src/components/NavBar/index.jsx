@@ -27,7 +27,17 @@ const NavBar = ({size, setshowCart, products}) => {
     function handleLogout() {
         // setToken(null);
         // setUser();
-        localStorage.setItem('token', "");
+        let user = {
+            entered: '',
+            name: '',
+            cpf: '',
+            email: '',
+            purchases: [],
+            admin: false,
+        };
+        localStorage.setItem('user', JSON.stringify(user));
+        // localStorage.setItem('token', "");
+        // localStorage.setItem('user', "");
         // localStorage.setItem('user', "");
     }
 

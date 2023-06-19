@@ -321,6 +321,8 @@ function App() {
         localStorage.setItem('cart', JSON.stringify([...cart,item]));
     }
 
+    console.log(localStorage.getItem('token'));
+
     return (
         <div>
           <AuthProvider>
