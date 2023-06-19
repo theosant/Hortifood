@@ -21,22 +21,16 @@ export function PathAnalisys({ adminOnly, children }) {
         return <Navigate to="/login" replace />;
     } else {
         if(!param){
-            if(user.admin){
-                console.log("aaaaaa");
+            if(user.admin)
                 return <Navigate to={main_path + "/back/"} replace = {true}/>;
-            }
         }
         else{
-          if(user.admin){
-              if(main_path === "produto"){
-                  return <Navigate to={`/${main_path}/back/${param.id}`} replace = {true}/>;
-              }
-              else if(main_path === "produtos"){
-                  return <Navigate to={`/${main_path}/back/${param.tipo}`} replace = {true}/>;
-              }
-              console.log("bbbbbb");
-                // console.log("admin" + "/" + main_path + "back/" + param.id);
-          }
+            if(user.admin){
+                if(main_path === "produto")
+                    return <Navigate to={`/${main_path}/back/${param.id}`} replace = {true}/>;
+                else if(main_path === "produtos")
+                    return <Navigate to={`/${main_path}/back/${param.tipo}`} replace = {true}/>;
+            }
         }
     }
 
