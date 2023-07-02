@@ -1,22 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/product.css'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function ProductBackoffice() {
+    console.log("backoffice")
 
-    const [product, setProduct] = useState(
-        {
-            "id": 0,
-            "src": "/imagens/banana_nanica.jpeg",
-            "name": "banana nanica1",
-            "price": "41",
-            "highlight": "true",
-            "type": "fruta",
-            "season": true,
-            "on_stock": "10",
-        });
+    const navigate = useNavigate();
+    const [product, setProduct] = useState(null);
+    let { id } = useParams();
+    id = parseInt(id);
 
-    console.log(product)
+    console.log(id);
+
+    useEffect(() => {
+        function delay(){
+            return new Promise(function(resolve) {
+                setTimeout(resolve, 100);
+            });
+        }
+    
+        async function readProductById(id){
+            await delay();
+            const produto = JSON.parse(localStorage.produtos).find((obj) => obj.id === id);
+            if(!produto){
+                navigate('/404');
+            }
+            return produto
+        }
+        readProductById(id).then( (resposta) => {
+            console.log(resposta);
+            resposta.amount = 0;
+            resposta.ponto = 2;
+            setProduct(resposta);
+        })
+    }, [id]);
+
+    // console.log(product)
     // let { id } = useParams();
     // id = parseInt(id);
 
@@ -91,8 +110,12 @@ function ProductBackoffice() {
                     <table>
                         <tr>
                             <td className="product_image_container">
+                                {product ?
                                 <img alt="produto!" src={product.src}></img>
+                                :
+                                <h1>Carregando</h1>}
                             </td>
+
                             <td className="product_data_container">
                                 {product ?
                                     <>
@@ -103,26 +126,33 @@ function ProductBackoffice() {
                                         >{product.name}</h1>
                                         <button style={nameEditStyle} onClick={handleNameEdit}>Editar nome</button>
                                     </>
-                                    : <h1>Carregando</h1>}
+                                    :
+                                        <h1>Carregando</h1>}
 
                                 <h3
                                     style={{ color: "#7A7A7A", fontSize: "15px", fontWeight: 400, marginBottom: 20 + "px"}}
                                 >Vendido e entregue por Hortifood</h3>
 
-                                <h1
-                                    style={{color: "#334932", marginTop: 30 + "px", display: "inline-block"}}
-                                    contentEditable={priceChange}
-                                    onBlur={handlePriceChange}
-                                >{product.price}</h1> R$
-                                <button style={priceEditStyle} onClick={handlePriceEdit}>Editar preço do produto</button>
+                                {product ?
+                                    <>
+                                        <h1
+                                            style={{color: "#334932", marginTop: 30 + "px", display: "inline-block"}}
+                                            contentEditable={priceChange}
+                                            onBlur={handlePriceChange}
+                                        >{product.price}</h1> R$
+                                        <button style={priceEditStyle} onClick={handlePriceEdit}>Editar preço do produto</button>
 
-                                <div className="stock_quantity">
-                                    Quantidade em Estoque: <span 
-                                                                contentEditable={quantityChange}
-                                                                onBlur={handleQuantityChange}
-                                                            >{product.on_stock}</span> Kg
-                                </div>
-                                <button style={quantityEditStyle} onClick={handleQuantityEdit}>Editar Estoque</button>
+                                        <div className="stock_quantity">
+                                            Quantidade em Estoque: <span 
+                                                                        contentEditable={quantityChange}
+                                                                        onBlur={handleQuantityChange}
+                                                                    >{product.on_stock}</span> Kg
+                                        </div>
+                                        <button style={quantityEditStyle} onClick={handleQuantityEdit}>Editar Estoque</button>
+                                    </>
+                                :
+                                    <h1>Carregando</h1>}
+
                             </td>
                         </tr>
                     </table>

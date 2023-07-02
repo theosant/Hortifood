@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import PurchaseBlock from '../components/PurchaseBlock';
 import { useAuth } from '../components/Auth/Context';
 
-const Perfil = () =>{
+const Profile = () =>{
     const { user } = useAuth();
     
     const formatCPF = (cpf) => {
@@ -35,4 +35,4 @@ const Perfil = () =>{
     )
 }
 
-export default Perfil;
+export default Profile;

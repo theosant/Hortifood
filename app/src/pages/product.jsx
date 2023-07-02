@@ -3,7 +3,6 @@ import '../styles/product.css'
 import FruitPoint from '../components/FruitPoint'
 import { useNavigate, useParams } from 'react-router-dom';
 
-
 const Product = ({HandlerClick,handleChange}) => {
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);
@@ -23,8 +22,9 @@ const Product = ({HandlerClick,handleChange}) => {
             if(!produto){
                 navigate('/404');
             }
-            return  produto
+            return produto
         }
+
         readProductById(id).then( (resposta) => {
             resposta.amount = 0;
             resposta.ponto = 2;
@@ -48,7 +48,7 @@ const Product = ({HandlerClick,handleChange}) => {
         }
     }
     
-    console.log(quantity);
+    // console.log(quantity);
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
             <div>
@@ -56,7 +56,10 @@ const Product = ({HandlerClick,handleChange}) => {
                     <table>
                         <tr>
                             <td className="product_image_container">
-                                <img src={product ?  product.src : ""} alt="produto!"></img>
+                                {product ?
+                                <img alt="produto!" src={product.src}></img>
+                                :
+                                <h1>Carregando</h1>}
                             </td>
                             <td className="product_data_container">
                                 {product ? <h1>{product.name}</h1> : <h1>Carregando...</h1>}
