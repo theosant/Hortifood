@@ -22,6 +22,7 @@ import { PathAnalisys } from './components/Routes/pathAnalisys';
 import ForgotPassword from './pages/forgotpassword';
 
 import {Route, Routes} from 'react-router-dom'
+import Thanks from './pages/thanks';
 
 function App() {
     const [cart, setCart] = useState(JSON.parse(localStorage.cart));
@@ -340,6 +341,7 @@ function App() {
                     <Route exact path="/profile" element={<PathAnalisys adminOnly = {false}><Profile /></PathAnalisys>} />
                     <Route exact path="/payment" element={<PathAnalisys><Payment setCart={setCart} setshowCart={HandleClickCart}/></PathAnalisys>}></Route>
                     <Route exact path="*" element={<Pagina404 />}></Route>
+                    <Route exact path="/thanks" element={<Thanks />}></Route>
                 </Routes>
             {showcart && <Cart setshowCart={HandleClickCart} cart={cart} setCart={setCart} handleChange={handleChange}/>}
             {warning && <div className='warning'>Item já adicionado ao seu carrinho</div>}

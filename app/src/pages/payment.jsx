@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../styles/payment.css'
 import SiteSections from '../components/SiteSections'
+import { Link } from "react-router-dom";
 
 const Payment = ({setCart}) =>{
     const cart = JSON.parse(localStorage.cart) 
@@ -94,7 +95,7 @@ const Payment = ({setCart}) =>{
                 <span className="cardInfoSpan">Validade:</span> <input className="creditCardInfo" type="text"></input> <br />
                 <span className="cardInfoSpan">Código de segurança:</span> <input className="creditCardInfo" type="text"></input> <br />
                 
-                <button onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} id="sendPurchase">Finalizar Compra</button>
+                <Link to="/thanks" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} id="sendPurchase">Finalizar Compra</Link>
             </div>
         </div>
     )

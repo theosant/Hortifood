@@ -46,6 +46,9 @@ hr{
 
 #sendPurchase{
     background-color: #FFA133;
+    text-align: center;
+    padding-top: 14px;
+    display: block;
     margin-top: 30px;
     width: 180px;
     height: 45px;
