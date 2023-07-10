@@ -5,21 +5,29 @@ const productSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    slug: {
-        required: true,
-        type: String
-    },
-    description: {
-        required: true,
-        type: String
-    },
     price: {
         required: true,
         type: Number
     },
-    quantity: {
+    type: {
+        required: true,
+        type: String
+    },
+    on_stock: {
         required: true,
         type: Number
+    },
+    highlight: {
+        required: true,
+        type: Boolean
+    },
+    season: {
+        required: true,
+        type: Boolean
+    },
+    srcUrl: {
+        required: true,
+        type: String
     }
 
 })

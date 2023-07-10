@@ -5,9 +5,9 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {Link, useNavigate} from 'react-router-dom'
 import Resultcontainer from "./Resultcontainer";
 
-const NavBar = ({size, setshowCart, products}) => {
+const NavBar = ({size, setshowCart, products, _token}) => {
     // const {token, setToken, setUser} = useAuth();
-    const token = localStorage.getItem('token');
+    const [token, setToken] = useState(_token);
     const [searchValue, setsearchValue] = useState('');
     const [list, setList] = useState([]);
     const [showResult, setShowResult] = useState(false);
@@ -23,6 +23,20 @@ const NavBar = ({size, setshowCart, products}) => {
             console.log(searchValue);
         }
     }, [searchValue, products]);
+
+    useEffect(() =>{
+        // function checkToken() {
+        //     const item = localStorage.getItem('token');
+        //     if (item)   setToken(item);
+        // }
+
+        // window.addEventListener('storage', checkToken);
+
+        // return () => {
+        //     window.removeEventListener('storage', checkToken);
+        // }
+        setToken(localStorage.getItem('token'));
+    });
 
     function onSearchChange(e){
         setsearchValue(e.target.value);
@@ -41,6 +55,7 @@ const NavBar = ({size, setshowCart, products}) => {
         };
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('token', "");
+        setToken("");
         // localStorage.setItem('user', "");
         // localStorage.setItem('user', "");
     }
@@ -70,7 +85,6 @@ const NavBar = ({size, setshowCart, products}) => {
                         <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
                         <span>{size}</span>
                         <p>Meu Carrinho</p>
-                        
                     </button>
                     {token && <Link to="/" className="logout-btn" onClick={handleLogout}>Logout</Link>}
             </nav>

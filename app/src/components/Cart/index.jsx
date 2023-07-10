@@ -13,7 +13,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
 
 
     const handleRemove= (id) => {
-        const arr = cart.filter(item => item.id !== id)
+        const arr = cart.filter(item => item._id !== id)
         setCart(arr);
         localStorage.setItem('cart', JSON.stringify(arr))
     }
@@ -24,8 +24,6 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
         else 
             navigate('/login');
     }
-
-    
 
     useEffect(() => {
         const handleTotalPrice = () => {
@@ -49,7 +47,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                     {cart.map((item) => (
                         <tbody className='cart_box'>
                             <tr>
-                                <td><img src={item.src}/></td>
+                                <td><img src={item.srcUrl}/></td>
                                 <td className='cart_item_info'>
                                     <h3>{item.name}</h3>
                                     <p>R$ {item.price} /Kg</p>
@@ -61,6 +59,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                                                 }}
                                             style={{ cursor: 'pointer', maxWidth: "40px"  }}
                                             >-</span>
+                                        
                                         <span type='number' id="quantityCart"> {item.amount}g</span>
                                         <span
                                             onClick={() => {
@@ -78,7 +77,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                             </div>
 
                             <span className="cartPrice">R$ {(item.amount*item.price/1000).toFixed(2)}</span>
-                            <button className='exclude_cart_item_button' onClick={() => handleRemove(item.id)}>X</button>
+                            <button className='exclude_cart_item_button' onClick={() => handleRemove(item._id)}>X</button>
                         </tbody>
                     ))}
                 </table>

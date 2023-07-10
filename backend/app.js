@@ -5,6 +5,10 @@ const app = express();
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 
+const cors = require('cors');
+
+app.use(cors());
+
 mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection;
 
@@ -23,6 +27,6 @@ app.use(express.json());
 app.use('/product/', productRoutes);
 app.use('', userRoutes);
 
-app.listen(3000, () => {
-    console.log(`Listening at port ${3000}`);
+app.listen(3001, () => {
+    console.log(`Listening at port ${3001}`);
 });

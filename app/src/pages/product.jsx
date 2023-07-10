@@ -7,18 +7,11 @@ const Product = ({HandlerClick,handleChange}) => {
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     let { id } = useParams();
-    id = parseInt(id);
 
     useEffect(() => {
-        function delay(){
-            return new Promise(function(resolve) {
-                setTimeout(resolve, 100);
-            });
-        }
-    
         async function readProductById(id){
-            await delay();
-            const produto = JSON.parse(localStorage.produtos).find((obj) => obj.id === id);
+            let produto = await fetch(`http://localhost:3001/product/${id}`);
+            produto = await produto.json();
             if(!produto){
                 navigate('/404');
             }
@@ -47,8 +40,7 @@ const Product = ({HandlerClick,handleChange}) => {
             setPrice(event.value * 0.1 * product.price);
         }
     }
-    
-    // console.log(quantity);
+
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
             <div>
@@ -57,7 +49,7 @@ const Product = ({HandlerClick,handleChange}) => {
                         <tr>
                             <td className="product_image_container">
                                 {product ?
-                                <img alt="produto!" src={product.src}></img>
+                                <img alt="produto!" src={product.srcUrl}></img>
                                 :
                                 <h1>Carregando</h1>}
                             </td>
@@ -76,7 +68,7 @@ const Product = ({HandlerClick,handleChange}) => {
 
                                     <div className="quantityInput">
                                         <span
-                                            onClick={()=> {
+                                            onClick={() => {
                                                 if(quantity > 100){
                                                     product.amount -= 100;
                                                     setProduct(product);
@@ -87,7 +79,7 @@ const Product = ({HandlerClick,handleChange}) => {
                                             >-</span>
                                         <input type="number" onChange={handleQuantityInput} value={quantity} id="quantity"/>
                                         <span
-                                            onClick={()=> {
+                                            onClick={() => {
                                                 product.amount += 100;
                                                 setProduct(product);
                                                 setQuantity(quantity + 100);

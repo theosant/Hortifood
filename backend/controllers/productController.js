@@ -4,15 +4,18 @@ const createProduct = async (req, res) => {
     try {
         const data = new Product({
             name: req.body.name,
-            slug: req.body.slug,
-            description: req.body.description,
             price: req.body.price,
-            quantity: req.body.quantity
+            highlight: req.body.highlight,
+            type: req.body.type,
+            season: req.body.season, 
+            srcUrl: req.body.srcUrl,
+            on_stock: req.body.on_stock
         });
 
         const savedData = await data.save();
         res.status(200).json(savedData);
     } catch (error) {
+        console.log(error)
         res.status(500).json({ message: "Falha na criação dos produtos" });
     }
 };

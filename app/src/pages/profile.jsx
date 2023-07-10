@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import '../styles/perfil.css';
 import {Link} from 'react-router-dom';
 import PurchaseBlock from '../components/PurchaseBlock';
-import { useAuth } from '../components/Auth/Context';
+// import { useAuth } from '../components/Auth/Context';
 
 const Profile = () =>{
-    const { user } = useAuth();
-    
+    const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('user')));
+    // const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('user')));
+    console.log(user)
+
     const formatCPF = (cpf) => {
         return `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9, 11)}`;
     }

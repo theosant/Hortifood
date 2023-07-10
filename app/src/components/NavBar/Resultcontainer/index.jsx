@@ -12,7 +12,7 @@ const Resultcontainer = ({list}) => {
                 <div className="list_group">
                     {list.map((resultado) =>
                         <div>
-                            <Link to={`produto/${resultado.id}`} key={resultado.id} className="list-group-item">{resultado.name}</Link>
+                            <Link to={`produto/${resultado._id}`} key={resultado._id} className="list-group-item">{resultado.name}</Link>
                             <br/>
                         </div>
                     )}
