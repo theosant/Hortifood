@@ -145,7 +145,7 @@ function ProductBackoffice() {
                                         <div className="stock_quantity">
                                             Quantidade em Estoque: <span 
                                                                         contentEditable={quantityChange}
-                                                                        onBlur={handleQuantityChange}
+                                                                        onBlur={()=> console.log("oi")}
                                                                     >{product.on_stock}</span> Kg
                                         </div>
                                         <button style={quantityEditStyle} onClick={handleQuantityEdit}>Editar Estoque</button>

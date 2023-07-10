@@ -44,6 +44,7 @@ function App() {
               "season": true,
               "amount": 0,
               "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 1,
@@ -52,7 +53,10 @@ function App() {
               "price": "42",
               "highlight": "true",
               "type": "sucos",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 2,
@@ -61,7 +65,10 @@ function App() {
               "price": "43",
               "highlight": "false",
               "type": "vegetais",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 3,
@@ -70,7 +77,10 @@ function App() {
               "price": "25",
               "highlight": "false",
               "type": "frutas",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 4,
@@ -79,7 +89,10 @@ function App() {
               "price": "30",
               "highlight": "false",
               "type": "frutas",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 5,
@@ -88,7 +101,10 @@ function App() {
               "price": "15",
               "highlight": "false",
               "type": "frutas",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 6,
@@ -97,7 +113,10 @@ function App() {
               "price": "20",
               "highlight": "false",
               "type": "frutas",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 7,
@@ -106,7 +125,10 @@ function App() {
               "price": "35",
               "highlight": "false",
               "type": "frutas",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 8,
@@ -115,7 +137,10 @@ function App() {
               "price": "28",
               "highlight": "false",
               "type": "frutas",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 9,
@@ -124,7 +149,10 @@ function App() {
               "price": "18",
               "highlight": "false",
               "type": "frutas",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 10,
@@ -133,7 +161,10 @@ function App() {
               "price": "22",
               "highlight": "false",
               "type": "frutas",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 11,
@@ -142,7 +173,10 @@ function App() {
               "price": "32",
               "highlight": "false",
               "type": "frutas",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 12,
@@ -151,7 +185,10 @@ function App() {
               "price": "8",
               "highlight": "true",
               "type": "vegetais",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 13,
@@ -160,7 +197,10 @@ function App() {
               "price": "5",
               "highlight": "true",
               "type": "vegetais",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 14,
@@ -169,7 +209,10 @@ function App() {
               "price": "3",
               "highlight": "true",
               "type": "vegetais",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 15,
@@ -178,7 +221,10 @@ function App() {
               "price": "4",
               "highlight": "true",
               "type": "vegetais",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 16,
@@ -187,7 +233,10 @@ function App() {
               "price": "6",
               "highlight": "false",
               "type": "vegetais",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 17,
@@ -196,7 +245,10 @@ function App() {
               "price": "9",
               "highlight": "false",
               "type": "vegetais",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 18,
@@ -205,7 +257,10 @@ function App() {
               "price": "5",
               "highlight": "false",
               "type": "vegetais",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 19,
@@ -214,7 +269,10 @@ function App() {
               "price": "2",
               "highlight": "true",
               "type": "vegetais",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 20,
@@ -232,7 +290,10 @@ function App() {
               "price": "6",
               "highlight": "false",
               "type": "sucos",
-              "season": true
+              "season": true,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 22,
@@ -241,7 +302,10 @@ function App() {
               "price": "4",
               "highlight": "true",
               "type": "sucos",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 23,
@@ -250,7 +314,10 @@ function App() {
               "price": "5",
               "highlight": "true",
               "type": "sucos",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
             {
               "id": 24,
@@ -259,7 +326,10 @@ function App() {
               "price": "6",
               "highlight": "true",
               "type": "sucos",
-              "season": false
+              "season": false,
+              "amount": 0,
+              "ponto": 0,
+              "on_stock": 5
             },
           ]
           );

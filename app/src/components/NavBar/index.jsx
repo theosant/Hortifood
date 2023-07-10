@@ -35,7 +35,7 @@ const NavBar = ({size, setshowCart, products}) => {
             <div className="result_container">
                 {showResult && 
                 <Resultcontainer list={list}/>}
-                <input value={value} onFocus={() => setShowResult(true)} onChange={onChange} onBlur={() => setTimeout(() => {setShowResult(false)}, 70)}  className="search-bar" type="text" placeholder=" Buscar Frutas ou Verduras..." />
+                <input value={value} onFocus={() => setShowResult(true)} onChange={onChange}  onBlur={() => setTimeout(() => {setShowResult(false)}, 70)}  className="search-bar" type="text" placeholder=" Buscar Frutas ou Verduras..." />
             </div>
                     {
                         token
