@@ -8,23 +8,29 @@ function initialState() {
     return { email:'', password: '' };
 }
 
-function login({email,password}) {
-    if (email === 'admin@mail.com' && password === 'admin') {
-        // console.log("sssssssssss");
-        return { token: '1234', admin: true };
+async function login({email,password}) {
+    const response = await fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      return { token: data.token, user: data.user };
     }
 
-    if (email === 'user@mail.com' && password === 'user') {
-        return {token: '1234', admin: false };
+    if (data.message) {
+      return { error: true };
     }
-
-    return { error: true }
 }
 
-const Login = (props) =>{
+const Login = (props) => {
     const [values, setValues] = useState(initialState);
     const [warning, setWarning] = useState(null);
-    const {setToken, setUser } = useAuth();
     const navigate = useNavigate();
 
     function onChange(e) {
@@ -38,37 +44,26 @@ const Login = (props) =>{
 
     function onSubmit(e) {
         e.preventDefault();
-        const { token, error, admin } = login(values);
-        console.log(values);
+        Promise.resolve(login(values))
+          .then(({ token, error, user }) => {
+            if (token) {
+              localStorage.setItem('token', token);
+              localStorage.setItem('user', JSON.stringify(user));
 
-        if (token) {
-            setToken(token);
-            let today = new Date(); 
-            let user = {
-                entered: `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()} - ${today.getHours()}h${today.getMinutes()}`,
-                name: 'Alan Turing',
-                cpf: '12345678909',
-                email: 'admin@mail.com',
-                purchases: [],
-                admin
-            };
-            setUser(user)
-
-            localStorage.setItem('token', token);
-            localStorage.setItem('user', JSON.stringify(user));
-
-            console.log(localStorage);
-
-            navigate('/');
-        }
-
-        if (error) {
-            setWarning(true);
-            setTimeout(() => {
-                setWarning(false)
-            }, 3000);
-        }
-    }
+              navigate('/');
+            }
+      
+            if (error) {
+              setWarning(true);
+              setTimeout(() => {
+                setWarning(false);
+              }, 3000);
+            }
+          })
+          .catch((error) => {
+            console.error('Erro ao fazer login:', error);
+          });
+      }
 
     return (
         <section className="login">

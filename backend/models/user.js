@@ -10,12 +10,15 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    /*cpf: {
+    password: {
         type: String,
         required: true,
-        unique: true,
-    },*/
-    password: {
+    },
+    address: {
+        type: String,
+        required: true,
+    },
+    telephone: {
         type: String,
         required: true,
     },
@@ -24,10 +27,6 @@ const userSchema = new mongoose.Schema({
         required: true,
         default: false,       
     },
-    entered: {
-        type: Date
-    }
-
 })
 
 module.exports = mongoose.model("Users", userSchema);

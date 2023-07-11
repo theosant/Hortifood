@@ -1,26 +1,51 @@
 import React, { useState } from 'react';
 import '../styles/signup.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Cadastro() {
   const [nome, setNome] = useState('');
-  const [id, setId] = useState('');
+  const [senha, setSenha] = useState('');
   const [endereco, setEndereco] = useState('');
   const [telefone, setTelefone] = useState('');
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Aqui você pode processar os dados do formulário, como enviar para um servidor ou atualizar o estado do componente pai
-    console.log('Dados do formulário:', { nome, id, endereco, telefone, email });
+    const formData = {
+      name: nome,
+      email: email,
+      password: senha,
+      address: endereco,
+      telephone: telefone,
+    };
 
-    // Resetar o formulário
-    setNome('');
-    setId('');
-    setEndereco('');
-    setTelefone('');
-    setEmail('');
+    fetch('http://localhost:3001/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message) {
+          throw new Error(data.message)
+        }
+
+        console.log('Resposta do backend:', data);
+  
+        setNome('');
+        setSenha('');
+        setEndereco('');
+        setTelefone('');
+        setEmail('');
+        navigate('/login');
+      })
+      .catch((error) => {
+        console.error('Erro ao cadastrar:', error);
+      });
   };
 
   return (
@@ -30,28 +55,34 @@ function Cadastro() {
         <div>
           <label>
             Nome: <br />
-            <input className="form-input" type="text" value={nome} onChange={(e) => setNome(e.target.value)} />
+            <input className="form-input" type="text" value={nome} name="name" onChange={(e) => setNome(e.target.value)} />
           </label>
         </div>
         <div>
           <label>
             E-mail: <br />
-            <input className="form-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input className="form-input" type="email" value={email} name="email" onChange={(e) => setEmail(e.target.value)} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Senha: <br />
+            <input className="form-input" type="password" value={senha} name="password" onChange={(e) => setSenha(e.target.value)} />
           </label>
         </div>
         <div>
           <label>
             Endereço: <br />
-            <input className="form-input" type="text" value={endereco} onChange={(e) => setEndereco(e.target.value)} />
+            <input className="form-input" type="text" value={endereco} name="address" onChange={(e) => setEndereco(e.target.value)} />
           </label>
         </div>
         <div>
           <label>
             Telefone: <br />
-            <input className="form-input" type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)} />
+            <input className="form-input" type="text" value={telefone} name="telephone" onChange={(e) => setTelefone(e.target.value)} />
           </label>
         </div>
-        <Link to="/login" className="btn-submit">Cadastrar</Link>
+        <button type="submit" className="btn-submit">Cadastrar</button>
       </form>
     </div>
   );
