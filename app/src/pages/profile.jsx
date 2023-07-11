@@ -6,12 +6,7 @@ import PurchaseBlock from '../components/PurchaseBlock';
 
 const Profile = () =>{
     const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('user')));
-    // const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('user')));
-    console.log(user)
-
-    const formatCPF = (cpf) => {
-        return `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9, 11)}`;
-    }
+    const [ purchases, setPurchases ] = useState([]) 
 
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
@@ -20,14 +15,12 @@ const Profile = () =>{
                 {user.admin && <Link to="/produtosback" className="products-btn">Gerenciar Produtos</Link>}
             </div>
             <div className="perfil_background">
-                <h2 id="entered">Entrou em: {user.entered}</h2>
-                <h1 id="user_name">Nome completo do usuário: {user.name}</h1>
-                <h2 id="cpf">CPF: {formatCPF(user.cpf)}</h2>
+                <h1 id="user_name">Nome: {user.name}</h1>
                 <h2 id="email">Email: {user.email}</h2>
                 <hr />
                 <h1 id="last_purchases_title">Últimas compras</h1>
                 <span id="last_purchases_container">
-                    {user.purchases.map((purchase, index) => (
+                    {purchases.map((purchase, index) => (
                         <PurchaseBlock purchase={purchase} key={index}/>
                     ))}
                 </span>
