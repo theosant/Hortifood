@@ -28,8 +28,7 @@ function App() {
     const [cart, setCart] = useState(JSON.parse(localStorage.cart));
     const [highlights, setHighlights] = useState([]);
 
-    // const [token, setToken] = useState(localStorage.getItem('token'));
-
+    const [token, setToken] = useState(localStorage.getItem('token'));
 
     useEffect(() => {
     const fetchData = async () => {
@@ -340,16 +339,14 @@ function App() {
         localStorage.setItem('cart', JSON.stringify([...cart,item]));
     }
 
-    console.log(localStorage.getItem('token'));
-
     return (
         <div>
           <AuthProvider>
-            <NavBar size={cart.length} products={highlights} setshowCart={HandleClickCart} token={localStorage.getItem('token')}/>
+            <NavBar size={cart.length} products={highlights} setshowCart={HandleClickCart} _token={token}/>
                 <Routes>
                     <Route exact path="/" element={<Home cardInfos={highlights} HandlerClick={HandlerClick} />}></Route>
                     <Route exact path="/sobre" element={<AboutUs />}></Route>
-                    <Route exact path="/login" element={<Login />}></Route>
+                    <Route exact path="/login" element={<Login _setToken={setToken}/>}></Route>
                     <Route exact path="/signup" element={<Cadastro/>}></Route>
                     <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
                     <Route exact path="/produto/:id" element={<PathAnalisys adminOnly = {false}><Product handleChange={handleChange} HandlerClick={HandlerClick}/></PathAnalisys>}></Route>

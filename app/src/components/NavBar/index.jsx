@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-// import { useAuth } from '../Auth/Context';
-import {Link, useNavigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Resultcontainer from "./Resultcontainer";
 
 const NavBar = ({size, setshowCart, products, _token}) => {
-    // const {token, setToken, setUser} = useAuth();
     const [token, setToken] = useState(_token);
     const [searchValue, setsearchValue] = useState('');
     const [list, setList] = useState([]);
     const [showResult, setShowResult] = useState(false);
-
-    // const navigate = useNavigate();
 
     useEffect(() => {
         if (searchValue === '') {
@@ -25,16 +21,7 @@ const NavBar = ({size, setshowCart, products, _token}) => {
     }, [searchValue, products]);
 
     useEffect(() =>{
-        // function checkToken() {
-        //     const item = localStorage.getItem('token');
-        //     if (item)   setToken(item);
-        // }
-
-        // window.addEventListener('storage', checkToken);
-
-        // return () => {
-        //     window.removeEventListener('storage', checkToken);
-        // }
+        console.log('teste',_token)
         setToken(localStorage.getItem('token'));
     });
 
@@ -43,8 +30,6 @@ const NavBar = ({size, setshowCart, products, _token}) => {
     }
 
     function handleLogout() {
-        // setToken(null);
-        // setUser();
         let user = {
             entered: '',
             name: '',
@@ -56,8 +41,6 @@ const NavBar = ({size, setshowCart, products, _token}) => {
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('token', "");
         setToken("");
-        // localStorage.setItem('user', "");
-        // localStorage.setItem('user', "");
     }
 
     return (

@@ -49,6 +49,7 @@ const Login = (props) => {
             if (token) {
               localStorage.setItem('token', token);
               localStorage.setItem('user', JSON.stringify(user));
+              props._setToken(token);
 
               navigate('/');
             }
