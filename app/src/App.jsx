@@ -3,7 +3,6 @@ import './styles/App.css';
 
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
-// import PurchaseBlock from './components/PurchaseBlock';
 import Product from './pages/product';
 import ProductBackoffice from './pages/productBackoffice';
 import Products from './pages/products';
@@ -21,7 +20,7 @@ import { AuthProvider } from './components/Auth/Context'
 import { PathAnalisys } from './components/Routes/pathAnalisys';
 import ForgotPassword from './pages/forgotpassword';
 
-import {Route, Routes} from 'react-router-dom'
+import {Route, Routes, useNavigate} from 'react-router-dom'
 import Thanks from './pages/thanks';
 
 function App() {
@@ -29,20 +28,23 @@ function App() {
     const [highlights, setHighlights] = useState([]);
 
     const [token, setToken] = useState(localStorage.getItem('token'));
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+
+    const navigate = useNavigate();
 
     useEffect(() => {
-    const fetchData = async () => {
-        try {
-        const response = await fetch('http://localhost:3001/product/');
-        const data = await response.json();
-        setHighlights([...data]);
+        const fetchData = async () => {
+            try {
+            const response = await fetch('http://localhost:3001/product/');
+            const data = await response.json();
+            setHighlights([...data]);
 
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        }
-    };
-    
-    fetchData();
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            }
+        };
+        
+        fetchData();
     }, []);
 
     // useEffect(() => {
@@ -292,23 +294,27 @@ function App() {
     }
 
     const HandlerClick = (item) => {
-        let isPresent = false;
-        cart.forEach((product) => {
-            if(item._id === product._id){
-                isPresent = true;
+        if (user.isAdmin) {
+            navigate(`produto/back/${item._id}`);
+        } else {
+            let isPresent = false;
+            cart.forEach((product) => {
+                if(item._id === product._id){
+                    isPresent = true;
+                }
+            })
+            if(isPresent){
+                setWarning(true)
+                setTimeout(() => {
+                    setWarning(false)
+                }, 2000)
+                return;
             }
-        })
-        if(isPresent){
-            setWarning(true)
-            setTimeout(() => {
-                setWarning(false)
-            }, 2000)
-            return;
+            item.amount = item.amount ? item.amount : 1000;
+            item.ponto = item.ponto ? item.ponto : 2;
+            setCart([...cart,item]);
+            localStorage.setItem('cart', JSON.stringify([...cart,item]));
         }
-        item.amount = item.amount ? item.amount : 1000;
-        item.ponto = item.ponto ? item.ponto : 2;
-        setCart([...cart,item]);
-        localStorage.setItem('cart', JSON.stringify([...cart,item]));
     }
 
     const handleChange = (item,d) => {
@@ -342,11 +348,11 @@ function App() {
     return (
         <div>
           <AuthProvider>
-            <NavBar size={cart.length} products={highlights} setshowCart={HandleClickCart} _token={token}/>
+            <NavBar size={cart.length} products={highlights} setshowCart={HandleClickCart} _token={token} _setUser={setUser}/>
                 <Routes>
-                    <Route exact path="/" element={<Home cardInfos={highlights} HandlerClick={HandlerClick} />}></Route>
+                    <Route exact path="/" element={<Home cardInfos={highlights} backOffice={user.isAdmin} HandlerClick={HandlerClick} />}></Route>
                     <Route exact path="/sobre" element={<AboutUs />}></Route>
-                    <Route exact path="/login" element={<Login _setToken={setToken}/>}></Route>
+                    <Route exact path="/login" element={<Login _setToken={setToken} _setUser={setUser}/>}></Route>
                     <Route exact path="/signup" element={<Cadastro/>}></Route>
                     <Route exact path="/forgotpass" element={<ForgotPassword />}></Route>
                     <Route exact path="/produto/:id" element={<PathAnalisys adminOnly = {false}><Product handleChange={handleChange} HandlerClick={HandlerClick}/></PathAnalisys>}></Route>
@@ -358,7 +364,7 @@ function App() {
                     <Route exact path="*" element={<Pagina404 />}></Route>
                     <Route exact path="/thanks" element={<Thanks />}></Route>
                 </Routes>
-            {showcart && <Cart setshowCart={HandleClickCart} cart={cart} setCart={setCart} handleChange={handleChange}/>}
+            {showcart && <Cart setshowCart={HandleClickCart} cart={cart} setCart={setCart} handleChange={handleChange} _token={token}/>}
             {warning && <div className='warning'>Item já adicionado ao seu carrinho</div>}
             <Footer />
           </AuthProvider>

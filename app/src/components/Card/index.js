@@ -17,7 +17,6 @@ function Card({ card, HandlerClick, backOffice = false }) {
                 ? <button onClick={() => HandlerClick(card)}>Gerenciar</button>
                 : <button onClick={() => HandlerClick(card)}>Adicionar ao Carrinho</button>
             }
-            
         </div>
     )
 }

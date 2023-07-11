@@ -94,7 +94,7 @@ const Payment = ({setCart}) =>{
                 <span className="cardInfoSpan">Nome no cartão:</span> <input className="creditCardInfo" type="text"></input> <br />
                 <span className="cardInfoSpan">Validade:</span> <input className="creditCardInfo" type="text"></input> <br />
                 <span className="cardInfoSpan">Código de segurança:</span> <input className="creditCardInfo" type="text"></input> <br />
-                
+
                 <Link to="/thanks" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} id="sendPurchase">Finalizar Compra</Link>
             </div>
         </div>

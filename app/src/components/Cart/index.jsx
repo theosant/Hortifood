@@ -4,11 +4,11 @@ import { useAuth } from '../Auth/Context';
 import './index.css';
 import FruitPoint from '../FruitPoint';
 
-const Cart = ({setshowCart,cart, setCart, handleChange}) => {
+const Cart = ({setshowCart,cart, setCart, handleChange, _token}) => {
     const [price, setPrice] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [quantity, setQuantity] = useState(0);
-    const { token } = useAuth();
+    // const { token } = 
     const navigate = useNavigate();
 
 
@@ -19,7 +19,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
     }
 
     const handlePurchase = () => {
-        if (token)
+        if (_token)
             navigate('/payment');
         else 
             navigate('/login');

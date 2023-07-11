@@ -4,7 +4,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {Link} from 'react-router-dom'
 import Resultcontainer from "./Resultcontainer";
 
-const NavBar = ({size, setshowCart, products, _token}) => {
+const NavBar = ({size, setshowCart, products, _token, _setUser}) => {
     const [token, setToken] = useState(_token);
     const [searchValue, setsearchValue] = useState('');
     const [list, setList] = useState([]);
@@ -21,7 +21,6 @@ const NavBar = ({size, setshowCart, products, _token}) => {
     }, [searchValue, products]);
 
     useEffect(() =>{
-        console.log('teste',_token)
         setToken(localStorage.getItem('token'));
     });
 
@@ -36,11 +35,12 @@ const NavBar = ({size, setshowCart, products, _token}) => {
             cpf: '',
             email: '',
             purchases: [],
-            admin: false,
+            isAdmin: false,
         };
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('token', "");
         setToken("");
+        _setUser(user);
     }
 
     return (

@@ -18,7 +18,7 @@ const PrevArrow = () => (
     </div>
 );
 
-const Carousel = ({ cardInfos,HandlerClick }) => {
+const Carousel = ({ cardInfos,HandlerClick,backOffice }) => {
 
     const settings = {
         dots: true, // Exibe os pontos de navegação
@@ -37,7 +37,7 @@ const Carousel = ({ cardInfos,HandlerClick }) => {
             </div>
             <Slider {...settings}>
             {cardInfos.map((card, index) => (
-                <Card card={card} key={index} HandlerClick = {HandlerClick}/>
+                <Card card={card} key={index} backOffice={backOffice} HandlerClick = {HandlerClick}/>
             ))}
             </Slider>
         </div>

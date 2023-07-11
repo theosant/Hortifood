@@ -3,57 +3,26 @@ import '../styles/product.css'
 import { useNavigate, useParams } from 'react-router-dom';
 
 function ProductBackoffice() {
-    console.log("backoffice")
-
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     let { id } = useParams();
-    id = parseInt(id);
-
-    console.log(id);
 
     useEffect(() => {
-        function delay(){
-            return new Promise(function(resolve) {
-                setTimeout(resolve, 100);
-            });
-        }
-    
         async function readProductById(id){
-            await delay();
-            const produto = JSON.parse(localStorage.produtos).find((obj) => obj.id === id);
+            let produto = await fetch(`http://localhost:3001/product/${id}`);
+            produto = await produto.json();
             if(!produto){
                 navigate('/404');
             }
             return produto
         }
-        readProductById(id).then( (resposta) => {
-            console.log(resposta);
+
+        readProductById(id).then((resposta) => {
             resposta.amount = 0;
             resposta.ponto = 2;
-            setProduct(resposta);
-        })
+            console.log(resposta)
+            setProduct(resposta)})
     }, [id]);
-
-    // console.log(product)
-    // let { id } = useParams();
-    // id = parseInt(id);
-
-    // useEffect(() => {
-    //     function delay(){
-    //         return new Promise(function(resolve) {
-    //             setTimeout(resolve, 100);
-    //         });
-    //     }
-    
-    //     async function readProductById(id){
-    //         await delay();
-    //         return JSON.parse(localStorage.produtos).find((obj) => obj.id === id);
-    //     }
-    //     readProductById(id).then( (resposta) => {
-    //         setProduct(resposta)})
-    // }, [id]);
-
     
     const styles = {
         editing: {
@@ -80,7 +49,10 @@ function ProductBackoffice() {
     const handleNameEdit = () => {
         setNameChange(!nameChange);
         if(!nameChange) setNameEditStyle(styles.editing);
-        else setNameEditStyle(styles.not_editing);
+        else {
+            updateProduct()
+            setNameEditStyle(styles.not_editing);
+        }
     }
     
     const handlePriceChange = (event) => {
@@ -90,17 +62,45 @@ function ProductBackoffice() {
     const handlePriceEdit = () => {
         setPriceChange(!priceChange);
         if(!priceChange) setPriceEditStyle(styles.editing);
-        else setPriceEditStyle(styles.not_editing);
+        else {
+            updateProduct();
+            setPriceEditStyle(styles.not_editing);
+        }
     }
     
     const handleQuantityChange = (event) => {
-        product.price = event.target.textContent;
+        product.on_stock = event.target.textContent;
     };
     const [quantityChange, setQuantityChange] = useState(false);
     const handleQuantityEdit = () => {
         setQuantityChange(!quantityChange);
         if(!quantityChange) setQuantityEditStyle(styles.editing);
-        else setQuantityEditStyle(styles.not_editing);
+        else {
+            updateProduct();
+            setQuantityEditStyle(styles.not_editing);
+        }
+    }
+
+    function updateProduct() {
+        const updatedProduct = { ...product};
+
+        fetch(`http://localhost:3001/product/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedProduct),
+        })
+        .then((response) => {
+            if (response.ok) {
+                console.log('Produto atualizado com sucesso!');
+            } else {
+                console.error('Erro ao atualizar o produto');
+            }
+        })
+        .catch((error) => {
+            console.error('Erro ao atualizar o produto:', error);
+        });
     }
 
     return (
@@ -111,7 +111,7 @@ function ProductBackoffice() {
                         <tr>
                             <td className="product_image_container">
                                 {product ?
-                                <img alt="produto!" src={product.src}></img>
+                                <img alt="produto!" src={product.srcUrl}></img>
                                 :
                                 <h1>Carregando</h1>}
                             </td>

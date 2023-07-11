@@ -50,6 +50,7 @@ const Login = (props) => {
               localStorage.setItem('token', token);
               localStorage.setItem('user', JSON.stringify(user));
               props._setToken(token);
+              props._setUser(user);
 
               navigate('/');
             }

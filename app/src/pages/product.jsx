@@ -60,7 +60,11 @@ const Product = ({HandlerClick,handleChange}) => {
                                     style={{ color: "#7A7A7A", fontSize: "15px", fontWeight: 400, marginBottom: 20 + "px"}}
                                 >Vendido e entregue por Hortifood</h3>
 
-                                <FruitPoint width = {350} height = {15}/>
+                                {product.type === "frutas" ?
+                                    <FruitPoint width = {350} height = {15}/>
+                                :
+                                    <></>
+                                }
 
                                 <h1 style={{color: "#334932", marginTop: 30 + "px"}}>R$ {product ?  product.price : "..."}/Kg</h1>
 

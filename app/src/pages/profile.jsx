@@ -2,7 +2,6 @@ import React, { useState,useEffect } from "react";
 import '../styles/perfil.css';
 import {Link} from 'react-router-dom';
 import PurchaseBlock from '../components/PurchaseBlock';
-// import { useAuth } from '../components/Auth/Context';
 
 const Profile = () =>{
     const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('user')));
@@ -12,7 +11,7 @@ const Profile = () =>{
         <div style={{ backgroundColor: "#EEEEEE" }}>
             <div className="banner_perfil">
                 Perfil
-                {user.admin && <Link to="/produtosback" className="products-btn">Gerenciar Produtos</Link>}
+                {user.isAdmin && <Link to="/produtosback" className="products-btn">Gerenciar Produtos</Link>}
             </div>
             <div className="perfil_background">
                 <h1 id="user_name">Nome: {user.name}</h1>
