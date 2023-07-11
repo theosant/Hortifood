@@ -72,9 +72,13 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                                 </td>
                             </tr>
 
-                            <div className='cartFP'>
-                                <FruitPoint width={340} heigth={10}/>
-                            </div>
+                            {item.type === "frutas" ?
+                                <div className='cartFP'>
+                                    <FruitPoint width={340} heigth={10}/>
+                                </div>
+                            :
+                                <></>
+                            }
 
                             <span className="cartPrice">R$ {(item.amount*item.price/1000).toFixed(2)}</span>
                             <button className='exclude_cart_item_button' onClick={() => handleRemove(item._id)}>X</button>
@@ -82,7 +86,8 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                     ))}
                 </table>
             :
-            <h1 style={{color: "#414141", marginLeft: "30px"}}>Carrinho Vazio... &#x1F61E;</h1>}
+            <h1 style={{color: "#414141", marginLeft: "30px"}}>Carrinho Vazio... &#x1F61E;</h1>
+            }
 
             <div className='cart_bottom_margin'>margin</div>
 
@@ -93,7 +98,8 @@ const Cart = ({setshowCart,cart, setCart, handleChange}) => {
                     <button className="flush_cart_button" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} >Limpar Carrinho</button>
                 </div>
             :
-            <></>}
+                <></>
+            }
         </article>
     )
 }
