@@ -29,11 +29,16 @@ const Profile = () =>{
                 <h2 id="email">Email: {user.email}</h2>
                 <hr />
                 <h1 id="last_purchases_title">Últimas compras</h1>
-                <span id="last_purchases_container">
-                    {purchases.map((purchase, index) => (
-                        <PurchaseBlock purchase={purchase} key={index}/>
-                    ))}
-                </span>
+                {purchases.length ?
+                    <span id="last_purchases_container">
+                        {purchases.map((purchase, index) => (
+                            <PurchaseBlock purchase={purchase} key={index}/>
+                        ))}
+                    </span>
+                :
+                    <h4 style={{margin: "30px", color: "grey"}}
+                    >Você ainda não efetuou nenhuma compra</h4>
+                }
                 <hr />
             </div>
         </div>

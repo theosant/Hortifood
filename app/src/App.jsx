@@ -8,6 +8,7 @@ import ProductBackoffice from './pages/productBackoffice';
 import Products from './pages/products';
 import ProductsBackoffice from './pages/productsBackoffice';
 import Payment from './pages/payment';
+import PurchaseDetails from './pages/purchasedetails';
 import './warning.css';
 import Home from './components/Home';
 import Cart from './components/Cart';
@@ -138,6 +139,7 @@ function App() {
                     <Route exact path="/profile" element={<PathAnalisys logged = {true}><Profile /></PathAnalisys>} />
                     <Route exact path="/payment" element={<PathAnalisys  logged = {true}><Payment cart={cart} setCart={setCart} setshowCart={HandleClickCart} _user={user}/></PathAnalisys>}></Route>
                     <Route exact path="*" element={<Pagina404 backOffice={user.isAdmin} />}></Route>
+                    <Route exact path="/purchasedetails/:id" element={<PurchaseDetails backOffice={user.isAdmin} />}></Route>
                     <Route exact path="/thanks" element={<Thanks />}></Route>
                 </Routes>
             {showcart && <Cart setshowCart={HandleClickCart} cart={cart} setCart={setCart} handleChange={handleChange} _token={token}/>}

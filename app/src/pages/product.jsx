@@ -24,7 +24,6 @@ const Product = ({HandlerClick,handleChange}) => {
             setProduct(resposta)})
     }, [id]);
 
-
     const [fruitPoint, setFruitPoint] = useState(1);
     const handleFruitPointChange = (event) => {
         setFruitPoint(event.target.value);
