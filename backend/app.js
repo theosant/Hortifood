@@ -25,6 +25,7 @@ db.once('connected', () => {
 
 app.use(express.json());
 app.use('/product/', productRoutes);
+app.use('', purchaseRoutes);
 app.use('', userRoutes);
 
 app.listen(3001, () => {
