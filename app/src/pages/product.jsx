@@ -12,7 +12,6 @@ const Product = ({HandlerClick,handleChange}) => {
         async function readProductById(id){
             let produto = await fetch(`http://localhost:3001/product/${id}`);
             produto = await produto.json();
-            console.log(produto)
             if(produto.message){
                 navigate('/404');
             }
@@ -90,6 +89,8 @@ const Product = ({HandlerClick,handleChange}) => {
                                         <input type="number" onChange={handleQuantityInput} value={quantity} id="quantity"/>
                                         <span
                                             onClick={() => {
+                                                if(product.amount + 100 > product.on_stock * 1000)
+                                                {return}
                                                 product.amount += 100;
                                                 setProduct(product);
                                                 setQuantity(quantity + 100);
