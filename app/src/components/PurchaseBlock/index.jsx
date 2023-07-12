@@ -1,5 +1,6 @@
 import React from "react";
 import './index.css'
+import { Link } from "react-router-dom";
 
 const PurchaseBlock = ({ purchase }) =>{
 
@@ -7,7 +8,10 @@ const PurchaseBlock = ({ purchase }) =>{
         <div className="purchase_background">
            <h3>Em {purchase.date}</h3>
            <h1 id="purchase_price">{purchase.price} R$</h1>
-           <div id="purchase_details_button">Detalhes da compra</div>
+           <Link
+                to="/purchasedetails"
+                id="purchase_details_button"
+                >Detalhes da compra</Link>
         </div>
     )
 }

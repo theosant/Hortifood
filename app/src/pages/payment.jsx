@@ -191,7 +191,7 @@ const Payment = ({cart, setCart, _user}) =>{
                 <span className="cardInfoSpan">Validade:</span> <input id="cardValidity" className="creditCardInfo" type="text"></input> <br />
                 <span className="cardInfoSpan">Código de segurança:</span> <input id="cardSecCode" className="creditCardInfo" type="text"></input> <br />
 
-                <Link onClick={handleSendPurchase} id="sendPurchase">Finalizar Compra</Link>
+                <Link to="/thanks" onClick={handleSendPurchase} id="sendPurchase">Finalizar Compra</Link>
             </div>
         </div>
     )

@@ -1,9 +1,9 @@
 import React from "react";
-import './styles/purchasedetails.css'
-import Footer from './components/Footer';
-import SiteSections from './components/SiteSections'
+import '../styles/purchasedetails.css'
+import Footer from '../components/Footer';
+import SiteSections from '../components/SiteSections'
 
-const PurchaseDetails = ( {purchase} ) =>{
+const PurchaseDetails = ( {purchase, backOffice} ) =>{
 
     // const purchase_details = [{
     //         item: "banana",
@@ -19,9 +19,11 @@ const PurchaseDetails = ( {purchase} ) =>{
     //     },
     // ]
 
+    let { id } = useParams();
+
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
-            <SiteSections type = "regular"/>
+            <SiteSections type = "regular" backOffice={backOffice}/>
             <div className="purchase_details_background">
                 <h1>Detalhes da compra</h1>
                 <h3>Realizada em: {purchase.date}</h3>
