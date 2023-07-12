@@ -159,7 +159,11 @@ function ProductBackoffice() {
                             <td className="product_data_container">
                                 {product ?
                                     <>
-                                        <button onClick={removeProduct}>Remover Produto</button> <br />
+                                        <button
+                                            onClick={removeProduct}
+                                            className='remove_product_button'
+                                            >Remover Produto</button> <br />
+
                                         <h1
                                             style={{display: "inline-block"}}
                                             contentEditable={nameChange}
@@ -197,7 +201,7 @@ function ProductBackoffice() {
                                 }
 
                                 {product ?
-                                    <div>
+                                    <div className='check_boxes'>
                                         Highlight: 
                                         <input
                                             checked={product.highlight}
@@ -209,7 +213,7 @@ function ProductBackoffice() {
                                 <h1>Carregando</h1>
                                 }
                                 {product ?
-                                    <div>
+                                    <div className='check_boxes'>
                                         Season: 
                                         <input
                                             checked={product.season}
