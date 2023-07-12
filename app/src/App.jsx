@@ -360,7 +360,7 @@ function App() {
                     <Route exact path="/produto/back/:id" element={<ProductBackoffice />}></Route>
                     <Route exact path="/produtos/back/:tipo" element={<ProductsBackoffice />}></Route>
                     <Route exact path="/profile" element={<PathAnalisys adminOnly = {false}><Profile /></PathAnalisys>} />
-                    <Route exact path="/payment" element={<PathAnalisys><Payment setCart={setCart} setshowCart={HandleClickCart}/></PathAnalisys>}></Route>
+                    <Route exact path="/payment" element={<PathAnalisys><Payment cart={cart} setCart={setCart} setshowCart={HandleClickCart} _user={user}/></PathAnalisys>}></Route>
                     <Route exact path="*" element={<Pagina404 />}></Route>
                     <Route exact path="/thanks" element={<Thanks />}></Route>
                 </Routes>

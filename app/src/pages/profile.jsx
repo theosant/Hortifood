@@ -5,13 +5,13 @@ import PurchaseBlock from '../components/PurchaseBlock';
 
 const Profile = () =>{
     const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('user')));
-    const [ purchases, setPurchases ] = useState([]) 
+    const [ purchases, setPurchases ] = useState([])
 
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
             <div className="banner_perfil">
                 Perfil
-                {user.isAdmin && <Link to="/produtosback" className="products-btn">Gerenciar Produtos</Link>}
+                {user.isAdmin && <Link to="/produtos/back/frutas" className="products-btn">Gerenciar Produtos</Link>}
             </div>
             <div className="perfil_background">
                 <h1 id="user_name">Nome: {user.name}</h1>

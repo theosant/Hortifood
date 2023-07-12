@@ -81,6 +81,13 @@ function ProductBackoffice() {
         }
     }
 
+    const handleHighlightChange = () => {
+        setProduct(prevProduct => ({
+            ...prevProduct,
+            highlight: !prevProduct.highlight,
+        }));
+    }
+
     function updateProduct() {
         const updatedProduct = { ...product};
 
@@ -153,6 +160,17 @@ function ProductBackoffice() {
                                 :
                                     <h1>Carregando</h1>}
 
+                                {product ?
+                                    <div>
+                                        Highlight: 
+                                        <input
+                                            value={product.highlight}
+                                            type='check-box'
+                                            onChange={handleHighlightChange}
+                                        ></input>
+                                    </div>
+                                :
+                                <h1>Carregando</h1>}
                             </td>
                         </tr>
                     </table>

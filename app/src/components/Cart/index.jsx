@@ -8,9 +8,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange, _token}) => {
     const [price, setPrice] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [quantity, setQuantity] = useState(0);
-    // const { token } = 
     const navigate = useNavigate();
-
 
     const handleRemove= (id) => {
         const arr = cart.filter(item => item._id !== id)
@@ -86,7 +84,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange, _token}) => {
                     ))}
                 </table>
             :
-            <h1 style={{color: "#414141", marginLeft: "30px"}}>Carrinho Vazio... &#x1F61E;</h1>
+                <h1 style={{color: "#414141", marginLeft: "30px"}}>Carrinho Vazio... &#x1F61E;</h1>
             }
 
             <div className='cart_bottom_margin'>margin</div>
@@ -95,7 +93,7 @@ const Cart = ({setshowCart,cart, setCart, handleChange, _token}) => {
                 <div className="cart_total_price_container">
                     <span className="cart_total_price">Valor Total: R$ {totalPrice.toFixed(2)}</span> <br />
                     <button className='cart_end_purchase' onClick={() => handlePurchase()} >Finalizar Compra</button> <br />
-                    <button className="flush_cart_button" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} >Limpar Carrinho</button>
+                    <button className="flush_cart_button" onClick={() => {setCart([]); localStorage.setItem('cart', JSON.stringify([]))}} >Limpar Carrinho</button>
                 </div>
             :
                 <></>

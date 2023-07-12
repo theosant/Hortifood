@@ -3,10 +3,9 @@ import '../styles/payment.css'
 import SiteSections from '../components/SiteSections'
 import { Link } from "react-router-dom";
 
-const Payment = ({setCart}) =>{
-    const cart = JSON.parse(localStorage.cart) 
+const Payment = ({cart, setCart, _user}) =>{
     const [totalPrice, setTotalPrice] = useState(0)
-    const [final_value, setFinalValue] = useState(0);
+    const [finalValue, setFinalValue] = useState(0);
 
     const handleTotalPrice = () => {
         let total = 0;
@@ -17,29 +16,29 @@ const Payment = ({setCart}) =>{
         setTotalPrice(total);
     }
 
-
     const handleCheckboxClick = (purchase) => {
         const updatedCart = cart.map((item) => {
             if (item === purchase) {
                 const updatedItem = { ...item };
                 updatedItem.chosen = !updatedItem.chosen;
-                
-                if(updatedItem.chosen === true)
-                    setFinalValue(final_value + parseFloat(updatedItem.final_price));
-                else
-                    setFinalValue(final_value - parseFloat(updatedItem.final_price));
 
-                    return updatedItem;
-                }
-                return item;
-            });
-            
+                if(updatedItem.chosen === true)
+                    setFinalValue(finalValue + parseFloat(updatedItem.final_price));
+                else
+                    setFinalValue(finalValue - parseFloat(updatedItem.final_price));
+
+                return updatedItem;
+            }
+            return item;
+        });
+
         setCart(updatedCart);
 
         const selectAllButton = document.getElementById("selectAll");
         selectAllButton.disabled = false;
         selectAllButton.checked = false;
     };
+
     let checkboxes = document.getElementsByClassName("selected");
     const handleCheckAllclick = (event) => {
         cart.forEach((purchase) => {
@@ -53,15 +52,40 @@ const Payment = ({setCart}) =>{
     };
     
     useEffect(() => {
-        handleTotalPrice()
-      }, [cart,checkboxes]); 
+        handleTotalPrice();
+    }, [cart, checkboxes]); 
+
+    const handleSendPurchase = () => {
+        let input_CEP = document.getElementById("CEP");
+
+        let id = _user._id;
+        let today = new Date();
+
+        let purchaseItems = cart
+            .filter((p, index) => checkboxes[index].checked === true)
+            .map(p => ({ name: p.name, type: p.type, price: p.price, amount: p.amount }));
+      
+        let newPurchase = {
+            userID: {id},
+            price: {finalValue},
+            date: {today},
+            cep: input_CEP.value,
+            method: 'Cartão de Crédito',
+            items: purchaseItems
+        }
+
+        console.log(newPurchase);
+
+        setCart([]);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
 
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
             <SiteSections type = "regular"/>
             <div className="payment_background">
                 <h1 style={{fontSize: "40px"}}>Pagamento</h1>
-                <h3>CEP de envio: XXXX</h3>
+                <span>CEP de envio:</span> <input  id="CEP" className="creditCardInfo" type="text"></input> <br />
                 <h2 style={{ marginTop: "40px" }}>No carrinho agora:</h2>
                 <hr /> <table className="payment_table">
                     <tr>
@@ -74,7 +98,7 @@ const Payment = ({setCart}) =>{
                         <tr>
                             <td>{p.name}</td>
                             <td>{p.type}</td>
-                            <td>{(p.amount/1000).toFixed(2)}Kg</td>
+                            <td>{(p.amount/1000).toFixed(2)}</td>
                             <td>{(p.amount/1000* p.price).toFixed(2)} R$</td>
                             <td><input defaultChecked={true} className="selected" type="checkbox" onChange={() => handleCheckboxClick(p)}></input></td>
                         </tr>
@@ -90,12 +114,12 @@ const Payment = ({setCart}) =>{
                 <p id="totalPayment">Valor Total: {totalPrice.toFixed(2)} R$</p>
 
                 <h2>Pagamento</h2>
-                <span className="cardInfoSpan">Número do cartão:</span> <input className="creditCardInfo" type="text"></input> <br />
-                <span className="cardInfoSpan">Nome no cartão:</span> <input className="creditCardInfo" type="text"></input> <br />
-                <span className="cardInfoSpan">Validade:</span> <input className="creditCardInfo" type="text"></input> <br />
-                <span className="cardInfoSpan">Código de segurança:</span> <input className="creditCardInfo" type="text"></input> <br />
+                <span className="cardInfoSpan">Número do cartão:</span> <input id="cardNumber" className="creditCardInfo" type="text"></input> <br />
+                <span className="cardInfoSpan">Nome no cartão:</span> <input id="cardName" className="creditCardInfo" type="text"></input> <br />
+                <span className="cardInfoSpan">Validade:</span> <input id="cardValidity" className="creditCardInfo" type="text"></input> <br />
+                <span className="cardInfoSpan">Código de segurança:</span> <input id="cardSecCode" className="creditCardInfo" type="text"></input> <br />
 
-                <Link to="/thanks" onClick={() => {setCart([]);localStorage.setItem('cart', JSON.stringify([]))}} id="sendPurchase">Finalizar Compra</Link>
+                <Link to='/thanks' onClick={handleSendPurchase} id="sendPurchase">Finalizar Compra</Link>
             </div>
         </div>
     )

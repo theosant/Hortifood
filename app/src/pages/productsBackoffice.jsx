@@ -13,21 +13,27 @@ const ProductsBackoffice = () => {
     const [products, setProducts] = useState(null);
     
     const handleAddProductClick = () => {
-        var input_id = document.getElementById("newProductId");
-        var input_src = document.getElementById("newProductSRC");
-        var input_name = document.getElementById("newProductName");
-        var input_price = document.getElementById("newProductPrice");
-        var input_type = document.getElementById("newProductType");
-        var input_stock = document.getElementById("newProductStock");
+        let input_id = document.getElementById("newProductId");
+        let input_src = document.getElementById("newProductSRsC");
+        let input_name = document.getElementById("newProductName");
+        let input_price = document.getElementById("newProductPrice");
+        let input_type = document.getElementById("newProductType");
+        let input_stock = document.getElementById("newProductStock");
+        let input_season = document.getElementById("newProductSeason");
+        let input_highlight = document.getElementById("newProductHighlight");
 
-        var newProduct = {
+        let newProduct = {
             id: input_id.value,
             src: "/imagens/" + input_src.value,
             name: input_name.value,
             price: input_price.value,
             type: input_type.value,
             stock: input_stock.value,
+            season: input_season.checked,
+            input_highlight: input_highlight.checked,
         }
+
+        setAddProduct(false);
     }
 
     const HandlerClick = () => {
@@ -80,9 +86,14 @@ const ProductsBackoffice = () => {
                         <span>ID: </span><input id="newProductId" type="text"></input><br />
                         <span>Nome do arquivo de imagem: </span><input id="newProductSRC" type="text"></input><br />
                         <span>Preço por quilo: </span><input id="newProductPrice" type="text"></input><br />
-                        <span>Tipo: </span><input id="newProductType" type="text"></input><br />
+                        <select id="newProductType">
+                            <option>frutas</option>
+                            <option>vegetais</option>
+                            <option>sucos</option>
+                        </select><br />
                         <span>Quantidade em estoque: </span><input id="newProductStock" type="text"></input>Kg<br />
-                        <span>Season?: </span><input id="newProductSeason" type="check-box"></input><br />
+                        <span>Temporada?: </span><input id="newProductSeason" type="check-box"></input><br />
+                        <span>Destaque?: </span><input id="newProductHighlight" type="check-box"></input><br />
                         <button onClick={handleAddProductClick}>Adicionar</button>
                     </div>
                 }

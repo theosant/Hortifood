@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SiteSections from "../components/SiteSections";
 
-const Products = ({HandlerClick}) => {
+const Products = ({HandlerClick, backOffice}) => {
     const navigate = useNavigate();
     const {tipo} = useParams()
     let src = `/imagens/banner${tipo}.jpg`;
@@ -52,7 +52,7 @@ const Products = ({HandlerClick}) => {
                 <div className="products_container" style={{display: "inline-block"}}>
                     {products.map((product) => (
                         <div className="cardDisplay">
-                            <Card card = {product} HandlerClick={HandlerClick} />
+                            <Card card = {product} backOffice={backOffice} HandlerClick={HandlerClick} />
                         </div>
                     ))}
                 </div>

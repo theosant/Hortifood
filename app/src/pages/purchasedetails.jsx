@@ -3,30 +3,31 @@ import './styles/purchasedetails.css'
 import Footer from './components/Footer';
 import SiteSections from './components/SiteSections'
 
-const PurchaseDetails = () =>{
+const PurchaseDetails = ( {purchase} ) =>{
 
-    const purchase_details = [{
-            item: "banana",
-            price: "10",
-            category: "frutas",
-            final_price: "14",
-        },
-        {
-            item: "suco",
-            price: "20",
-            category: "sucos",
-            final_price: "15",
-        },
-    ]
+    // const purchase_details = [{
+    //         item: "banana",
+    //         price: "10",
+    //         category: "frutas",
+    //         final_price: "14",
+    //     },
+    //     {
+    //         item: "suco",
+    //         price: "20",
+    //         category: "sucos",
+    //         final_price: "15",
+    //     },
+    // ]
 
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
             <SiteSections type = "regular"/>
             <div className="purchase_details_background">
                 <h1>Detalhes da compra</h1>
-                <h3>Realizada em: XX/XX/XXXX</h3>
-                <h3>Para o CEP: </h3>
-                <h2 id="price">Valor XX R$</h2>
+                <h3>Realizada em: {purchase.date}</h3>
+                <h3>Para o CEP: {purchase.cep}</h3>
+                <h4>Método de pagamento: {purchase.method}</h4>
+                <h2 id="price">Valor {purchase.price} R$</h2>
                 <h2 style={{ marginTop: "40px" }}>Descrição dos itens:</h2>
                 <hr /> <table className="purchase_details_table">
                     <tr>
@@ -34,10 +35,10 @@ const PurchaseDetails = () =>{
                     </tr>
                 </table>
                 <hr />
-                {purchase_details.map((p) => (
+                {purchase.items.map((p) => (
                     <div> <table className="purchase_details_table">
                         <tr>
-                            <td>{p.item}</td><td>{p.category}</td><td>{p.price}</td><td>{p.final_price}</td>
+                            <td>{p.item}</td><td>{p.type}</td><td>{p.amount}</td><td>{p.final_price}</td>
                         </tr>
                     </table> </div>
                 ))}

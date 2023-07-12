@@ -26,5 +26,5 @@ export function PathAnalisys({ adminOnly, children }) {
         }
     }
 
-  return children;
+    return children;
 }
