@@ -154,7 +154,7 @@ const Payment = ({cart, setCart, _user}) =>{
             <div className="payment_background">
                 <h1 style={{fontSize: "40px"}}>Pagamento</h1>
                 <span>CEP de envio:</span> <input  id="CEP" className="creditCardInfo" type="text"></input> <br />
-                <h2 style={{ marginTop: "40px" }}>No carrinho agora:</h2>
+                <h2 style={{ marginTop: "30px", marginBottom: "0px" }}>No carrinho agora:</h2>
                 <hr /> <table className="payment_table">
                     <tr>
                         <td>Item</td><td>Categoria</td><td>Quantidade</td><td>Valor final</td><td></td>
