@@ -36,7 +36,8 @@ const purchaseSchema = new mongoose.Schema({
   },
   method: {
     type: String,
-    required: true
+    required: true,
+    default: "Cartão de Crédito"
   },
   date: {
     type: Date,

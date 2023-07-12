@@ -116,16 +116,20 @@ const Payment = ({cart, setCart, _user}) =>{
         })
         let purchaseItems = cart
             .filter((p, index) => checkboxes[index].checked === true)
-            .map(p => ({ name: p.name, type: p.type, price: p.price, amount: p.amount }));
-      
+            .map(p => ({ name: p.name, type: p.type, price: p.price, amount: p.amount, point: (p.point ? p.point : 0) }));
+
+        let totalPrices = purchaseItems.reduce((total, item) => total + item.price, 0);
+        
         let newPurchase = {
-            userID: {id},
-            price: {finalValue},
-            date: {today},
-            cep: input_CEP.value,
+            userID: id,
+            price: totalPrices,
+            date: today,
+            CEP: input_CEP.value,
             method: 'Cartão de Crédito',
             items: purchaseItems
         }
+
+        console.log(newPurchase);
 
         fetch("http://localhost:3001/purchase", {
             method: "POST",
@@ -153,7 +157,7 @@ const Payment = ({cart, setCart, _user}) =>{
             <SiteSections type = "regular"/>
             <div className="payment_background">
                 <h1 style={{fontSize: "40px"}}>Pagamento</h1>
-                <span>CEP de envio:</span> <input  id="CEP" className="creditCardInfo" type="text"></input> <br />
+                <span>CEP de envio:</span> <input  id="CEP" className="creditCardInfo" type="text" required></input> <br />
                 <h2 style={{ marginTop: "40px" }}>No carrinho agora:</h2>
                 <hr /> <table className="payment_table">
                     <tr>
@@ -187,7 +191,7 @@ const Payment = ({cart, setCart, _user}) =>{
                 <span className="cardInfoSpan">Validade:</span> <input id="cardValidity" className="creditCardInfo" type="text"></input> <br />
                 <span className="cardInfoSpan">Código de segurança:</span> <input id="cardSecCode" className="creditCardInfo" type="text"></input> <br />
 
-                <Link to='/thanks' onClick={handleSendPurchase} id="sendPurchase">Finalizar Compra</Link>
+                <Link onClick={handleSendPurchase} id="sendPurchase">Finalizar Compra</Link>
             </div>
         </div>
     )
