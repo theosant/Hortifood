@@ -23,7 +23,11 @@ const purchaseSchema = new mongoose.Schema({
       amount: {
         type: Number,
         required: true
-      }
+      },
+      point: {
+        type: Number,
+        required: true
+      },
     }
   ],
   price: {

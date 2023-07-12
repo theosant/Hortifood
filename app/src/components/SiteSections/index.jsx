@@ -2,14 +2,16 @@ import React from "react";
 import './index.css'
 import { Link } from "react-router-dom";
 
-const SiteSections = ({ type }) =>{
+const SiteSections = ({ type, backOffice = false }) =>{
+    const productsAdress = backOffice ? `/produtos/back/` : `/produtos/`;
+
     if(type === "regular"){
 
         return (
             <div className="background_site_sections regular">
-                <Link to="/produtos/frutas">Frutas</Link>
-                <Link to="/produtos/sucos" className="sucos">Sucos</Link>
-                <Link to="/produtos/vegetais">Verduras</Link>
+                <Link to={productsAdress + "frutas"}>Frutas</Link>
+                <Link to={productsAdress + "sucos"} className="sucos">Sucos</Link>
+                <Link to={productsAdress + "vegetais"}>Verduras</Link>
             </div>
         )
 
@@ -18,7 +20,7 @@ const SiteSections = ({ type }) =>{
         return (
             <div className="background_site_sections main_page">
                 <div className="secao">
-                    <Link  to="/produtos/frutas">
+                    <Link  to={productsAdress + "frutas"}>
                         <div className="secao-icon">
                             <img src="imagens/frutas-icon.png" alt="Frutas" style={{width: 100 + 'px', height: 100 + 'px',}}/>
                         </div>
@@ -26,7 +28,7 @@ const SiteSections = ({ type }) =>{
                     </Link>
                 </div>
                 <div className="secao">
-                    <Link to="/produtos/vegetais">
+                    <Link to={productsAdress + "vegetais"}>
                         <div className="secao-icon">
                             <img src="imagens/vegetais-icon.png" alt="Vegetais"/>
                         </div>
@@ -34,7 +36,7 @@ const SiteSections = ({ type }) =>{
                     </Link>
                 </div>
                 <div className="secao">
-                    <Link to="/produtos/sucos">
+                    <Link to={productsAdress + "sucos"}>
                         <div className="secao-icon">
                             <img src="imagens/sucos-icon.png" alt="Sucos"/>
                         </div>

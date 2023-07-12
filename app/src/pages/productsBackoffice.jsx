@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SiteSections from "../components/SiteSections";
 
-const ProductsBackoffice = () => {
+const ProductsBackoffice = ({HandlerClick}) => {
     const navigate  = useNavigate(); 
     const {tipo} = useParams()
     let src = `/imagens/banner${tipo}.jpg`;
@@ -13,8 +13,7 @@ const ProductsBackoffice = () => {
     const [products, setProducts] = useState(null);
     
     const handleAddProductClick = () => {
-        let input_id = document.getElementById("newProductId");
-        let input_src = document.getElementById("newProductSRsC");
+        let input_src = document.getElementById("newProductSRC");
         let input_name = document.getElementById("newProductName");
         let input_price = document.getElementById("newProductPrice");
         let input_type = document.getElementById("newProductType");
@@ -23,37 +22,53 @@ const ProductsBackoffice = () => {
         let input_highlight = document.getElementById("newProductHighlight");
 
         let newProduct = {
-            id: input_id.value,
-            src: "/imagens/" + input_src.value,
+            srcUrl:input_src.value,
             name: input_name.value,
             price: input_price.value,
             type: input_type.value,
-            stock: input_stock.value,
+            on_stock: input_stock.value,
             season: input_season.checked,
-            input_highlight: input_highlight.checked,
+            highlight: input_highlight.checked,
         }
 
-        setAddProduct(false);
+        fetch(`http://localhost:3001/product/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newProduct),
+        })
+        .then((response) => {
+            if (response.ok) {
+                console.log('Produto adicionado com sucesso!');
+            } else {
+                console.error('Erro ao adicionar o produto');
+            }
+        })
+        .catch((error) => {
+            console.error('Erro ao adicionar o produto:', error);
+        });
+        navigate(0)
     }
 
-    const HandlerClick = () => {
-        navigate(`/produto/back/${tipo}`);
-    };
-
     useEffect(() => {
-        function delay(){
-            return new Promise(function(resolve) {
-                setTimeout(resolve, 100);
-            });
-        }
-        
         async function readProductsByType(tipo){
-            await delay();
-            return JSON.parse(localStorage.produtos).filter((obj) => obj.type === tipo);
+            try {
+                const response = await fetch('http://localhost:3001/product/');
+                const data = await response.json();
+                const produtos = data.filter((obj) => obj.type === tipo);
+                if(produtos.length === 0){
+                    navigate('/404');
+                }
+                return produtos
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                }
+            
         }
         readProductsByType(tipo).then( (resposta) => {
             setProducts(resposta)})
-        }, [tipo]);
+    }, [tipo]);
         
         if(!products){
             return (
@@ -69,7 +84,7 @@ const ProductsBackoffice = () => {
 
     return (
         <div>
-            <SiteSections type="regular"/>
+            <SiteSections type="regular" backOffice={true}/>
             <div className="site_section_banner">
                 <h1>{tipo.charAt(0).toUpperCase() + tipo.slice(1)}</h1>
                 <img src={src} alt="banner" />
@@ -83,17 +98,17 @@ const ProductsBackoffice = () => {
                     <div className="add_product_tab">
                         <h1>Novo produto</h1>
                         <span>Nome: </span><input id="newProductName" type="text"></input><br />
-                        <span>ID: </span><input id="newProductId" type="text"></input><br />
                         <span>Nome do arquivo de imagem: </span><input id="newProductSRC" type="text"></input><br />
                         <span>Preço por quilo: </span><input id="newProductPrice" type="text"></input><br />
+                        <span>Tipo do produto:  </span>
                         <select id="newProductType">
                             <option>frutas</option>
                             <option>vegetais</option>
                             <option>sucos</option>
                         </select><br />
-                        <span>Quantidade em estoque: </span><input id="newProductStock" type="text"></input>Kg<br />
-                        <span>Temporada?: </span><input id="newProductSeason" type="check-box"></input><br />
-                        <span>Destaque?: </span><input id="newProductHighlight" type="check-box"></input><br />
+                        <span>Quantidade em estoque: </span><input id="newProductStock" type="text"></input>por L ou Kg<br />
+                        <span>Temporada?: </span><input id="newProductSeason" type="checkbox"></input><br />
+                        <span>Destaque?: </span><input id="newProductHighlight" type="checkbox"></input><br />
                         <button onClick={handleAddProductClick}>Adicionar</button>
                     </div>
                 }

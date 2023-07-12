@@ -16,6 +16,29 @@ const Payment = ({cart, setCart, _user}) =>{
         setTotalPrice(total);
     }
 
+    // function updateProduct() {
+    //     const updatedProduct = { ...product};
+
+    //     fetch(`http://localhost:3001/product/${id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(updatedProduct),
+    //     })
+    //     .then((response) => {
+    //         if (response.ok) {
+    //             console.log('Produto atualizado com sucesso!');
+    //         } else {
+    //             console.error('Erro ao atualizar o produto');
+    //         }
+    //     })
+    //     .catch((error) => {
+    //         console.error('Erro ao atualizar o produto:', error);
+    //     });
+    // }
+
+
     const handleCheckboxClick = (purchase) => {
         const updatedCart = cart.map((item) => {
             if (item === purchase) {
@@ -60,7 +83,37 @@ const Payment = ({cart, setCart, _user}) =>{
 
         let id = _user._id;
         let today = new Date();
-
+        let itemstoUpdate = cart.filter((p, index) => checkboxes[index].checked === true)
+        itemstoUpdate.forEach(item => {
+            item.on_stock -= item.amount/1000
+            let itemupdated = {
+                "name": item.name,
+                "price": item.price,
+                "highlight": item.highlight,
+                "type": item.type,
+                "season": item.season,
+                "srcUrl": item.srcUrl,
+                "on_stock": item.on_stock
+            }
+            
+            fetch(`http://localhost:3001/product/${item._id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(item),
+            })
+            .then((response) => {
+                if (response.ok) {
+                    console.log('Produto atualizado com sucesso!');
+                } else {
+                    console.error('Erro ao atualizar o produto');
+                }
+            })
+            .catch((error) => {
+                console.error('Erro ao atualizar o produto:', error);
+            });
+        })
         let purchaseItems = cart
             .filter((p, index) => checkboxes[index].checked === true)
             .map(p => ({ name: p.name, type: p.type, price: p.price, amount: p.amount }));
@@ -74,10 +127,25 @@ const Payment = ({cart, setCart, _user}) =>{
             items: purchaseItems
         }
 
-        console.log(newPurchase);
+        fetch("http://localhost:3001/purchase", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newPurchase)
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Compra inserida no banco de dados:", data);
+                setCart([]);
+                localStorage.setItem("cart", JSON.stringify([]));
+            })
+            .catch((error) => {
+                console.log("Erro ao inserir compra:", error);
+            });
 
-        setCart([]);
-        localStorage.setItem('cart', JSON.stringify(cart));
+        // setCart([]);
+        // localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     return (

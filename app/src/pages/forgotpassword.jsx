@@ -19,26 +19,26 @@ function ForgotPassword() {
 
   return (
     <div className="forgetpass">
-      {isSubmitted ? (
-        <p>Um e-mail de redefinição de senha foi enviado para o endereço {email}.</p>
-      ) : (
-        <>
-        <form onSubmit={handleSubmit}>
-          <h2>Esqueceu a senha?</h2>
-          <label>
-            E-mail: <br />
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="form-input"
-            />
-          </label>
-        </form>
-        <button type="submit" className="btn-submit">Enviar</button>
-        </>
-      )}
+      {isSubmitted ?
+          <p>Um e-mail de redefinição de senha foi enviado para o endereço {email}.</p>
+      :
+          <>
+          <form onSubmit={handleSubmit}>
+            <h2>Esqueceu a senha?</h2>
+            <label>
+              E-mail: <br />
+              <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="form-input"
+              />
+            </label>
+          </form>
+          <button type="submit" className="btn-submit">Enviar</button>
+          </>
+      }
     </div>
   );
 }

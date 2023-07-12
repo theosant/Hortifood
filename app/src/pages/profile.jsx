@@ -7,6 +7,17 @@ const Profile = () =>{
     const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('user')));
     const [ purchases, setPurchases ] = useState([])
 
+    useEffect(() => {
+        fetch(`http://localhost:3001/users/${user._id}/purchases`)
+            .then((response) => response.json())
+            .then((data) => {
+                setPurchases(data);
+            })
+            .catch((error) => {
+                console.log("Erro ao obter compras:", error);
+            });
+    }, [user]);
+
     return (
         <div style={{ backgroundColor: "#EEEEEE" }}>
             <div className="banner_perfil">

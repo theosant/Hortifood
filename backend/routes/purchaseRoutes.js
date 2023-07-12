@@ -11,4 +11,7 @@ router.get('/purchases', purchaseController.getAllPurchases);
 // Rota para obter uma compra pelo ID
 router.get('/purchase/:id', purchaseController.getPurchaseById);
 
+// Rota para obter as compras de um usuário específico
+router.get('/users/:userId/purchases', purchaseController.getPurchasesByUserId);
+
 module.exports = router;

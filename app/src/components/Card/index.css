@@ -21,10 +21,12 @@
     height: 200px;
 }
 
-.carrossel-item__img{
-    height: auto;
-    width: auto;
-}
+.carrossel-item__img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+  }
+  
 
 .carrossel-item:hover{
     border: solid #FFA133;

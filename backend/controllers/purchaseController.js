@@ -46,3 +46,16 @@ exports.getPurchaseById = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+// Obter compras de um usuário específico
+exports.getPurchasesByUserId = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+
+    const purchases = await Purchase.find({ userID: userId });
+
+    res.json(purchases);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

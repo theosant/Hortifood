@@ -59,10 +59,10 @@ const NavBar = ({size, setshowCart, products, _token, _setUser}) => {
                     placeholder="Buscar Frutas, Verduras ou Sucos..."
                 />
             </div>
-                    {
-                        token
-                        ? <Link to="./profile" className="login-btn">Meu Perfil</Link>
-                        : <Link to="./login" className="login-btn">Entrar</Link>
+                    { token ?
+                        <Link to="./profile" className="login-btn">Meu Perfil</Link>
+                    :
+                        <Link to="./login" className="login-btn">Entrar</Link>
                     }
                     <button onClick={setshowCart} className="cart-btn">
                         <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>

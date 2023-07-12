@@ -12,7 +12,7 @@ function Home({cardInfos, HandlerClick, backOffice}) {
             de entrega de frutas, hortaliças e sucos</h1>
           <img src="/imagens/bannerprincipal.jpg" alt="banner" />
       </div>
-      <SiteSections type = "main"/>
+      <SiteSections type = "main" backOffice={backOffice}/>
       <div className='main'>
           <div className='highlights'>
               <h1 style={{marginTop: "0px"}}>Destaques</h1> <hr />

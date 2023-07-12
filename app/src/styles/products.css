@@ -54,6 +54,10 @@
     font-size: 18px;
 }
 
+.add_product_tab span{
+    margin: 3px;
+}
+
 .add_product_tab input{
     border-radius: 5px;
     margin: 5px;

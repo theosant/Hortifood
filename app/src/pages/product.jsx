@@ -12,7 +12,8 @@ const Product = ({HandlerClick,handleChange}) => {
         async function readProductById(id){
             let produto = await fetch(`http://localhost:3001/product/${id}`);
             produto = await produto.json();
-            if(!produto){
+            console.log(produto)
+            if(produto.message){
                 navigate('/404');
             }
             return produto
@@ -49,18 +50,23 @@ const Product = ({HandlerClick,handleChange}) => {
                         <tr>
                             <td className="product_image_container">
                                 {product ?
-                                <img alt="produto!" src={product.srcUrl}></img>
+                                    <img alt="produto!" src={product.srcUrl}></img>
                                 :
-                                <h1>Carregando</h1>}
+                                    <h1>Carregando</h1>
+                                }
                             </td>
                             <td className="product_data_container">
-                                {product ? <h1>{product.name}</h1> : <h1>Carregando...</h1>}
+                                {product ?
+                                    <h1>{product.name}</h1>
+                                :
+                                    <h1>Carregando...</h1>
+                                }
 
                                 <h3
                                     style={{ color: "#7A7A7A", fontSize: "15px", fontWeight: 400, marginBottom: 20 + "px"}}
                                 >Vendido e entregue por Hortifood</h3>
 
-                                {product.type === "frutas" ?
+                                {product && product.type === "frutas" ?
                                     <FruitPoint width = {350} height = {15}/>
                                 :
                                     <></>

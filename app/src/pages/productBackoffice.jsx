@@ -11,7 +11,7 @@ function ProductBackoffice() {
         async function readProductById(id){
             let produto = await fetch(`http://localhost:3001/product/${id}`);
             produto = await produto.json();
-            if(!produto){
+            if(produto.message){
                 navigate('/404');
             }
             return produto
@@ -86,6 +86,38 @@ function ProductBackoffice() {
             ...prevProduct,
             highlight: !prevProduct.highlight,
         }));
+        updateProduct();
+    }
+
+    const handleSeasonChange = () => {
+        setProduct(prevProduct => ({
+            ...prevProduct,
+            season: !prevProduct.season,
+        }));
+        updateProduct();
+    }
+
+    function removeProduct() {
+        const removedProduct = { ...product._id};
+
+        fetch(`http://localhost:3001/product/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(removedProduct),
+        })
+        .then((response) => {
+            if (response.ok) {
+                console.log('Produto removido com sucesso!');
+                navigate('/produtos/back/frutas')
+            } else {
+                console.error('Erro ao remover o produto');
+            }
+        })
+        .catch((error) => {
+            console.error('Erro ao remover o produto:', error);
+        });
     }
 
     function updateProduct() {
@@ -118,14 +150,16 @@ function ProductBackoffice() {
                         <tr>
                             <td className="product_image_container">
                                 {product ?
-                                <img alt="produto!" src={product.srcUrl}></img>
+                                    <img alt="produto!" src={product.srcUrl}></img>
                                 :
-                                <h1>Carregando</h1>}
+                                    <h1>Carregando</h1>
+                                }
                             </td>
 
                             <td className="product_data_container">
                                 {product ?
                                     <>
+                                        <button onClick={removeProduct}>Remover Produto</button> <br />
                                         <h1
                                             style={{display: "inline-block"}}
                                             contentEditable={nameChange}
@@ -133,8 +167,9 @@ function ProductBackoffice() {
                                         >{product.name}</h1>
                                         <button style={nameEditStyle} onClick={handleNameEdit}>Editar nome</button>
                                     </>
-                                    :
-                                        <h1>Carregando</h1>}
+                                :
+                                    <h1>Carregando</h1>
+                                }
 
                                 <h3
                                     style={{ color: "#7A7A7A", fontSize: "15px", fontWeight: 400, marginBottom: 20 + "px"}}
@@ -153,24 +188,38 @@ function ProductBackoffice() {
                                             Quantidade em Estoque: <span 
                                                                         contentEditable={quantityChange}
                                                                         onBlur={handleQuantityChange}
-                                                                    >{product.on_stock}</span> Kg
+                                                                    >{product.on_stock}</span> {product.type === "sucos" ? <>L</> : <>Kg</>}
                                         </div>
                                         <button style={quantityEditStyle} onClick={handleQuantityEdit}>Editar Estoque</button>
                                     </>
                                 :
-                                    <h1>Carregando</h1>}
+                                    <h1>Carregando</h1>
+                                }
 
                                 {product ?
                                     <div>
                                         Highlight: 
                                         <input
-                                            value={product.highlight}
-                                            type='check-box'
+                                            checked={product.highlight}
+                                            type='checkbox'
                                             onChange={handleHighlightChange}
                                         ></input>
                                     </div>
                                 :
-                                <h1>Carregando</h1>}
+                                <h1>Carregando</h1>
+                                }
+                                {product ?
+                                    <div>
+                                        Season: 
+                                        <input
+                                            checked={product.season}
+                                            type='checkbox'
+                                            onChange={handleSeasonChange}
+                                        ></input>
+                                    </div>
+                                :
+                                <h1>Carregando</h1>
+                                }
                             </td>
                         </tr>
                     </table>

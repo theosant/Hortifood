@@ -10,20 +10,35 @@ const Products = ({HandlerClick, backOffice}) => {
     let src = `/imagens/banner${tipo}.jpg`;
 
     const [products, setProducts] = useState(null);
+
     useEffect(() => {
-        function delay(){
-            return new Promise(function(resolve) {
-                setTimeout(resolve, 100);
-            });
-        }
-    
-        async function readProductsByType(tipo){
-            await delay();
-            const produtos = JSON.parse(localStorage.produtos).filter((obj) => obj.type === tipo);
-            if(produtos.length === 0){
-                navigate('/404');
+        const fetchData = async () => {
+            try {
+            const response = await fetch('http://localhost:3001/product/');
+            const data = await response.json();
+            console.log(data)
+        } catch (error) {
+            console.error('Error fetching data:', error);
             }
-            return produtos
+        };
+        
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        async function readProductsByType(tipo){
+            try {
+                const response = await fetch('http://localhost:3001/product/');
+                const data = await response.json();
+                const produtos = data.filter((obj) => obj.type === tipo && obj.on_stock > 0);
+                if(produtos.length === 0){
+                    navigate('/404');
+                }
+                return produtos
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                }
+            
         }
         readProductsByType(tipo).then( (resposta) => {
             setProducts(resposta)})
