@@ -43,7 +43,7 @@ Foram feitos os protótipos de 3 telas, a 'principal', 'sobre nós' e 'entrar'.
 
 Este projeto utiliza o React para construir o site. Para executá-lo localmente, siga as etapas abaixo.
 
-### Pré-requisitos
+### Pré-requisitos - Frontend
 
 Antes de começar, certifique-se de ter o Node.js instalado em seu sistema. Você pode baixar o Node.js no site oficial: [https://nodejs.org](https://nodejs.org)
 
@@ -64,11 +64,26 @@ npm start
 ```
 4. Acesse o site em seu navegador digitando o endereço "http://localhost:3000".
 
+## Pré-requisitos - Backend
+1. Primeiro você deve acessar a pasta backend no terminal:
 
+```bash
+cd backend
+```
 
-
-
-
+2. Instale as dependências com o seguinte comando:
+```bash
+npm install
+```
+3. Crie um arquivo .env e coloque a URL de conexão do MongoDB
+```
+DATABASE_URL = mongodb+srv://<username>:<password>@cluster0.xduyh.mongodb.net/testDatabase
+```
+4. Executar o projeto com o comando:
+```bash
+node app.js
+```
+5. Acesse o servidor pelo site ou fazendo requisições diretamente no endereço "http://localhost:3001".
 
 ## 7. Problems
 ## 8. Comments
